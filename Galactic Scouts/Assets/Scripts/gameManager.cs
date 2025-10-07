@@ -7,14 +7,23 @@ public class gameManager : MonoBehaviour
 {
     [SerializeField] private shipController _SHIP;
 
-    [SerializeField] InputAction _INPUTS;
+    [SerializeField] InputAction _MOVE;
+     [SerializeField] InputAction _FIRE;
     public bool _FIRETOGGLE;
-    private bool _PLAYERCONTROLENABLED;
+    public bool _PLAYERCONTROLENABLED;
+    public float speed = 100f;
 
     void Start()
     {
         HandleSettings();
         _SHIP.SetShipPosition(new Vector3(0, 0, 0));
+        _MOVE.Enable();
+    }
+    void FixedUpdate()
+    {
+        if (!_PLAYERCONTROLENABLED) { return; }
+        Vector2 moveValue = _MOVE.ReadValue<Vector2>();
+        _SHIP.MoveShip(moveValue, speed);
     }
 
     private void HandleSettings()

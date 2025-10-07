@@ -224,7 +224,6 @@ GameObject:
   m_Component:
   - component: {fileID: 902476458}
   - component: {fileID: 902476460}
-  - component: {fileID: 902476459}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -247,36 +246,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &902476459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 902476457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: aae8a0919617fde4eb1c1a54aa128bfb, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &902476460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +259,75 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _SHIP: {fileID: 2058818552}
+  _MOVE:
+    m_Name: MOVE
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 15ba97d2-2d8a-4e88-a88c-cbbcbc25dabc
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: 3b7aef44-caf7-4a6c-9cd7-4a78f3d292ce
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MOVE
+      m_Flags: 4
+    - m_Name: up
+      m_Id: b9aca62b-deea-4a14-be16-483e3592affc
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MOVE
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 7a956aea-5d25-4a81-aef8-bb29d4954eed
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MOVE
+      m_Flags: 8
+    - m_Name: left
+      m_Id: cec6ba7e-5a32-497d-a50f-ddbb924cb124
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MOVE
+      m_Flags: 8
+    - m_Name: right
+      m_Id: a53b8932-a2b4-4a03-b581-b426d573b4d9
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MOVE
+      m_Flags: 8
+    m_Flags: 0
+  _FIRE:
+    m_Name: FIRE
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 720e9513-50e5-4b0b-95f4-e4862ab8e911
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 15899bc6-8586-4240-9d41-43d7742452d9
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: FIRE
+      m_Flags: 0
+    m_Flags: 0
   _FIRETOGGLE: 0
+  _PLAYERCONTROLENABLED: 1
+  speed: 150.91
 --- !u!1 &2058818548
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,8 +426,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 0.3
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -416,6 +453,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682cf4ad0c5bd024da90fd9a74442448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb2d: {fileID: 2058818551}
+  _sprite: {fileID: 2058818549}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
