@@ -5,7 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class Sound : MonoBehaviour
 {
-    public string name;
+    public string _NAME;
     public AudioClip clip;
+
+    public string getName()
+    {
+        return _NAME;
+    }
 
 }
