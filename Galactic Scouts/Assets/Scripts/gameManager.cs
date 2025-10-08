@@ -9,6 +9,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] private uiHandler _HUD;
     [SerializeField] InputAction _MOVE;
     [SerializeField] InputAction _FIRE;
+    [SerializeField] InputAction _PAUSE;
     public bool _HOLDTOFIREENABLED = true;
     public bool _PLAYERCONTROLENABLED = true;
 
@@ -28,6 +29,12 @@ public class gameManager : MonoBehaviour
     void FixedUpdate()
     {
         if (!_PLAYERCONTROLENABLED) { return; }
+
+        if (_PAUSE.IsPressed())
+        {
+            _PLAYERCONTROLENABLED = !_PLAYERCONTROLENABLED;
+            _HUD.TogglePauseMenu();
+        }
         Vector2 moveValue = _MOVE.ReadValue<Vector2>();
         _SHIP.MoveShip(moveValue, speed);
 
