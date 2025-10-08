@@ -16,5 +16,9 @@ public class bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if (col.gameObject.tag == "Enemy")
+        {
+            col.gameObject.GetComponent<enemyController>().Death();
+        }
     }
 }
