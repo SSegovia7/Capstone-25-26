@@ -6,6 +6,9 @@ public class shipController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rb2d;
     [SerializeField] private SpriteRenderer _sprite;
+    [SerializeField] private GameObject _bullet;
+
+    private int cooldown = 0;
     
     // void Update()
     // {
@@ -16,14 +19,16 @@ public class shipController : MonoBehaviour
     public void MoveShip(Vector2 direction, float force)
     {
         Debug.Log(direction * force);
-        _rb2d.AddForce(direction * force * Time.deltaTime, ForceMode2D.Force);
+        _rb2d.velocity = direction * force * Time.fixedDeltaTime;
     }
     public void SetShipPosition(Vector3 position)
     {
         transform.position = position;
     }
-    public void FireBullet()
+    public void Shoot()
     {
-        
+        if (cooldown > 0) { cooldown--;  return; }
+        cooldown = 20;
+        Instantiate(_bullet, new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
     }
 }

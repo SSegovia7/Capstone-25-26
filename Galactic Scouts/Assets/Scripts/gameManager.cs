@@ -8,22 +8,44 @@ public class gameManager : MonoBehaviour
     [SerializeField] private shipController _SHIP;
 
     [SerializeField] InputAction _MOVE;
-     [SerializeField] InputAction _FIRE;
-    public bool _FIRETOGGLE;
-    public bool _PLAYERCONTROLENABLED;
+    [SerializeField] InputAction _FIRE;
+    public bool _HOLDTOFIREENABLED = true;
+    public bool _PLAYERCONTROLENABLED = true;
+
+    private bool _FIRETOGGLE = false;
     public float speed = 100f;
 
     void Start()
     {
-        HandleSettings();
+        // HandleSettings();
         _SHIP.SetShipPosition(new Vector3(0, 0, 0));
         _MOVE.Enable();
+        _FIRE.Enable();
     }
     void FixedUpdate()
     {
         if (!_PLAYERCONTROLENABLED) { return; }
         Vector2 moveValue = _MOVE.ReadValue<Vector2>();
         _SHIP.MoveShip(moveValue, speed);
+
+        if (_HOLDTOFIREENABLED == false)
+        {
+            if (_FIRE.WasPressedThisFrame())
+            {
+                _FIRETOGGLE = !_FIRETOGGLE;
+            }
+            if (_FIRETOGGLE)
+            {
+                _SHIP.Shoot();
+            }
+        }
+        else
+        {
+            if (_FIRE.IsPressed())
+            {
+                _SHIP.Shoot();
+            }
+        }
     }
 
     private void HandleSettings()
@@ -33,10 +55,11 @@ public class gameManager : MonoBehaviour
         switch (fireToggle)
         {
             case 0:
-                _FIRETOGGLE = false;
+                _HOLDTOFIREENABLED = false;
                 break;
             case 1:
-                _FIRETOGGLE = true;
+                _HOLDTOFIREENABLED = true;
+                _FIRETOGGLE = false;
                 break;
         }
     }
