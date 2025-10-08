@@ -16,7 +16,7 @@ public class enemySpawn : MonoBehaviour
     void SpawnEnemy()
     {
         StartCoroutine(EnemySpawnCooldown());
-        Instantiate(enemy, new Vector3(Random.Range(-8, 8) + transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        Instantiate(enemy, new Vector3(Random.Range(-5, 5) + transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
     }
     IEnumerator EnemySpawnCooldown()
     {

@@ -8,8 +8,11 @@ public class shipController : MonoBehaviour
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private GameObject _bullet;
 
+    public delegate void EmptyDelegate();
+    public EmptyDelegate TookDamage;
+
     private int cooldown = 0;
-    
+
     // void Update()
     // {
     //     if (!_playerInControl) { return; }
@@ -27,8 +30,16 @@ public class shipController : MonoBehaviour
     }
     public void Shoot()
     {
-        if (cooldown > 0) { cooldown--;  return; }
-        cooldown = 20;
+        if (cooldown > 0) { cooldown--; return; }
+        cooldown = 8;
         Instantiate(_bullet, new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
+    }
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "EnemyBullet")
+        {
+            TookDamage?.Invoke();
+            col.gameObject.GetComponent<enemyController>().Death();
+        }
     }
 }

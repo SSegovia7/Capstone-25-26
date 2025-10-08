@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class gameManager : MonoBehaviour
 {
     [SerializeField] private shipController _SHIP;
-
+    [SerializeField] private uiHandler _HUD;
     [SerializeField] InputAction _MOVE;
     [SerializeField] InputAction _FIRE;
     public bool _HOLDTOFIREENABLED = true;
@@ -14,9 +14,12 @@ public class gameManager : MonoBehaviour
 
     private bool _FIRETOGGLE = false;
     public float speed = 100f;
+    public int playerHealth = 20;
 
     void Start()
     {
+        _SHIP.TookDamage += PlayerTakeDamage;
+        _HUD.UpdateHealthDisplay(playerHealth);
         // HandleSettings();
         _SHIP.SetShipPosition(new Vector3(0, 0, 0));
         _MOVE.Enable();
@@ -46,6 +49,20 @@ public class gameManager : MonoBehaviour
                 _SHIP.Shoot();
             }
         }
+    }
+    private void PlayerTakeDamage()
+    {
+        playerHealth -= 1;
+        _HUD.UpdateHealthDisplay(playerHealth);
+
+        if (playerHealth <= 0)
+        {
+            PlayerLose();
+        }
+    }
+    private void PlayerLose()
+    {
+        //TODO
     }
 
     private void HandleSettings()
