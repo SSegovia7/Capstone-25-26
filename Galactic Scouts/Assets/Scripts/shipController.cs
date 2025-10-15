@@ -7,7 +7,9 @@ public class shipController : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb2d;
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private GameObject _bullet;
+    [SerializeField] private GameObject _box;
 
+    private float BoxForce = 5f;
     public delegate void EmptyDelegate();
     public EmptyDelegate TookDamage;
 
@@ -40,6 +42,8 @@ public class shipController : MonoBehaviour
         {
             TookDamage?.Invoke();
             col.gameObject.GetComponent<enemyController>().Death();
+            var cookieBox = Instantiate(_box, transform.position, Quaternion.identity);
+            cookieBox.GetComponent<Rigidbody2d>().AddForce(new Vector3(Random.Range(-1, 1), -1, 0) * BoxForce, ForceMode2D.Force);
         }
     }
 }
