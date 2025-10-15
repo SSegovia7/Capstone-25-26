@@ -560,6 +560,46 @@ MonoBehaviour:
       m_Groups: 
       m_Action: MOVE
       m_Flags: 8
+    - m_Name: 2D Vector
+      m_Id: ebcd2b39-4cc7-4d7c-bccd-d09b0b16e6a6
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MOVE
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 369acbb4-fccf-4424-b8ad-9cc7f6a7bbf5
+      m_Path: <Keyboard>/upArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MOVE
+      m_Flags: 8
+    - m_Name: down
+      m_Id: bedd13d3-8443-4b22-b827-46dab33c3b0e
+      m_Path: <Keyboard>/downArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MOVE
+      m_Flags: 8
+    - m_Name: left
+      m_Id: f34f4f79-fc93-49fb-97a7-042cfb23a567
+      m_Path: <Keyboard>/leftArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MOVE
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 6a7b9bf2-2d45-4563-b1ae-7bbd7d289b9f
+      m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: MOVE
+      m_Flags: 8
     m_Flags: 0
   _FIRE:
     m_Name: FIRE
