@@ -41,9 +41,9 @@ public class shipController : MonoBehaviour
         if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "EnemyBullet")
         {
             TookDamage?.Invoke();
-            col.gameObject.GetComponent<enemyController>().Death();
+            col.gameObject.GetComponent<enemyController>().EnemyTakeDamage(1);
             var cookieBox = Instantiate(_box, transform.position, Quaternion.identity);
-            cookieBox.GetComponent<Rigidbody2d>().AddForce(new Vector3(Random.Range(-1, 1), -1, 0) * BoxForce, ForceMode2D.Force);
+            cookieBox.GetComponent<Rigidbody2D>().AddForce(new Vector3(Random.Range(-1, 1), -1, 0) * BoxForce, ForceMode2D.Force);
         }
     }
 }
