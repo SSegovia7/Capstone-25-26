@@ -758,9 +758,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39ff109589bf994c87561c2f8b261c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 0}
-  characterPortrait: {fileID: 0}
-  characterName: {fileID: 0}
+  dialogueBox: {fileID: 1159449380}
+  characterPortrait: {fileID: 1009299098}
+  characterName: {fileID: 1839544867}
+  currentDialogueData: []
 --- !u!4 &1894097892
 Transform:
   m_ObjectHideFlags: 0

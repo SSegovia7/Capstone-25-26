@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf324f3dd1ccfd49bd7e32aabad7849, type: 3}
   m_Name: Dialogue Test
   m_EditorClassIdentifier: 
-  dialogue: 
-  speakerPortrait: {fileID: 0}
-  speakerName: 
+  dialogue: I'm going to bite someone >:3
+  speakerPortrait: {fileID: 21300000, guid: 366a5ecbd4c85c94680fdc0dc535f4d1, type: 3}
+  speakerName: The Skrimble
