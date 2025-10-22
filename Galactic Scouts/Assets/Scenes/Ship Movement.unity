@@ -1173,7 +1173,7 @@ GameObject:
   - component: {fileID: 1562327769}
   - component: {fileID: 1562327770}
   m_Layer: 0
-  m_Name: Enemy Spawner
+  m_Name: Enemy Spawner(OLD)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1441,7 +1441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2013310447}
   m_Layer: 0
-  m_Name: Scripts
+  m_Name: Enemy Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
