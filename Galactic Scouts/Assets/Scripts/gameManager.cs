@@ -10,6 +10,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] InputAction _MOVE;
     [SerializeField] InputAction _FIRE;
     [SerializeField] InputAction _PAUSE;
+    [SerializeField] InputAction _DASH;
     public bool _HOLDTOFIREENABLED = true;
     public bool _PLAYERCONTROLENABLED = true;
 
@@ -20,6 +21,7 @@ public class gameManager : MonoBehaviour
     void Start()
     {
         _SHIP.TookDamage += PlayerTakeDamage;
+        _SHIP.GainHP += PlayerHealHealth;
         _HUD.UpdateHealthDisplay(playerHealth);
         // HandleSettings();
         _SHIP.SetShipPosition(new Vector3(0, 0, 0));
@@ -57,7 +59,7 @@ public class gameManager : MonoBehaviour
             }
         }
     }
-    private void PlayerTakeDamage()
+    private int PlayerTakeDamage(int amount)
     {
         playerHealth -= 1;
         _HUD.UpdateHealthDisplay(playerHealth);
@@ -66,6 +68,14 @@ public class gameManager : MonoBehaviour
         {
             PlayerLose();
         }
+        return 0;
+    }
+    private int PlayerHealHealth(int amount)
+    {
+        playerHealth += 1;
+        _HUD.UpdateHealthDisplay(playerHealth);
+
+        return 0;
     }
     private void PlayerLose()
     {

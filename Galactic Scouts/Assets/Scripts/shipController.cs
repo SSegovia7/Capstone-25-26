@@ -11,10 +11,11 @@ public class shipController : MonoBehaviour
     [SerializeField] private float launchForce;
 
     private float BoxForce = 5f;
-    public delegate void EmptyDelegate();
-    public EmptyDelegate TookDamage;
+    public delegate int NumDelegate(int value);
+    public NumDelegate TookDamage;
+    public NumDelegate GainHP;
 
-    private int cooldown = 0;
+    private int firingCooldown = 0;
 
     // void Update()
     // {
@@ -27,26 +28,39 @@ public class shipController : MonoBehaviour
         Debug.Log(direction * force);
         _rb2d.velocity = direction * force * Time.fixedDeltaTime;
     }
+    public void ShipDash(float force)
+    {
+        _rb2d.AddForce(_rb2d.velocity * force, ForceMode2D.Impulse);
+    }
     public void SetShipPosition(Vector3 position)
     {
         transform.position = position;
     }
     public void Shoot()
     {
-        if (cooldown > 0) { cooldown--; return; }
-        cooldown = 8;
+        if (firingCooldown > 0) { firingCooldown--; return; }
+        firingCooldown = 8;
         Instantiate(_bullet, new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
     }
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "EnemyBullet")
+        if (col.gameObject.tag == "EnemyBullet" || col.gameObject.tag == "Enemy")
         {
-            TookDamage?.Invoke();
+            TookDamage?.Invoke(1);
             col.gameObject.GetComponent<enemyController>().EnemyTakeDamage(1);
             var cookieBox = Instantiate(_box, transform.position, Quaternion.identity);
             int sign = -1;
-            if (Random.Range(-1,1)>=0) { sign = 1; }
-            cookieBox.GetComponent<Rigidbody2D>().AddForce(new Vector3(Random.Range(4,18) * sign, launchForce, 0) * BoxForce, ForceMode2D.Force);
+            if (Random.Range(-1, 1) >= 0) { sign = 1; }
+            cookieBox.GetComponent<Rigidbody2D>().AddForce(new Vector3(Random.Range(4, 18) * sign, launchForce, 0) * BoxForce, ForceMode2D.Force);
+        }
+        else if (col.gameObject.tag == "Box")
+        {
+            bool succeded = col.gameObject.GetComponent<boxManager>().CollectThisBox();
+            if (!succeded) { return; }
+            else
+            {
+                
+            }
         }
     }
 }
