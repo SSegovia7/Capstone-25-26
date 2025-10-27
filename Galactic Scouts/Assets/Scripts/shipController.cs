@@ -30,7 +30,7 @@ public class shipController : MonoBehaviour
     }
     public void ShipDash(float force)
     {
-        _rb2d.AddForce(_rb2d.velocity * force, ForceMode2D.Impulse);
+        _rb2d.AddForce(_rb2d.velocity * force * 20f, ForceMode2D.Force);
     }
     public void SetShipPosition(Vector3 position)
     {

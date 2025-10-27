@@ -871,10 +871,37 @@ MonoBehaviour:
       m_Action: PAUSE
       m_Flags: 0
     m_Flags: 0
+  _DASH:
+    m_Name: DASH
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 03ad207d-ffab-43a1-8f00-b50880235aba
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: be072072-7ec0-4407-98d1-52eeaf2a3693
+      m_Path: <Keyboard>/shift
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: DASH
+      m_Flags: 0
+    - m_Name: 
+      m_Id: d7c40335-fa47-4c2c-a3ae-fe2d0337f969
+      m_Path: <Keyboard>/leftShift
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: DASH
+      m_Flags: 0
+    m_Flags: 0
   _HOLDTOFIREENABLED: 1
   _PLAYERCONTROLENABLED: 1
   speed: 242.8
+  dashForce: 10
   playerHealth: 20
+  dashCooldown: 2
 --- !u!1 &903662808
 GameObject:
   m_ObjectHideFlags: 0

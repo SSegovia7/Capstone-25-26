@@ -16,7 +16,10 @@ public class gameManager : MonoBehaviour
 
     private bool _FIRETOGGLE = false;
     public float speed = 100f;
+    public float dashForce = 200f;
     public int playerHealth = 20;
+    public float dashCooldown = 2f;
+    private bool canDash;
 
     void Start()
     {
@@ -27,6 +30,9 @@ public class gameManager : MonoBehaviour
         _SHIP.SetShipPosition(new Vector3(0, 0, 0));
         _MOVE.Enable();
         _FIRE.Enable();
+        _DASH.Enable();
+        _PAUSE.Enable();
+        canDash = true;
     }
     void FixedUpdate()
     {
@@ -37,8 +43,18 @@ public class gameManager : MonoBehaviour
             _PLAYERCONTROLENABLED = !_PLAYERCONTROLENABLED;
             _HUD.TogglePauseMenu();
         }
+
         Vector2 moveValue = _MOVE.ReadValue<Vector2>();
         _SHIP.MoveShip(moveValue, speed);
+
+        if (_DASH.IsPressed())
+        {
+            if (canDash==true) {
+                _SHIP.ShipDash(dashForce);
+                StartCoroutine(ShipDashCooldown());
+            }
+            
+        }
 
         if (_HOLDTOFIREENABLED == false)
         {
@@ -96,5 +112,11 @@ public class gameManager : MonoBehaviour
                 _FIRETOGGLE = false;
                 break;
         }
+    }
+    IEnumerator ShipDashCooldown()
+    {
+        canDash = false;
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
 }
