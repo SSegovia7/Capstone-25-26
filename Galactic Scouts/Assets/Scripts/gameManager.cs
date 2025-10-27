@@ -42,6 +42,7 @@ public class gameManager : MonoBehaviour
         {
             _PLAYERCONTROLENABLED = !_PLAYERCONTROLENABLED;
             _HUD.TogglePauseMenu();
+            Time.timeScale = (_PLAYERCONTROLENABLED==false) ? 0f : 1f;
         }
 
         Vector2 moveValue = _MOVE.ReadValue<Vector2>();
