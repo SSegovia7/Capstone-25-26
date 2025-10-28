@@ -7,10 +7,10 @@ public class gameManager : MonoBehaviour
 {
     [SerializeField] private shipController _SHIP;
     [SerializeField] private uiHandler _HUD;
-    [SerializeField] InputAction _MOVE;
-    [SerializeField] InputAction _FIRE;
-    [SerializeField] InputAction _PAUSE;
-    [SerializeField] InputAction _DASH;
+    [SerializeField] private InputAction _MOVE;
+    [SerializeField] private InputAction _FIRE;
+    [SerializeField] private InputAction _PAUSE;
+    [SerializeField] private InputAction _DASH;
     public bool _HOLDTOFIREENABLED = true;
     public bool _PLAYERCONTROLENABLED = true;
 
