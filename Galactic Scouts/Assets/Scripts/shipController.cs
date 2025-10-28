@@ -25,12 +25,12 @@ public class shipController : MonoBehaviour
 
     public void MoveShip(Vector2 direction, float force)
     {
-        Debug.Log(direction * force);
-        _rb2d.velocity = direction * force * Time.fixedDeltaTime;
+        //Debug.Log(direction * force);
+        _rb2d.AddForce(direction * force * Time.fixedDeltaTime, ForceMode2D.Force);
     }
     public void ShipDash(float force)
     {
-        _rb2d.AddForce(_rb2d.velocity * force * 20f, ForceMode2D.Force);
+        _rb2d.AddForce(_rb2d.velocity * force, ForceMode2D.Force);
     }
     public void SetShipPosition(Vector3 position)
     {
@@ -59,7 +59,7 @@ public class shipController : MonoBehaviour
             if (!succeded) { return; }
             else
             {
-                
+                GainHP?.Invoke(1);
             }
         }
     }

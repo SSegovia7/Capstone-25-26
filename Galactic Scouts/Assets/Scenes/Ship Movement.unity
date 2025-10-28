@@ -898,7 +898,7 @@ MonoBehaviour:
     m_Flags: 0
   _HOLDTOFIREENABLED: 1
   _PLAYERCONTROLENABLED: 1
-  speed: 242.8
+  speed: 200
   dashForce: 10
   playerHealth: 20
   dashCooldown: 2
@@ -1657,8 +1657,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.3
-  m_LinearDrag: 1
+  m_Mass: 0.2
+  m_LinearDrag: 1.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
