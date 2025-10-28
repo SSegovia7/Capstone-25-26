@@ -20,6 +20,7 @@ public class gameManager : MonoBehaviour
     public int playerHealth = 20;
     public float dashCooldown = 2f;
     private bool canDash;
+    private Vector2 moveValue;
 
     void Start()
     {
@@ -33,48 +34,39 @@ public class gameManager : MonoBehaviour
         _DASH.Enable();
         _PAUSE.Enable();
         canDash = true;
+
+        _MOVE.performed += context => MoveDelta(context);
+        _DASH.started += context => OnDash(context);
+        _FIRE.performed += context => OnFire(context);
+        _PAUSE.started += context => OnPause(context);
     }
     void FixedUpdate()
     {
         if (!_PLAYERCONTROLENABLED) { return; }
 
-        if (_PAUSE.IsPressed())
-        {
-            _PLAYERCONTROLENABLED = !_PLAYERCONTROLENABLED;
-            _HUD.TogglePauseMenu();
-            Time.timeScale = (_PLAYERCONTROLENABLED==false) ? 0f : 1f;
-        }
-
-        Vector2 moveValue = _MOVE.ReadValue<Vector2>();
         _SHIP.MoveShip(moveValue, speed);
-
-        if (_DASH.IsPressed())
+    }
+    private void OnPause(InputAction.CallbackContext context)
+    {
+        _PLAYERCONTROLENABLED = !_PLAYERCONTROLENABLED;
+        _HUD.TogglePauseMenu();
+        Time.timeScale = (_PLAYERCONTROLENABLED == false) ? 0f : 1f;
+    }
+    private void OnDash(InputAction.CallbackContext context)
+    {
+        if (canDash == true)
         {
-            if (canDash==true) {
-                _SHIP.ShipDash(dashForce);
-                StartCoroutine(ShipDashCooldown());
-            }
-            
+            _SHIP.ShipDash(dashForce);
+            StartCoroutine(ShipDashCooldown());
         }
-
-        if (_HOLDTOFIREENABLED == false)
-        {
-            if (_FIRE.WasPressedThisFrame())
-            {
-                _FIRETOGGLE = !_FIRETOGGLE;
-            }
-            if (_FIRETOGGLE)
-            {
-                _SHIP.Shoot();
-            }
-        }
-        else
-        {
-            if (_FIRE.IsPressed())
-            {
-                _SHIP.Shoot();
-            }
-        }
+    }
+    private void MoveDelta(InputAction.CallbackContext context)
+    {
+        moveValue = context.ReadValue<Vector2>();
+    }
+    private void OnFire(InputAction.CallbackContext context)
+    {
+        _SHIP.Shoot();
     }
     private int PlayerTakeDamage(int amount)
     {
