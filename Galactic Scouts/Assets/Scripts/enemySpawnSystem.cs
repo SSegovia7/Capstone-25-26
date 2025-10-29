@@ -36,7 +36,7 @@ public class enemySpawnSystem : MonoBehaviour
     [Header("UI settings")]
     public GameObject wavePanel;
     public TextMeshProUGUI waveText;
-
+    public GameObject panelYouwin;
     private int currentWaveIndex = 0;
 
     // Start is called before the first frame update
@@ -69,7 +69,13 @@ public class enemySpawnSystem : MonoBehaviour
         }
 
         Debug.Log("All waves completed.");
+
+        if (panelYouwin != null) 
+        {
+            panelYouwin.SetActive(true);
+        }
     }
+
     private IEnumerator SpawnWave(Wave wave) 
     {
         Debug.Log($"Starting {wave.waveName}...");
