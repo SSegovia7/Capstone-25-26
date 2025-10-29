@@ -392,11 +392,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &93327747 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2159394124006374713, guid: 0cf1242bcb7a76646b7a3745e2abbaab, type: 3}
-  m_PrefabInstance: {fileID: 1053305260156180012}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &93327748 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6893756092660733571, guid: 0cf1242bcb7a76646b7a3745e2abbaab, type: 3}
@@ -1206,7 +1201,6 @@ MonoBehaviour:
   dashForce: 10
   playerHealth: 10
   dashCooldown: 2
-  panelGameover: {fileID: 93327747}
 --- !u!1 &903662808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,7 +2122,7 @@ Transform:
   m_GameObject: {fileID: 2058818548}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3550182, y: 0.0856013, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2178,6 +2172,7 @@ MonoBehaviour:
   _bullet: {fileID: 8350749309788353661, guid: fa1a39aca888a744c96b3c427708a36e, type: 3}
   _box: {fileID: 4405899410762375154, guid: 5966086cc4854bc4da2631f8a03802d0, type: 3}
   launchForce: 80
+  FiringCooldown: 0
 --- !u!61 &2058818553
 BoxCollider2D:
   m_ObjectHideFlags: 0
