@@ -15,7 +15,8 @@ public class shipController : MonoBehaviour
     public NumDelegate TookDamage;
     public NumDelegate GainHP;
 
-    private int firingCooldown = 0;
+    private int _FIRECOOLDOWN = 0;
+    [SerializeField] private float FiringCooldown;
 
     // void Update()
     // {
@@ -38,8 +39,8 @@ public class shipController : MonoBehaviour
     }
     public void Shoot()
     {
-        if (firingCooldown > 0) { firingCooldown--; return; }
-        firingCooldown = 8;
+        if (_FIRECOOLDOWN > 0) { _FIRECOOLDOWN--; return; }
+        _FIRECOOLDOWN = FiringCooldown;
         Instantiate(_bullet, new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
     }
     void OnTriggerEnter2D(Collider2D col)
