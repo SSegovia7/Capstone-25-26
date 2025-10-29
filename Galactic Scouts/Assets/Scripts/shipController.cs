@@ -15,7 +15,7 @@ public class shipController : MonoBehaviour
     public NumDelegate TookDamage;
     public NumDelegate GainHP;
 
-    private int _FIRECOOLDOWN = 0;
+    private float _FIRECOOLDOWN = 0;
     [SerializeField] private float FiringCooldown;
 
     // void Update()
@@ -28,6 +28,15 @@ public class shipController : MonoBehaviour
     {
         //Debug.Log(direction * force);
         _rb2d.AddForce(direction * force * Time.fixedDeltaTime, ForceMode2D.Force);
+        if (direction.sqrMagnitude > 0)
+        {  
+            _rb2d.velocity = direction.normalized * force;
+        }
+        else
+        {
+            _rb2d.velocity = Vector2.zero;
+        }
+
     }
     public void ShipDash(float force)
     {
@@ -43,6 +52,8 @@ public class shipController : MonoBehaviour
         _FIRECOOLDOWN = FiringCooldown;
         Instantiate(_bullet, new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
     }
+    
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "EnemyBullet" || col.gameObject.tag == "Enemy")
