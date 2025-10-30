@@ -37,6 +37,7 @@ public class gameManager : MonoBehaviour
         canDash = true;
 
         _MOVE.performed += context => MoveDelta(context);
+        _MOVE.canceled += context => MoveZero(context);
         _DASH.started += context => OnDash(context);
         _FIRE.performed += context => OnFire(context);
         _PAUSE.started += context => OnPause(context);
@@ -64,6 +65,10 @@ public class gameManager : MonoBehaviour
     private void MoveDelta(InputAction.CallbackContext context)
     {
         moveValue = context.ReadValue<Vector2>();
+    }
+    private void MoveZero(InputAction.CallbackContext context)
+    {
+        moveValue = Vector2.zero;
     }
     private void OnFire(InputAction.CallbackContext context)
     {
@@ -110,7 +115,7 @@ public class gameManager : MonoBehaviour
     IEnumerator ShipDashCooldown()
     {
         canDash = false;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         speedMultiplier = 1f;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
