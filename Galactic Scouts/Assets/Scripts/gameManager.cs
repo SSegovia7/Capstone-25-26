@@ -15,8 +15,9 @@ public class gameManager : MonoBehaviour
     public bool _PLAYERCONTROLENABLED = true;
 
     private bool _FIRETOGGLE = false;
-    public float speed = 100f;
-    public float dashForce = 200f;
+    public float speed;
+    public float dashForce;
+    private float speedMultiplier = 1f;
     public int playerHealth = 20;
     public float dashCooldown = 2f;
     private bool canDash;
@@ -44,7 +45,7 @@ public class gameManager : MonoBehaviour
     {
         if (!_PLAYERCONTROLENABLED) { return; }
 
-        _SHIP.MoveShip(moveValue, speed);
+        _SHIP.MoveShip(moveValue * dashForce, speed);
     }
     private void OnPause(InputAction.CallbackContext context)
     {
@@ -56,7 +57,7 @@ public class gameManager : MonoBehaviour
     {
         if (canDash == true)
         {
-            _SHIP.ShipDash(dashForce);
+            speedMultiplier = dashForce;
             StartCoroutine(ShipDashCooldown());
         }
     }
@@ -109,6 +110,8 @@ public class gameManager : MonoBehaviour
     IEnumerator ShipDashCooldown()
     {
         canDash = false;
+        yield return new WaitForSeconds(0.2f);
+        speedMultiplier = 1f;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }

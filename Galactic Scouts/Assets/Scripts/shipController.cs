@@ -28,12 +28,8 @@ public class shipController : MonoBehaviour
     {
         //Debug.Log(direction * force);
         _rb2d.AddForce(direction * force * Time.fixedDeltaTime, ForceMode2D.Force);
-        if (direction.sqrMagnitude > 0)
+        if (Mathf.Abs(direction.x) == 0 && Mathf.Abs(direction.y) == 0)
         {  
-            _rb2d.velocity = direction.normalized * force;
-        }
-        else
-        {
             _rb2d.velocity = Vector2.zero;
         }
 
