@@ -45,7 +45,7 @@ public class gameManager : MonoBehaviour
     {
         if (!_PLAYERCONTROLENABLED) { return; }
 
-        _SHIP.MoveShip(moveValue * dashForce, speed);
+        _SHIP.MoveShip(moveValue * speedMultiplier, speed);
     }
     private void OnPause(InputAction.CallbackContext context)
     {
