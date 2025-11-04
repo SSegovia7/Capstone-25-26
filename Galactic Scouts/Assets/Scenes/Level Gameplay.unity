@@ -1198,7 +1198,7 @@ MonoBehaviour:
     m_Flags: 0
   _HOLDTOFIREENABLED: 1
   _PLAYERCONTROLENABLED: 1
-  speed: 200
+  speed: 300
   dashForce: 10
   playerHealth: 10
   dashCooldown: 2
