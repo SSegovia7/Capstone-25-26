@@ -3,58 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class AudioManager : MonoBehaviour
+public static class AudioManager
 {
-    public static AudioManager Instance;
-
-    public Sound[] musicSounds, sfxSounds;
-    public AudioSource musicSource, sfxSource;
-
-   private void Awake()
+    public enum ThemeMusic
     {
-        if(Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        StageOne
     }
 
-    private void Start()
+    public static void PlayMusic(ThemeMusic music)
     {
-        //PlayMusic("Theme");
+        GameObject musicGO = new GameObject("Music Theme");
+        AudioSource audioSource = musicGO.AddComponent<AudioSource>();
+        audioSource.loop = true;
+        audioSource.clip = GetMusicAudioClip(music);
+        audioSource.Play();
     }
 
-
-    public void PlayMusic(string name)
+    private static AudioClip GetMusicAudioClip(ThemeMusic music)
     {
-        Sound s = Array.Find(musicSounds, x => x.name == name);
-
-        if (s == null)
+        foreach (AudioAssetsHolder.MusicAudioClip audioClip in AudioAssetsHolder.i.MusicClips)
         {
-            Debug.Log("Sound Not Found");
+            if (audioClip.music == music)
+            {
+                return audioClip.audio;
+            }
         }
-        else
-        {
-            musicSource.clip = s.clip;
-            musicSource.Play();
-        }
+        Debug.LogWarning("No Audio Clip");
+        return null;
     }
 
-    public void PlaySFX(string name)
-    {
-        Sound s = Array.Find(sfxSounds, x => x.name == name);
-
-        if (s == null)
-        {
-            Debug.Log("Sound Not Found");
-        }
-        else
-        {
-            sfxSource.PlayOneShot(s.clip);
-        }
-    }
 }
