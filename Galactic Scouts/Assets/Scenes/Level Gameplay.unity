@@ -1045,6 +1045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f26fc71326e2147bfe22ed08bbe168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _PANELGAMEOVER: {fileID: 1790240439}
   _SHIP: {fileID: 2058818552}
   _HUD: {fileID: 176446890}
   _MOVE:
@@ -1779,6 +1780,11 @@ Transform:
   - {fileID: 30656308}
   m_Father: {fileID: 944144258}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1790240439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2159394124006374713, guid: 0cf1242bcb7a76646b7a3745e2abbaab, type: 3}
+  m_PrefabInstance: {fileID: 1053305260156180012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1892827837
 GameObject:
   m_ObjectHideFlags: 0
