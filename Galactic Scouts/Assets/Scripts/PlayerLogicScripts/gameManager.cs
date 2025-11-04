@@ -12,10 +12,11 @@ public class gameManager : MonoBehaviour
     [SerializeField] private InputAction _FIRE;
     [SerializeField] private InputAction _PAUSE;
     [SerializeField] private InputAction _DASH;
-    public bool _HOLDTOFIREENABLED = true;
+    public bool _HOLDTOFIRE = true;
     public bool _PLAYERCONTROLENABLED = true;
 
     private bool _FIRETOGGLE = false;
+    private bool _FIRING = false;
     public float speed;
     public float dashForce;
     private float speedMultiplier = 1f;
@@ -40,7 +41,8 @@ public class gameManager : MonoBehaviour
         _MOVE.performed += context => MoveDelta(context);
         _MOVE.canceled += context => MoveZero(context);
         _DASH.started += context => OnDash(context);
-        _FIRE.performed += context => OnFire(context);
+        _FIRE.started += context => OnFireDown(context);
+        _FIRE.canceled += context => OnFireUp(context);
         _PAUSE.started += context => OnPause(context);
     }
     void FixedUpdate()
@@ -48,6 +50,10 @@ public class gameManager : MonoBehaviour
         if (!_PLAYERCONTROLENABLED) { return; }
 
         _SHIP.MoveShip(moveValue * speedMultiplier, speed);
+        if (_FIRING)
+        {
+            _SHIP.Shoot();
+        }
     }
     private void OnPause(InputAction.CallbackContext context)
     {
@@ -71,10 +77,30 @@ public class gameManager : MonoBehaviour
     {
         moveValue = Vector2.zero;
     }
-    private void OnFire(InputAction.CallbackContext context)
+    /*private void OnFire(InputAction.CallbackContext context)
     {
         _SHIP.Shoot();
+    }*/
+
+    private void OnFireDown(InputAction.CallbackContext context)
+    {
+        if (_HOLDTOFIRE)
+        {
+            _FIRING = true;
+        }
+        else
+        {
+            _FIRING = !_FIRING;
+        }
     }
+    private void OnFireUp(InputAction.CallbackContext context)
+    {
+        if (_HOLDTOFIRE)
+        {
+            _FIRING = false;
+        }
+    }
+
     private int PlayerTakeDamage(int amount)
     {
         playerHealth -= 1;
@@ -109,10 +135,10 @@ public class gameManager : MonoBehaviour
         switch (fireToggle)
         {
             case 0:
-                _HOLDTOFIREENABLED = false;
+                _HOLDTOFIRE = false;
                 break;
             case 1:
-                _HOLDTOFIREENABLED = true;
+                _HOLDTOFIRE = true;
                 _FIRETOGGLE = false;
                 break;
         }
@@ -141,10 +167,10 @@ public class gameManager : MonoBehaviour
     [SerializeField] private InputAction _FIRE;
     [SerializeField] private InputAction _PAUSE;
     [SerializeField] private InputAction _DASH;
-    public bool _HOLDTOFIRE = true;
+    //public bool _HOLDTOFIRE = true;
     public bool _PLAYERCONTROLENABLED = true;
 
-    private bool _FIRING = false;
+    //private bool _FIRING = false;
     public float speed;
     public float dashForce;
     private float speedMultiplier = 1f;
