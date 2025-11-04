@@ -1045,7 +1045,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f26fc71326e2147bfe22ed08bbe168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _PANELGAMEOVER: {fileID: 1790240439}
   _SHIP: {fileID: 2058818552}
   _HUD: {fileID: 176446890}
   _MOVE:
@@ -1196,7 +1195,7 @@ MonoBehaviour:
       m_Action: DASH
       m_Flags: 0
     m_Flags: 0
-  _HOLDTOFIREENABLED: 1
+  _HOLDTOFIRE: 1
   _PLAYERCONTROLENABLED: 1
   speed: 200
   dashForce: 10
@@ -1780,11 +1779,6 @@ Transform:
   - {fileID: 30656308}
   m_Father: {fileID: 944144258}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1790240439 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2159394124006374713, guid: 0cf1242bcb7a76646b7a3745e2abbaab, type: 3}
-  m_PrefabInstance: {fileID: 1053305260156180012}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1892827837
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,7 +2172,7 @@ MonoBehaviour:
   _bullet: {fileID: 8350749309788353661, guid: fa1a39aca888a744c96b3c427708a36e, type: 3}
   _box: {fileID: 4405899410762375154, guid: 5966086cc4854bc4da2631f8a03802d0, type: 3}
   launchForce: 80
-  FiringCooldown: 0
+  FiringCooldown: 8
 --- !u!61 &2058818553
 BoxCollider2D:
   m_ObjectHideFlags: 0
