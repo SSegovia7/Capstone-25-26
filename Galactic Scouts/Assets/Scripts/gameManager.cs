@@ -21,6 +21,7 @@ public class gameManager : MonoBehaviour
     public int playerHealth = 20;
     public float dashCooldown = 2f;
     private bool canDash;
+    private bool _FIRETOGGLE = false;
     private Vector2 moveValue;
 
     void Start()

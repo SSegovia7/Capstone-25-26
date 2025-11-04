@@ -1195,7 +1195,7 @@ MonoBehaviour:
       m_Action: DASH
       m_Flags: 0
     m_Flags: 0
-  _HOLDTOFIREENABLED: 1
+  _HOLDTOFIRE: 1
   _PLAYERCONTROLENABLED: 1
   speed: 200
   dashForce: 10
@@ -2172,7 +2172,7 @@ MonoBehaviour:
   _bullet: {fileID: 8350749309788353661, guid: fa1a39aca888a744c96b3c427708a36e, type: 3}
   _box: {fileID: 4405899410762375154, guid: 5966086cc4854bc4da2631f8a03802d0, type: 3}
   launchForce: 80
-  FiringCooldown: 0
+  FiringCooldown: 8
 --- !u!61 &2058818553
 BoxCollider2D:
   m_ObjectHideFlags: 0
