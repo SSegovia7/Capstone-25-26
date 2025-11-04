@@ -1045,6 +1045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f26fc71326e2147bfe22ed08bbe168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _PANELGAMEOVER: {fileID: 0}
   _SHIP: {fileID: 2058818552}
   _HUD: {fileID: 176446890}
   _MOVE:
@@ -1197,7 +1198,7 @@ MonoBehaviour:
     m_Flags: 0
   _HOLDTOFIRE: 1
   _PLAYERCONTROLENABLED: 1
-  speed: 200
+  speed: 300
   dashForce: 10
   playerHealth: 10
   dashCooldown: 2
