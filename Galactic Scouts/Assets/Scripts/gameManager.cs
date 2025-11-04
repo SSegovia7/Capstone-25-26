@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class gameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject _PANELGAMEOVER;
     [SerializeField] private shipController _SHIP;
     [SerializeField] private uiHandler _HUD;
     [SerializeField] private InputAction _MOVE;
@@ -94,7 +95,11 @@ public class gameManager : MonoBehaviour
     }
     private void PlayerLose()
     {
-        //TODO
+        if (_PANELGAMEOVER != null)
+        {
+            _PANELGAMEOVER.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
 
     private void HandleSettings()
