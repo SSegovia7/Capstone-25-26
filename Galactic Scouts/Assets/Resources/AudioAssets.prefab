@@ -44,6 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5913769d9c363644bcc5fc05272df4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicClips:
-  - music: 0
+  TrackClips:
+  - track: 0
     audio: {fileID: 8300000, guid: 4df0996eacb43ae4c842a468295b6125, type: 3}
+  GalacticSoundClips:
+  - sound: 0
+    audio: {fileID: 8300000, guid: ef47dff17e4cf4547a7dc6f8ccd42e22, type: 3}
+  - sound: 1
+    audio: {fileID: 8300000, guid: 8df81233018d6044c9215b83901ed104, type: 3}

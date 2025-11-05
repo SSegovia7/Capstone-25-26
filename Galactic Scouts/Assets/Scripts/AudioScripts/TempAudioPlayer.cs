@@ -6,7 +6,7 @@ public class TempAudioPlayer : MonoBehaviour
 {
     void Start()
     {
-        AudioManager.PlayMusic(AudioManager.ThemeMusic.StageOne);
+        AudioManager.PlayTrack(AudioManager.ThemeTrack.StageOne);
     }
     
 }
