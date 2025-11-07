@@ -44,7 +44,7 @@ public class shipController : MonoBehaviour
     {
         if (_FIRECOOLDOWN > 0) { _FIRECOOLDOWN--; return; }
         
-        AudioManager.PlaySound(AudioManager.GalaticScoutSound.Shooting);
+        AudioManager.PlaySound(AudioManager.Sound.GS_Shooting);
 
         _FIRECOOLDOWN = FiringCooldown;
         Instantiate(_bullet, new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
@@ -55,8 +55,6 @@ public class shipController : MonoBehaviour
     {
         if (col.gameObject.tag == "EnemyBullet" || col.gameObject.tag == "Enemy")
         {
-            AudioManager.PlaySound(AudioManager.GalaticScoutSound.TakeDamage);
-
             TookDamage?.Invoke(1);
             col.gameObject.GetComponent<enemyController>().EnemyTakeDamage(1);
             var cookieBox = Instantiate(_box, transform.position, Quaternion.identity);

@@ -46,9 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrackClips:
   - track: 0
-    audio: {fileID: 8300000, guid: 4df0996eacb43ae4c842a468295b6125, type: 3}
+    beginning: {fileID: 8300000, guid: 6dfe2a7d5b014d142bb8ba6a8ebbca91, type: 3}
+    loop: {fileID: 8300000, guid: e5557b137d7ffbf4bb386c40e9381f03, type: 3}
+    end: {fileID: 8300000, guid: e1e9982fc9c2a0f46a12df5b1445e346, type: 3}
   GalacticSoundClips:
   - sound: 0
     audio: {fileID: 8300000, guid: ef47dff17e4cf4547a7dc6f8ccd42e22, type: 3}
+    volume: 0.5
   - sound: 1
     audio: {fileID: 8300000, guid: 8df81233018d6044c9215b83901ed104, type: 3}
+    volume: 1

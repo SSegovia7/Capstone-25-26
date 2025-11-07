@@ -20,19 +20,22 @@ public class AudioAssetsHolder : MonoBehaviour
 
 
     public TrackAudioClip[] TrackClips;
-    public GalaticScoutSoundAudioClip[] GalacticSoundClips;
+    public SoundAudioClip[] GalacticSoundClips;
 
     [Serializable]
     public class TrackAudioClip
     {
         public AudioManager.ThemeTrack track;
-        public AudioClip audio;
+        public AudioClip beginning;
+        public AudioClip loop;
+        public AudioClip end;
     }
 
     [Serializable]
-    public class GalaticScoutSoundAudioClip
+    public class SoundAudioClip
     {
-        public AudioManager.GalaticScoutSound sound;
+        public AudioManager.Sound sound;
         public AudioClip audio;
+        public float volume = 1.0f;
     }
 }

@@ -19,6 +19,7 @@ public class enemyController : MonoBehaviour
     public void EnemyTakeDamage(int damage)
     {
         health -= damage;
+        AudioManager.PlaySound(AudioManager.Sound.Enemy_TakeDamage);
         if (health <= 0)
         {
             Death();

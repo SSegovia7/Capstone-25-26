@@ -11,49 +11,77 @@ public static class AudioManager
         StageOne
     }
 
-    public enum GalaticScoutSound
+    public enum Sound
     {
-        Shooting,
-        TakeDamage
+        GS_Shooting,
+        Enemy_TakeDamage
     }
 
-    public static void PlayTrack(ThemeTrack track)
+    private enum MusicTrackStage{beginning, main, end}
+
+    private static ThemeTrack _currentTrack;
+
+    public static IEnumerator PlayTrack(ThemeTrack track, AudioSource audioSource)
     {
-        GameObject trackGO = new GameObject("Track Theme");
-        AudioSource audioSource = trackGO.AddComponent<AudioSource>();
+        AudioClip intro = GetTrackAudioClip(track, MusicTrackStage.beginning);
+        AudioClip main = GetTrackAudioClip(track, MusicTrackStage.main);
+
+        audioSource.clip = intro;
+        audioSource.Play();
+
+        yield return new WaitForSeconds(intro.length - 0.2f);
+
+        audioSource.clip = main;
         audioSource.loop = true;
-        audioSource.clip = GetTrackAudioClip(track);
         audioSource.Play();
     }
 
-    public static void PlaySound(GalaticScoutSound sound)
+    public static void PlaySound(Sound sound, float timeUntilDestroy = 3.0f)
     {
-        GameObject soundGO = new GameObject("GS_Sound");
-        AudioSource audioSource = soundGO.AddComponent<AudioSource>(); ;
-        audioSource.PlayOneShot(GetSoundAudioClip(sound));
-        float timeUntilDestroy = 5.0f;
+        float volume;
+        AudioClip audioClip = GetSoundAudioClip(sound, out volume);
+
+        GameObject soundGO = new GameObject("Sound");
+        AudioSource audioSource = soundGO.AddComponent<AudioSource>();
+        audioSource.volume = volume;
+        audioSource.PlayOneShot(audioClip);
+
         UnityEngine.Object.Destroy(soundGO, timeUntilDestroy);
     }
 
-    private static AudioClip GetTrackAudioClip(ThemeTrack track)
+    private static AudioClip GetTrackAudioClip(ThemeTrack track, MusicTrackStage currentStage)
     {
         foreach (AudioAssetsHolder.TrackAudioClip audioClip in AudioAssetsHolder.i.TrackClips)
         {
             if (audioClip.track == track)
             {
-                return audioClip.audio;
+                switch (currentStage)
+                {
+                    case MusicTrackStage.beginning:
+                        return audioClip.beginning;
+                    case MusicTrackStage.main:
+                        return audioClip.loop;
+                    case MusicTrackStage.end:
+                        return audioClip.end;
+                }
+                return audioClip.beginning;
             }
         }
-        Debug.LogWarning("No Audio Clip");
+        Debug.LogWarning("No Audio Clip Detected");
         return null;
     }
 
-    private static AudioClip GetSoundAudioClip(GalaticScoutSound sound)
+    private static AudioClip GetSoundAudioClip(Sound sound, out float volume)
     {
-        foreach (AudioAssetsHolder.GalaticScoutSoundAudioClip audioClip in AudioAssetsHolder.i.GalacticSoundClips)
+        float minVolume = 0.0f;
+        float maxVolume = 1.0f;
+        volume = 1.0f;
+
+        foreach (AudioAssetsHolder.SoundAudioClip audioClip in AudioAssetsHolder.i.GalacticSoundClips)
         {
             if (audioClip.sound == sound)
             {
+                volume = Math.Clamp(audioClip.volume, minVolume, maxVolume);
                 return audioClip.audio;
             }
         }
