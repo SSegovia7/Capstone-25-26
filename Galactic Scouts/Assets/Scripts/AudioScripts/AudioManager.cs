@@ -29,7 +29,7 @@ public static class AudioManager
         audioSource.clip = intro;
         audioSource.Play();
 
-        yield return new WaitForSeconds(intro.length - 0.2f);
+        yield return new WaitForSeconds(intro.length - 0.2f); //-0.2f removes a small audio gap when transistioning between 2 tracks
 
         audioSource.clip = main;
         audioSource.loop = true;
