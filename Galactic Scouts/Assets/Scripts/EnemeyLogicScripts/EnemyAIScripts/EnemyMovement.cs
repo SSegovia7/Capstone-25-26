@@ -8,7 +8,9 @@ public class EnemyMovement : MonoBehaviour
     {
         Linear,
         Wave,
-        TrackPlayer
+        TrackPlayer,
+        BasicShooter
+
     }
 
     [Header("General Settings")]
@@ -32,6 +34,18 @@ public class EnemyMovement : MonoBehaviour
     public float trackStrength = 0.5f;
     public float maxHorizontalSpeed = 2f;
     private Transform player;
+
+    [Header("Basic Shooter Movement")]
+    public float stopY = 2f;
+    public float patrolSpeed = 3f;
+    public float shootInterval = 1.5f;
+    public GameObject projectilePrefab;
+    public Transform shootPoint;
+    public float exitSpeed = 4f;
+    public float nextShootTime;
+    private bool movingDown = true;
+    private bool exiting = false;
+    private int horizontalDir = 1;
 
     private Rigidbody2D rb;
     private float nextPlayerSearchTime;
@@ -81,11 +95,72 @@ public class EnemyMovement : MonoBehaviour
                     velocity = new Vector2(0f, -verticalSpeed);
                 }
                 break;
+
+            case MovementType.BasicShooter:
+                //
+                break;
         }
 
         rb.velocity = velocity;
     }
 
+     private void HandleBasicShooter(ref Vector2 velocity, float elapsed) 
+     {
+        // start exit 3 seconds before the enemy is destroyed 
+        if (lifeTime - elapsed <= 3f && !exiting) 
+        {
+            exiting = true;
+            movingDown = false;
+            horizontalDir = transform.position.x < 0 ? 1 : -1;
+        }
+
+        // move left to right to off screen
+        if (exiting) 
+        {
+            velocity = new Vector2(horizontalDir * exitSpeed, verticalSpeed);
+            return;
+        }
+
+        // move down until it reach pos Y
+        if (movingDown) 
+        {
+            velocity = new Vector2(0, -verticalSpeed);
+            if (transform.position.y <= stopY) 
+            {
+                movingDown = false;
+                nextShootTime = Time.time + shootInterval;
+                
+            }
+            return;
+        }
+        // Patrol left and right 
+
+        velocity = new Vector2(horizontalDir * patrolSpeed, 0f);
+
+        // Revers direction when reach the edge of the screen
+
+        float screenHalfWidth = Camera.main.orthographicSize * Camera.main.aspect;
+        if (Mathf.Abs (transform.position.x) >=screenHalfWidth * 0.9f) 
+        {
+            horizontalDir *= -1;
+        }
+        // shooting behavior
+
+        if (Time.time >= nextShootTime) 
+        {
+            // shoot tigger 
+            nextShootTime = Time.time + shootInterval;
+        }
+     
+     }
+    private void Shoot() 
+    {
+        if (projectilePrefab == null) return;
+        {
+            Vector3 spawnPos = shootPoint != null ? shootPoint.position : transform.position;
+            Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
+        }
+    }
     private void FindPlayer()
     {
         GameObject found = GameObject.FindGameObjectWithTag(playerTag);
