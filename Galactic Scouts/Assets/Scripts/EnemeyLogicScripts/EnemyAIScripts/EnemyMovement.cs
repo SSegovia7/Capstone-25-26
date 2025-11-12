@@ -19,6 +19,7 @@ public class EnemyMovement : MonoBehaviour
 
     [Header("Lifetime Settings")]
     public float lifeTime = 10f; // Time in seconds before auto-destroy
+    public float spawnTime;
 
     [Header("Linear Movement")]
     public float horizontalSpeedRange = 1f;
@@ -46,6 +47,9 @@ public class EnemyMovement : MonoBehaviour
     private bool movingDown = true;
     private bool exiting = false;
     private int horizontalDir = 1;
+    public float minX = -4f;
+    public float maxX = 4f;
+
 
     private Rigidbody2D rb;
     private float nextPlayerSearchTime;
@@ -58,6 +62,8 @@ public class EnemyMovement : MonoBehaviour
         linearHorizontalSpeed = UnityEngine.Random.Range(-horizontalSpeedRange, horizontalSpeedRange);
         waveOffset = UnityEngine.Random.Range(0f, 2f * Mathf.PI);
 
+        spawnTime = Time.time;
+
         // Auto-destroy after set lifetime
         Destroy(gameObject, lifeTime);
     }
@@ -68,9 +74,11 @@ public class EnemyMovement : MonoBehaviour
         if (player == null && Time.time >= nextPlayerSearchTime)
         {
             FindPlayer();
+            Debug.Log("Player shreching");
         }
 
         Vector2 velocity = Vector2.zero;
+        float elapsed = Time.time - spawnTime;
 
         switch (movementType)
         {
@@ -97,7 +105,7 @@ public class EnemyMovement : MonoBehaviour
                 break;
 
             case MovementType.BasicShooter:
-                //
+                HandleBasicShooter(ref velocity, elapsed);
                 break;
         }
 
@@ -139,16 +147,20 @@ public class EnemyMovement : MonoBehaviour
 
         // Revers direction when reach the edge of the screen
 
-        float screenHalfWidth = Camera.main.orthographicSize * Camera.main.aspect;
-        if (Mathf.Abs (transform.position.x) >=screenHalfWidth * 0.9f) 
+        if (transform.position.x >= maxX)
         {
-            horizontalDir *= -1;
+            horizontalDir = -1;
         }
+        else if(transform.position.x <= minX)
+        {
+            horizontalDir = 1;
+        }
+        
         // shooting behavior
 
         if (Time.time >= nextShootTime) 
         {
-            // shoot tigger 
+            Shoot();
             nextShootTime = Time.time + shootInterval;
         }
      
@@ -167,10 +179,12 @@ public class EnemyMovement : MonoBehaviour
         if (found != null)
         {
             player = found.transform;
+            Debug.Log("Player found");
         }
         else
         {
             nextPlayerSearchTime = Time.time + 2f;
+            Debug.Log("Player not found and shreching again");
         }
     }
 }
