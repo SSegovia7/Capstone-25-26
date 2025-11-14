@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     //refrences to UI objects
+    [SerializeField] private GameObject dialogueCanvas;
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private GameObject characterPortrait;
     [SerializeField] private GameObject characterName;
@@ -23,6 +24,8 @@ public class DialogueManager : MonoBehaviour
 
     private float typingSpeed = 0.05f;
     private float timeAfterTextCompletes = 5f;
+
+    public gameManager gameManager;
     private void Start()
     {
         //Assign components to variables
@@ -35,7 +38,7 @@ public class DialogueManager : MonoBehaviour
         //Advances dialogue automatically if there is dialogue data to run
         if (currentDialogueData != null && advanceCurrentDialogue)
         {
-            if (currentDialogueStep <= currentDialogueData.Length)
+            if (currentDialogueStep + 1 <= currentDialogueData.Length)
             {
                 UpdateDialogue(currentDialogueData[currentDialogueStep]);
             }
@@ -44,12 +47,15 @@ public class DialogueManager : MonoBehaviour
                 //If at the end of the list, removes data and resets counter
                 currentDialogueStep = 0;
                 currentDialogueData = null;
+                dialogueCanvas.SetActive(false);
+                gameManager.EndDialogue();
             }
         }
     }
     //Updates the name and image then calls Couroutine that updates the text
     public void UpdateDialogue(DialogueData dialogue)
     {
+        dialogueCanvas.SetActive(true);
         advanceCurrentDialogue = false;
         characterNameText.text = dialogue.speakerName;
         dialogueBoxText.text = null;

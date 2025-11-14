@@ -19,6 +19,8 @@ public class shipController : MonoBehaviour
     private float _FIRECOOLDOWN = 0;
     [SerializeField] private float FiringCooldown;
 
+    public bool inDialogue = false;
+
     // void Update()
     // {
     //     if (!_playerInControl) { return; }
@@ -27,16 +29,22 @@ public class shipController : MonoBehaviour
 
     public void MoveShip(Vector2 direction, float force)
     {
-        //Debug.Log(direction * force);
-        // _rb2d.AddForce(direction * force * Time.fixedDeltaTime, ForceMode2D.Force);
-        Debug.Log("Current velocity is" + _rb2d.velocity);
-        _animator.SetFloat("horizontalMovement", direction.x);
-        _rb2d.velocity = direction * force * Time.fixedDeltaTime;
+        if (!inDialogue)
+        {
+            //Debug.Log(direction * force);
+            // _rb2d.AddForce(direction * force * Time.fixedDeltaTime, ForceMode2D.Force);
+            Debug.Log("Current velocity is" + _rb2d.velocity);
+            _animator.SetFloat("horizontalMovement", direction.x);
+            _rb2d.velocity = direction * force * Time.fixedDeltaTime;
+        }
 
     }
     public void ShipDash(float force)
     {
-        _rb2d.AddForce(_rb2d.velocity * force, ForceMode2D.Force);
+        if (!inDialogue)
+        {
+            _rb2d.AddForce(_rb2d.velocity * force, ForceMode2D.Force);
+        }
     }
     public void SetShipPosition(Vector3 position)
     {
@@ -44,12 +52,15 @@ public class shipController : MonoBehaviour
     }
     public void Shoot()
     {
-        if (_FIRECOOLDOWN > 0) { _FIRECOOLDOWN--; return; }
-        
-        AudioManager.PlaySound(AudioManager.Sound.GS_Shooting);
+        if (!inDialogue)
+        {
+            if (_FIRECOOLDOWN > 0) { _FIRECOOLDOWN--; return; }
 
-        _FIRECOOLDOWN = FiringCooldown;
-        Instantiate(_bullet, new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
+            AudioManager.PlaySound(AudioManager.Sound.GS_Shooting);
+
+            _FIRECOOLDOWN = FiringCooldown;
+            Instantiate(_bullet, new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
+        }
     }
     
 

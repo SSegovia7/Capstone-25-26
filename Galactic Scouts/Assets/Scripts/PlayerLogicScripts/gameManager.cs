@@ -25,6 +25,12 @@ public class gameManager : MonoBehaviour
     private bool canDash;
     private Vector2 moveValue;
 
+    public bool inDialogue = false;
+    [SerializeField] private GameObject dialogueManager;
+    private DialogueManager dialogueScript;
+
+    public DialogueData[] testData;
+
     void Start()
     {
         _SHIP.TookDamage += PlayerTakeDamage;
@@ -44,6 +50,11 @@ public class gameManager : MonoBehaviour
         _FIRE.started += context => OnFireDown(context);
         _FIRE.canceled += context => OnFireUp(context);
         _PAUSE.started += context => OnPause(context);
+
+        dialogueScript = dialogueManager.GetComponent<DialogueManager>();
+        dialogueScript.gameManager = this;
+
+        //SetupDialogue(testData);
     }
     void FixedUpdate()
     {
@@ -150,6 +161,18 @@ public class gameManager : MonoBehaviour
         speedMultiplier = 1f;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+    }
+    //Dialogue can be called by calling the SetUp Dialogue Function, anything needed once dialogue ends can be put in End Dialogue which runs once the last
+    //piece of dialogue resolves
+    private void SetupDialogue(DialogueData[] dialogueToRun)
+    {
+        _SHIP.inDialogue = true;
+        dialogueScript.currentDialogueData = dialogueToRun;
+        _SHIP.SetShipPosition(new Vector3(0, 0, 0));
+    }
+    public void EndDialogue()
+    {
+        _SHIP.inDialogue = false;
     }
 }
 
