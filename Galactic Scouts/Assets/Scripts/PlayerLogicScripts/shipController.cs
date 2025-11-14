@@ -6,6 +6,7 @@ public class shipController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rb2d;
     [SerializeField] private SpriteRenderer _sprite;
+    [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _box;
     [SerializeField] private float launchForce;
@@ -29,6 +30,7 @@ public class shipController : MonoBehaviour
         //Debug.Log(direction * force);
         // _rb2d.AddForce(direction * force * Time.fixedDeltaTime, ForceMode2D.Force);
         Debug.Log("Current velocity is" + _rb2d.velocity);
+        _animator.SetFloat("horizontalMovement", direction.x);
         _rb2d.velocity = direction * force * Time.fixedDeltaTime;
 
     }
