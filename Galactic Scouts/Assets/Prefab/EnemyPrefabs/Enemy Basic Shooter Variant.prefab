@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementType: 3
-  verticalSpeed: 0
+  verticalSpeed: 2
   lifeTime: 10
   spawnTime: 0
   horizontalSpeedRange: 1
@@ -145,3 +145,5 @@ MonoBehaviour:
   shootPoint: {fileID: 2855367508931874792}
   exitSpeed: 4
   nextShootTime: 0
+  minX: -4
+  maxX: 4
