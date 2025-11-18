@@ -52,7 +52,13 @@ MonoBehaviour:
   GalacticSoundClips:
   - sound: 0
     audio: {fileID: 8300000, guid: ef47dff17e4cf4547a7dc6f8ccd42e22, type: 3}
-    volume: 0.5
+    volume: 0.25
   - sound: 1
+    audio: {fileID: 8300000, guid: 89b8da230abea264fb43766d3983db28, type: 3}
+    volume: 0.25
+  - sound: 2
+    audio: {fileID: 8300000, guid: 24eec707a5221e54096ebf5bbe154f4a, type: 3}
+    volume: 0.7
+  - sound: 3
     audio: {fileID: 8300000, guid: 8df81233018d6044c9215b83901ed104, type: 3}
-    volume: 1
+    volume: 0.4

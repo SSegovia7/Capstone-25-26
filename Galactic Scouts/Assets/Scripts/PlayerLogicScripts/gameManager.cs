@@ -76,6 +76,7 @@ public class gameManager : MonoBehaviour
     {
         if (canDash == true)
         {
+            AudioManager.PlaySound(AudioManager.Sound.GS_Dash);
             speedMultiplier = dashForce;
             StartCoroutine(ShipDashCooldown());
         }

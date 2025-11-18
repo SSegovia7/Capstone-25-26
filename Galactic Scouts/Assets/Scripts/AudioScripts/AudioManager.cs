@@ -14,6 +14,8 @@ public static class AudioManager
     public enum Sound
     {
         GS_Shooting,
+        GS_Dash,
+        GS_BoxCollect,
         Enemy_TakeDamage
     }
 

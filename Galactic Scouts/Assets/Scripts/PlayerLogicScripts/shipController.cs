@@ -81,6 +81,7 @@ public class shipController : MonoBehaviour
             if (!succeded) { return; }
             else
             {
+                AudioManager.PlaySound(AudioManager.Sound.GS_BoxCollect);
                 GainHP?.Invoke(1);
             }
         }
