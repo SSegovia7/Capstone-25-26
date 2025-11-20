@@ -10,7 +10,9 @@ public class shipController : MonoBehaviour
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _box;
     [SerializeField] private float launchForce;
+    [SerializeField] private float _invincibleTimerInSeconds;
 
+    private bool _isInvincible = false;
     private float BoxForce = 5f;
     public delegate int NumDelegate(int value);
     public NumDelegate TookDamage;
@@ -46,10 +48,12 @@ public class shipController : MonoBehaviour
             _rb2d.AddForce(_rb2d.velocity * force, ForceMode2D.Force);
         }
     }
+
     public void SetShipPosition(Vector3 position)
     {
         transform.position = position;
     }
+    
     public void Shoot()
     {
         if (!inDialogue)
@@ -62,14 +66,16 @@ public class shipController : MonoBehaviour
             Instantiate(_bullet, new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
         }
     }
-    
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "EnemyBullet" || col.gameObject.tag == "Enemy")
         {
+            if(_isInvincible) return;
+
             TookDamage?.Invoke(1);
             col.gameObject.GetComponent<enemyController>().EnemyTakeDamage(1);
+            StartCoroutine(InvincibiltyFrames());
             var cookieBox = Instantiate(_box, transform.position, Quaternion.identity);
             int sign = -1;
             if (Random.Range(-1, 1) >= 0) { sign = 1; }
@@ -85,5 +91,21 @@ public class shipController : MonoBehaviour
                 GainHP?.Invoke(1);
             }
         }
+    }
+
+    private IEnumerator InvincibiltyFrames()
+    {
+        _isInvincible = true;
+
+        Color spriteColor = _sprite.color;
+        spriteColor.a = 0.3f; //Changes Transparency values
+        _sprite.color = spriteColor;
+
+        yield return new WaitForSeconds(_invincibleTimerInSeconds);
+
+        spriteColor.a = 1f; //Changes transparency value bakc to normal
+        _sprite.color = spriteColor;
+
+        _isInvincible = false;
     }
 }
