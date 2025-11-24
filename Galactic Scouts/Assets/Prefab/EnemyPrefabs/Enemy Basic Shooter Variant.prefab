@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementType: 3
-  verticalSpeed: 2
-  lifeTime: 10
+  verticalSpeed: 3
+  lifeTime: 15
   spawnTime: 0
   horizontalSpeedRange: 1
   waveAmplitude: 1
@@ -138,12 +138,12 @@ MonoBehaviour:
   playerTag: Player
   trackStrength: 0.5
   maxHorizontalSpeed: 2
-  stopY: 3
+  stopY: 1
   patrolSpeed: 3
   shootInterval: 1.5
   projectilePrefab: {fileID: 3599316917741742968, guid: 64efbf0ba89f6344f9d52610105c6527, type: 3}
   shootPoint: {fileID: 2855367508931874792}
   exitSpeed: 4
   nextShootTime: 0
-  minX: -4
-  maxX: 4
+  minX: -8
+  maxX: 8

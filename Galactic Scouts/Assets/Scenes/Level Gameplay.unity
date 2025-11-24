@@ -1619,7 +1619,7 @@ MonoBehaviour:
   _HOLDTOFIRE: 1
   _PLAYERCONTROLENABLED: 1
   speed: 300
-  dashForce: 10
+  dashForce: 6
   playerHealth: 10
   dashCooldown: 0.5
   inDialogue: 0
@@ -2554,7 +2554,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.66}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1540240851
@@ -3260,6 +3260,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
+  - waveName: Wave 4
+    enemy:
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+        spawnRadius: 2
+      amount: 5
+    - enemyType:
+        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
+        spawnRadius: 2
+      amount: 3
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+        spawnRadius: 2
+      amount: 5
+    - enemyType:
+        prefab: {fileID: 5987195949268411551, guid: 105bb04340613ef44a1f6b2f0f4f0ec4, type: 3}
+        spawnRadius: 2
+      amount: 2
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+        spawnRadius: 2
+      amount: 10
+    spawnInterval: 0.8
+    delayBeforeNextWave: 3
   - waveName: Wave 1
     enemy:
     - enemyType:
@@ -3300,30 +3324,6 @@ MonoBehaviour:
       amount: 100
     spawnInterval: 0.1
     delayBeforeNextWave: 0.5
-  - waveName: Wave 4
-    enemy:
-    - enemyType:
-        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
-        spawnRadius: 2
-      amount: 5
-    - enemyType:
-        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
-        spawnRadius: 2
-      amount: 3
-    - enemyType:
-        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
-        spawnRadius: 2
-      amount: 5
-    - enemyType:
-        prefab: {fileID: 5987195949268411551, guid: 105bb04340613ef44a1f6b2f0f4f0ec4, type: 3}
-        spawnRadius: 2
-      amount: 2
-    - enemyType:
-        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
-        spawnRadius: 2
-      amount: 10
-    spawnInterval: 0.8
-    delayBeforeNextWave: 3
   spawnPoints:
   - {fileID: 1633626820}
   - {fileID: 662097094}
@@ -3506,7 +3506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2013310447}
   m_Layer: 0
-  m_Name: 'Scripts '
+  m_Name: Waves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
