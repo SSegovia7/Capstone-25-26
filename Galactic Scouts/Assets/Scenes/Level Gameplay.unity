@@ -3872,7 +3872,7 @@ MonoBehaviour:
   _box: {fileID: 4405899410762375154, guid: 5966086cc4854bc4da2631f8a03802d0, type: 3}
   launchForce: 70
   _invincibleTimerInSeconds: 0.8
-  FiringCooldown: 8
+  FiringCooldown: 6
   inDialogue: 0
 --- !u!61 &2058818553
 BoxCollider2D:
