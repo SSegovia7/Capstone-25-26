@@ -823,7 +823,7 @@ GameObject:
   - component: {fileID: 240876249}
   - component: {fileID: 240876248}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Colider Corners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1174,6 +1174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 492298325}
+  - component: {fileID: 492298326}
   m_Layer: 0
   m_Name: PowerUpSystem
   m_TagString: Untagged
@@ -1196,6 +1197,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2013310447}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &492298326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492298324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c2f966eec15ec4f889e0448e7b14fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerSlider: {fileID: 2008090420}
+  maxCharge: 100
+  enemyKillCharge: 10
+  pickUpFullCharge: 100
+  _gameManager: {fileID: 902476460}
+  _shipController: {fileID: 2058818552}
+  speedIncreaseAmount: 1.5
+  fireRateMultiplier: 0.7
+  powerUpDuration: 10
 --- !u!1 &502900728
 GameObject:
   m_ObjectHideFlags: 0
@@ -2344,7 +2366,7 @@ GameObject:
   - component: {fileID: 1247925538}
   - component: {fileID: 1247925537}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Colider Corners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2651,7 +2673,7 @@ GameObject:
   - component: {fileID: 1586119267}
   - component: {fileID: 1586119266}
   m_Layer: 0
-  m_Name: GameObject (3)
+  m_Name: Colider Corners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2937,7 +2959,7 @@ GameObject:
   - component: {fileID: 1741474117}
   - component: {fileID: 1741474116}
   m_Layer: 0
-  m_Name: GameObject (2)
+  m_Name: Colider Corners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3262,6 +3284,10 @@ MonoBehaviour:
   waves:
   - waveName: Wave 4
     enemy:
+    - enemyType:
+        prefab: {fileID: 2031524483612525576, guid: 9604483919025794fbf9e72ffaa6b2ec, type: 3}
+        spawnRadius: 2
+      amount: 1
     - enemyType:
         prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
         spawnRadius: 2

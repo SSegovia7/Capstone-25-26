@@ -19,7 +19,7 @@ public class shipController : MonoBehaviour
     public NumDelegate GainHP;
 
     private float _FIRECOOLDOWN = 0;
-    [SerializeField] private float FiringCooldown;
+    [SerializeField] public float FiringCooldown;
 
     public bool inDialogue = false;
 
