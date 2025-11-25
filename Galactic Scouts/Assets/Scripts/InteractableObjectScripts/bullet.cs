@@ -5,10 +5,20 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
     public float speed = 5f;
+    private Rigidbody2D _rb;
     // Start is called before the first frame update
-    void Update()
+    /*void Update()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y + (1 * speed * Time.deltaTime), transform.position.z);
+    }*/
+
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+    }
+    private void Start()
+    {
+        _rb.velocity = transform.up * speed;
     }
     void OnTriggerEnter2D(Collider2D col)
     {

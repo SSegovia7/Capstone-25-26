@@ -11,6 +11,12 @@ public class shipController : MonoBehaviour
     [SerializeField] private GameObject _box;
     [SerializeField] private float launchForce;
     [SerializeField] private float _invincibleTimerInSeconds;
+    public enum ShootingMode 
+    {
+        Single,
+        Triple
+    }
+    public ShootingMode curentShootingMode = ShootingMode.Single;
 
     private bool _isInvincible = false;
     private float BoxForce = 5f;
@@ -63,10 +69,41 @@ public class shipController : MonoBehaviour
             AudioManager.PlaySound(AudioManager.Sound.GS_Shooting);
 
             _FIRECOOLDOWN = FiringCooldown;
-            Instantiate(_bullet, new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
+            //Instantiate(_bullet, new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
+           
+            Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z);
+
+            switch (curentShootingMode) 
+            {
+                case ShootingMode.Single:
+                    ShootSingle(spawnPos);
+                    break;
+
+                case ShootingMode.Triple:
+                    ShootTriple(spawnPos);
+                    break;
+
+                default:
+                    ShootSingle(spawnPos);
+                    break;
+            }                      
         }
     }
+    private void ShootSingle(Vector3 spawnPos)
+    {
+        Instantiate(_bullet, spawnPos, Quaternion.identity);
+    }
+    private void ShootTriple(Vector3 spawnPos) 
+    {
+        // Angles for triple shot
+        float[] angles = { -15f, 0f, 15f };
 
+        foreach (float angle in angles)
+        {
+            Quaternion rot = Quaternion.Euler(0f, 0f, angle);
+            Instantiate(_bullet, spawnPos, rot);
+        }
+    }
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "EnemyBullet" || col.gameObject.tag == "Enemy")

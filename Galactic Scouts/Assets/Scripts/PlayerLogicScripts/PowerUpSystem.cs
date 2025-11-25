@@ -64,6 +64,10 @@ public class PowerUpSystem : MonoBehaviour
             case 1:
                 StartFireRatePowerUp();
                 break;
+
+            case 2:
+                StartTripleShotPowerUp();
+                break;
         }
     }
 
@@ -117,6 +121,32 @@ public class PowerUpSystem : MonoBehaviour
 
         _shipController.FiringCooldown = originalFireRate;
         Debug.Log("Power up expired: fire rate restored");
+    }
+
+    private void StartTripleShotPowerUp()
+    {
+        if (_shipController == null) return;
+
+        if (activeRoutine != null) StopCoroutine(activeRoutine);
+
+        var ship = FindObjectOfType<shipController>();
+
+        ship.curentShootingMode = shipController.ShootingMode.Triple;
+
+        Debug.Log("Power up activated: TripleShot");
+
+        activeRoutine = StartCoroutine(ResetTripleShotAfterTime());
+    }
+
+    private IEnumerator ResetTripleShotAfterTime()
+    {
+        yield return new WaitForSeconds(powerUpDuration);
+
+        var ship = FindObjectOfType<shipController>();
+
+        ship.curentShootingMode = shipController.ShootingMode.Triple;
+
+        Debug.Log("Power up expired: Single restored");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
