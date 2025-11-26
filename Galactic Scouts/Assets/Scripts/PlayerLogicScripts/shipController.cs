@@ -112,7 +112,7 @@ public class shipController : MonoBehaviour
     {
         if (col.gameObject.tag == "EnemyBullet" || col.gameObject.tag == "Enemy")
         {
-            if(_isInvincible) return;
+            if(_isInvincible || inDialogue) return;
 
             TookDamage?.Invoke(1);
             if (col.CompareTag("Enemy"))

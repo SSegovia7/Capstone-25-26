@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,7 +37,7 @@ public class DialogueManager : MonoBehaviour
     private void FixedUpdate()
     {
         //Advances dialogue automatically if there is dialogue data to run
-        if (currentDialogueData != null && advanceCurrentDialogue)
+        if (currentDialogueData[0] != null && advanceCurrentDialogue)
         {
             if (currentDialogueStep + 1 <= currentDialogueData.Length)
             {
@@ -55,6 +56,7 @@ public class DialogueManager : MonoBehaviour
     //Updates the name and image then calls Couroutine that updates the text
     public void UpdateDialogue(DialogueData dialogue)
     {
+        Debug.Log("Calling Update dialogue");
         dialogueCanvas.SetActive(true);
         advanceCurrentDialogue = false;
         characterNameText.text = dialogue.speakerName;
