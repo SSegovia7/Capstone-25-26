@@ -25,10 +25,14 @@ public class shipController : MonoBehaviour
     public NumDelegate GainHP;
 
     private float _FIRECOOLDOWN = 0;
+    public float defaultFiringCooldown;
     [SerializeField] public float FiringCooldown;
 
     public bool inDialogue = false;
-
+    private void Start()
+    {
+        defaultFiringCooldown = FiringCooldown;
+    }
     // void Update()
     // {
     //     if (!_playerInControl) { return; }
@@ -111,7 +115,10 @@ public class shipController : MonoBehaviour
             if(_isInvincible) return;
 
             TookDamage?.Invoke(1);
-            col.gameObject.GetComponent<enemyController>().EnemyTakeDamage(1);
+            if (col.CompareTag("Enemy"))
+            {
+                col.gameObject.GetComponent<enemyController>().EnemyTakeDamage(1);
+            }
             StartCoroutine(InvincibiltyFrames());
             var cookieBox = Instantiate(_box, transform.position, Quaternion.identity);
             int sign = -1;

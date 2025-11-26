@@ -53,20 +53,20 @@ public class PowerUpSystem : MonoBehaviour
 
     private void ActivateRandomPowerUp()
     {
-        int random = Random.Range(0, 2);
+        int random = Random.Range(0, 3);
 
         switch (random)
         {
             case 0:
-                StartSpeedPowerUp();
+                StartTripleShotPowerUp();
                 break;
 
             case 1:
-                StartFireRatePowerUp();
+                StartSpeedPowerUp();
                 break;
 
             case 2:
-                StartTripleShotPowerUp();
+                StartFireRatePowerUp();
                 break;
         }
     }
@@ -79,10 +79,10 @@ public class PowerUpSystem : MonoBehaviour
         if (activeRoutine != null) StopCoroutine(activeRoutine);
 
         // Save original value
-        originalSpeed = _gameManager.speed;
+        originalSpeed = _gameManager.defaultSpeed;
 
         // Apply boost
-        _gameManager.speed += speedIncreaseAmount;
+        _gameManager.speed *= speedIncreaseAmount;
 
         Debug.Log("Power up activated: speed increase");
 
@@ -94,7 +94,7 @@ public class PowerUpSystem : MonoBehaviour
     {
         yield return new WaitForSeconds(powerUpDuration);
 
-        _gameManager.speed = originalSpeed;
+        _gameManager.speed = _gameManager.defaultSpeed;
         Debug.Log("Power up expired: speed restored");
     }
 
@@ -105,7 +105,7 @@ public class PowerUpSystem : MonoBehaviour
         if (activeRoutine != null) StopCoroutine(activeRoutine);
 
         // Save original cooldown
-        originalFireRate = _shipController.FiringCooldown;
+        originalFireRate = _shipController.defaultFiringCooldown;
 
         // Apply boost (multiplying by <1 makes cooldown shorter)
         _shipController.FiringCooldown *= fireRateMultiplier;
@@ -119,7 +119,7 @@ public class PowerUpSystem : MonoBehaviour
     {
         yield return new WaitForSeconds(powerUpDuration);
 
-        _shipController.FiringCooldown = originalFireRate;
+        _shipController.FiringCooldown = _shipController.defaultFiringCooldown;
         Debug.Log("Power up expired: fire rate restored");
     }
 

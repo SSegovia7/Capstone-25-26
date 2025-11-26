@@ -17,6 +17,7 @@ public class gameManager : MonoBehaviour
 
     private bool _FIRETOGGLE = false;
     private bool _FIRING = false;
+    public float defaultSpeed;
     public float speed;
     public float dashForce;
     private float speedMultiplier = 1f;
@@ -53,7 +54,7 @@ public class gameManager : MonoBehaviour
 
         dialogueScript = dialogueManager.GetComponent<DialogueManager>();
         dialogueScript.gameManager = this;
-
+        defaultSpeed = speed;
         //SetupDialogue(testData);
     }
     void FixedUpdate()

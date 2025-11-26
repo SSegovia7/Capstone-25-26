@@ -1640,6 +1640,7 @@ MonoBehaviour:
     m_Flags: 0
   _HOLDTOFIRE: 1
   _PLAYERCONTROLENABLED: 1
+  defaultSpeed: 0
   speed: 300
   dashForce: 6
   playerHealth: 10
@@ -3287,27 +3288,51 @@ MonoBehaviour:
     - enemyType:
         prefab: {fileID: 2031524483612525576, guid: 9604483919025794fbf9e72ffaa6b2ec, type: 3}
         spawnRadius: 2
-      amount: 1
+      amount: 20
+      minX: 0
+      maxX: 0
+      minY: 8
+      maxY: 8
     - enemyType:
         prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
         spawnRadius: 2
       amount: 5
+      minX: 0
+      maxX: 0
+      minY: 8
+      maxY: 8
     - enemyType:
         prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
         spawnRadius: 2
       amount: 3
+      minX: 0
+      maxX: 0
+      minY: 8
+      maxY: 8
     - enemyType:
         prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
         spawnRadius: 2
       amount: 5
+      minX: 0
+      maxX: 0
+      minY: 8
+      maxY: 8
     - enemyType:
         prefab: {fileID: 5987195949268411551, guid: 105bb04340613ef44a1f6b2f0f4f0ec4, type: 3}
         spawnRadius: 2
       amount: 2
+      minX: 0
+      maxX: 0
+      minY: 8
+      maxY: 8
     - enemyType:
         prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
         spawnRadius: 2
       amount: 10
+      minX: 0
+      maxX: 0
+      minY: 8
+      maxY: 8
     spawnInterval: 0.8
     delayBeforeNextWave: 3
   - waveName: Wave 1
@@ -3316,6 +3341,10 @@ MonoBehaviour:
         prefab: {fileID: 5987195949268411551, guid: 105bb04340613ef44a1f6b2f0f4f0ec4, type: 3}
         spawnRadius: 3
       amount: 10
+      minX: 0
+      maxX: 0
+      minY: 8
+      maxY: 8
     spawnInterval: 0.5
     delayBeforeNextWave: 0.5
   - waveName: Wave 2
@@ -3324,22 +3353,42 @@ MonoBehaviour:
         prefab: {fileID: 5987195949268411551, guid: 105bb04340613ef44a1f6b2f0f4f0ec4, type: 3}
         spawnRadius: 2
       amount: 3
+      minX: 0
+      maxX: 0
+      minY: 8
+      maxY: 8
     - enemyType:
         prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
         spawnRadius: 2
       amount: 3
+      minX: 0
+      maxX: 0
+      minY: 8
+      maxY: 8
     - enemyType:
         prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
         spawnRadius: 2
       amount: 2
+      minX: 0
+      maxX: 0
+      minY: 8
+      maxY: 8
     - enemyType:
         prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
         spawnRadius: 2
       amount: 10
+      minX: 0
+      maxX: 0
+      minY: 8
+      maxY: 8
     - enemyType:
         prefab: {fileID: 5987195949268411551, guid: 105bb04340613ef44a1f6b2f0f4f0ec4, type: 3}
         spawnRadius: 2
       amount: 10
+      minX: 0
+      maxX: 0
+      minY: 8
+      maxY: 8
     spawnInterval: 0.8
     delayBeforeNextWave: 0.5
   - waveName: Wave 3
@@ -3348,12 +3397,33 @@ MonoBehaviour:
         prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
         spawnRadius: 2
       amount: 100
+      minX: 0
+      maxX: 0
+      minY: 8
+      maxY: 8
     spawnInterval: 0.1
     delayBeforeNextWave: 0.5
-  spawnPoints:
-  - {fileID: 1633626820}
-  - {fileID: 662097094}
-  - {fileID: 1810511715}
+  - waveName: Wave 5
+    enemy:
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 2
+      amount: 100
+      minX: 0
+      maxX: 0
+      minY: 8
+      maxY: 8
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 2
+      amount: 100
+      minX: 0
+      maxX: 0
+      minY: 8
+      maxY: 8
+    spawnInterval: 0.1
+    delayBeforeNextWave: 0.5
+  spawnPoints: []
   wavePanel: {fileID: 1892827837}
   waveText: {fileID: 671078686}
   panelYouwin: {fileID: 1714592989}
@@ -3898,6 +3968,8 @@ MonoBehaviour:
   _box: {fileID: 4405899410762375154, guid: 5966086cc4854bc4da2631f8a03802d0, type: 3}
   launchForce: 70
   _invincibleTimerInSeconds: 0.8
+  curentShootingMode: 0
+  defaultFiringCooldown: 0
   FiringCooldown: 6
   inDialogue: 0
 --- !u!61 &2058818553

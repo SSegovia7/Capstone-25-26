@@ -18,6 +18,10 @@ public class enemySpawnSystem : MonoBehaviour
     {
         public EnemyType enemyType;
         public int amount;
+        public float minX = 0f;
+        public float maxX = 0f;
+        public float minY = 8f;
+        public float maxY = 8f;
     }
 
     [System.Serializable]
@@ -81,29 +85,26 @@ public class enemySpawnSystem : MonoBehaviour
         Debug.Log($"Starting {wave.waveName}...");
         foreach (var enemyData in wave.enemy) 
         {
-            if (enemyData.enemyType == null || enemyData.enemyType.prefab == null ) 
-            {
-                continue;
-            }
             for (int i = 0; i < enemyData.amount; i++) 
             {
-                SpawnEnemy(enemyData.enemyType);
+                SpawnEnemy(enemyData);
                 yield return new WaitForSeconds(wave.spawnInterval);
-            } 
-         
+            }
         } 
     
     }
 
-    private void SpawnEnemy(EnemyType type) 
+    private void SpawnEnemy(EnemySpawnData data) 
     {
-        if (type == null || spawnPoints.Length == 0) { return; }
+        if (data == null || data.enemyType == null || data.enemyType.prefab == null)
+            return;
 
-        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        Vector3 spawnPos = spawnPoint.position + Random.insideUnitSphere * type.spawnRadius;
-        spawnPos.y = spawnPoint.position.y;
+        float x = Random.Range(data.minX, data.maxX);
+        float y = Random.Range(data.minY, data.maxY);
 
-        Instantiate(type.prefab, spawnPos, Quaternion.identity);
+        Vector3 spawnPos = new Vector3(x, y, 0f);
+        Instantiate(data.enemyType.prefab, spawnPos, Quaternion.identity);
+
     }
 
 
