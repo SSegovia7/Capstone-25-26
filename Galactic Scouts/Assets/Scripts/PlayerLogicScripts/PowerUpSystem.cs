@@ -144,7 +144,7 @@ public class PowerUpSystem : MonoBehaviour
 
         var ship = FindObjectOfType<shipController>();
 
-        ship.curentShootingMode = shipController.ShootingMode.Triple;
+        ship.curentShootingMode = shipController.ShootingMode.Single;
 
         Debug.Log("Power up expired: Single restored");
     }
