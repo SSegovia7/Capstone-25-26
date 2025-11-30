@@ -67,6 +67,13 @@ public class gameManager : MonoBehaviour
             _SHIP.Shoot();
         }
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            SetupDialogue(testData);
+        }
+    }
     private void OnPause(InputAction.CallbackContext context)
     {
         _PLAYERCONTROLENABLED = !_PLAYERCONTROLENABLED;
