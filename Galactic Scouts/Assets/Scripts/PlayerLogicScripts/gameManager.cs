@@ -123,7 +123,7 @@ public class gameManager : MonoBehaviour
 
     private int PlayerTakeDamage(int amount)
     {
-        playerHealth -= 1;
+        playerHealth -= amount;
         _HUD.UpdateHealthDisplay(playerHealth);
 
         if (playerHealth <= 0)
@@ -134,7 +134,7 @@ public class gameManager : MonoBehaviour
     }
     private int PlayerHealHealth(int amount)
     {
-        playerHealth += 1;
+        playerHealth += amount;
         _HUD.UpdateHealthDisplay(playerHealth);
 
         return 0;

@@ -114,16 +114,27 @@ public class shipController : MonoBehaviour
         {
             if(_isInvincible || inDialogue) return;
 
-            TookDamage?.Invoke(1);
+            TookDamage?.Invoke(3);
             if (col.CompareTag("Enemy"))
             {
                 col.gameObject.GetComponent<enemyController>().EnemyTakeDamage(1);
             }
             StartCoroutine(InvincibiltyFrames());
-            var cookieBox = Instantiate(_box, transform.position, Quaternion.identity);
-            int sign = -1;
+            
+            
+            for(int i=0; i<3; i++)
+            {
+                var cookieBox = Instantiate(_box, transform.position, Quaternion.identity);
+                int sign = -1;
+                if (Random.Range(-1, 1) >= 0) { sign = 1; }
+                cookieBox.GetComponent<Rigidbody2D>().AddForce(new Vector3(Random.Range(25, 40) * sign, launchForce, 0) * BoxForce, ForceMode2D.Force);
+            }
+            
+            /*cookieBox = Instantiate(_box, transform.position, Quaternion.identity);
+            sign = -1;
             if (Random.Range(-1, 1) >= 0) { sign = 1; }
-            cookieBox.GetComponent<Rigidbody2D>().AddForce(new Vector3(Random.Range(4, 18) * sign, launchForce, 0) * BoxForce, ForceMode2D.Force);
+            cookieBox.GetComponent<Rigidbody2D>().AddForce(new Vector3(Random.Range(30, 40) * sign, launchForce, 0) * BoxForce, ForceMode2D.Force);*/
+
         }
         else if (col.gameObject.tag == "Box")
         {
