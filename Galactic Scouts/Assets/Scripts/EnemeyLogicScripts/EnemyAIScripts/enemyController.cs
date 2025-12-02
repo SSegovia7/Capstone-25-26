@@ -27,7 +27,7 @@ public class enemyController : MonoBehaviour
     }
     private void Death()
     {
-        PowerUpSystem.Instance.AddCharge(10f);
+        PowerUpSystem.Instance.AddCharge(5f);
         Destroy(this.gameObject);
     }
 }
