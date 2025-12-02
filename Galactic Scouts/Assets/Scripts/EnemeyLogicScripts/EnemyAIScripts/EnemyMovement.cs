@@ -9,8 +9,8 @@ public class EnemyMovement : MonoBehaviour
         Linear,
         Wave,
         TrackPlayer,
-        BasicShooter
-
+        BasicShooter,
+        Thief
     }
 
     [Header("General Settings")]
@@ -49,6 +49,13 @@ public class EnemyMovement : MonoBehaviour
     private int horizontalDir = 1;
     public float minX = -4f;
     public float maxX = 4f;
+
+    [Header("Thief Movement")]
+    public float thiefSpeed = 7f;
+    public float thiefTrackStrength = 1f;
+    private bool hasStolen = false;
+    private Transform thiefTarget;
+
 
 
     private Rigidbody2D rb;
@@ -106,6 +113,10 @@ public class EnemyMovement : MonoBehaviour
 
             case MovementType.BasicShooter:
                 HandleBasicShooter(ref velocity, elapsed);
+                break;
+
+            case MovementType.Thief:
+                // HandleThief(ref velocity);
                 break;
         }
 
@@ -173,6 +184,33 @@ public class EnemyMovement : MonoBehaviour
             Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
         }
     }
+    private void Handlethief(ref Vector2 velocity) 
+    {
+        // its following the player 
+        if (!hasStolen)
+        {
+            if (thiefTarget == null)
+            {
+                GameObject p = GameObject.FindGameObjectWithTag(playerTag);
+                if (p != null) thiefTarget = p.transform;
+            }
+        }
+        else 
+        {
+            // when it touchs the player it looks for a box
+            if (thiefTarget == null) 
+            {
+                GameObject[] boxes = GameObject.FindGameObjectsWithTag("Box");
+                if (boxes.Length > 0) 
+                {
+                     // thiefTarget = GetClosestObject(boxes).transform;
+                }
+            }     
+        }
+    }
+
+    // private GameObject GetClosestObject(GameObject[] list)
+   
     private void FindPlayer()
     {
         GameObject found = GameObject.FindGameObjectWithTag(playerTag);
