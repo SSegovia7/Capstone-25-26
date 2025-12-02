@@ -11,6 +11,7 @@ public class PowerUpSystem : MonoBehaviour
     [SerializeField] private float maxCharge = 100f;
 
     [SerializeField] private float enemyKillCharge = 10f;
+    [SerializeField] private float enemyDamageCharge = 2f;
     [SerializeField] private float pickUpFullCharge = 100f;
 
     [Header("References")]
@@ -38,7 +39,7 @@ public class PowerUpSystem : MonoBehaviour
             powerSlider.maxValue = maxCharge;
     }
 
-    public void AddCharge(float amount)
+    public void AddChargeKill(float amount)
     {
         if (powerSlider == null) return;
 
@@ -50,7 +51,18 @@ public class PowerUpSystem : MonoBehaviour
             ActivateRandomPowerUp();
         }
     }
+    public void AddChargeDamage(float amount)
+    {
+        if (powerSlider == null) return;
 
+        powerSlider.value += amount;
+
+        if (powerSlider.value >= maxCharge)
+        {
+            powerSlider.value = 0f;
+            ActivateRandomPowerUp();
+        }
+    }
     private void ActivateRandomPowerUp()
     {
         int random = Random.Range(0, 3);
@@ -153,7 +165,7 @@ public class PowerUpSystem : MonoBehaviour
     {
         if (other.CompareTag("PowerUp"))
         {
-            AddCharge(pickUpFullCharge);
+            AddChargeKill(pickUpFullCharge);
             // Pickup is destroyed by its own script now
         }
     }

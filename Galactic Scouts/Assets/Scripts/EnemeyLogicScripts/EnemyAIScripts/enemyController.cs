@@ -6,6 +6,9 @@ public class enemyController : MonoBehaviour
 {
     public float speed = 2f;
     public int health = 3;
+    public float powerUpAmountDamage = 2f;
+    public float powerUpAmountKill = 5f;
+    public bool powerUpIncrase = false;
     private Rigidbody2D rb2d;
     void Start()
     {
@@ -19,6 +22,10 @@ public class enemyController : MonoBehaviour
     public void EnemyTakeDamage(int damage)
     {
         health -= damage;
+        if (powerUpIncrase)
+        {
+            PowerUpSystem.Instance.AddChargeDamage(powerUpAmountDamage);
+        }
         AudioManager.PlaySound(AudioManager.Sound.Enemy_TakeDamage);
         if (health <= 0)
         {
@@ -27,7 +34,7 @@ public class enemyController : MonoBehaviour
     }
     private void Death()
     {
-        PowerUpSystem.Instance.AddCharge(5f);
+        PowerUpSystem.Instance.AddChargeKill(powerUpAmountKill);
         Destroy(this.gameObject);
     }
 }

@@ -4294,6 +4294,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
+  - waveName: Wave 6
+    enemy:
+    - enemyType:
+        prefab: {fileID: 4355338129741178407, guid: 9c063d73ac83d86469bbe0ef0c84d716, type: 3}
+        spawnRadius: 2
+      amount: 1
+      minX: 0
+      maxX: 0
+      minY: 8
+      maxY: 8
+    spawnInterval: 0.1
+    delayBeforeNextWave: 300
   - waveName: Wave 4
     enemy:
     - enemyType:
@@ -4345,7 +4357,7 @@ MonoBehaviour:
       minY: 8
       maxY: 8
     spawnInterval: 0.8
-    delayBeforeNextWave: 3
+    delayBeforeNextWave: 30
   - waveName: Wave 1
     enemy:
     - enemyType:

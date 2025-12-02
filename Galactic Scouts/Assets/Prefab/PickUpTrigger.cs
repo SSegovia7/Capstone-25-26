@@ -13,7 +13,7 @@ public class PickUpTrigger : MonoBehaviour
             // Add charge to the power-up bar
             if (PowerUpSystem.Instance != null)
             {
-                PowerUpSystem.Instance.AddCharge(chargeAmount);
+                PowerUpSystem.Instance.AddChargeKill(chargeAmount);
             }
 
             // Destroy the pickup object
