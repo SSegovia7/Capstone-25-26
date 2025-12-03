@@ -4300,12 +4300,12 @@ MonoBehaviour:
     - enemyType:
         prefab: {fileID: 5115373783273469147, guid: efbfc304b8e7cdd479953452360c4a52, type: 3}
         spawnRadius: 2
-      amount: 2
+      amount: 1
       minX: 0
       maxX: 0
       minY: 8
       maxY: 8
-    spawnInterval: 0.1
+    spawnInterval: 1.5
     delayBeforeNextWave: 300
   - waveName: Wave 4
     enemy:

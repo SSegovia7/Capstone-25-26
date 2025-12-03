@@ -53,6 +53,8 @@ public class EnemyMovement : MonoBehaviour
     [Header("Thief Settings")]
     public float thiefSpeed = 3f;
     public float thiefTrackStrength = 1f;
+    public float boxPickDelay = 0.5f;
+    private float boxPickUpTimer = 0f;
     private bool hasStolen = false;
     private Transform thiefTarget;
     public bool escapeMode = false;
@@ -243,10 +245,17 @@ public class EnemyMovement : MonoBehaviour
         {
             hasStolen = true;
             thiefTarget = null; // force finding a box next frame
+            
+            //start cooldown before the box is stolen
+            boxPickUpTimer = Time.time + boxPickDelay;
+            return;
         }
         // AFTER STEALING IT CHASES THE BOX
         if (hasStolen && !escapeMode && collision.CompareTag("Box")) 
         {
+            //preventing stealing if the cooldown is not done
+            if (Time.time < boxPickUpTimer) return;
+
             Destroy(collision.gameObject);
 
             enemyController ec = GetComponent<enemyController>();

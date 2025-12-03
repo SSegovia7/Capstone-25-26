@@ -8,6 +8,8 @@ public class enemyController : MonoBehaviour
     public float speed = 2f;
     public float powerUpAmountDamage = 2f;
     public float powerUpAmountKill = 5f;
+    public float boxPickDelay = 0.5f;
+    private float boxPickUpTimer = 0f;
     public bool powerUpIncrase = false;
     public bool boxPick = false;
 
