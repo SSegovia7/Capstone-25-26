@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour
     public float verticalSpeed = 2f;
 
     [Header("Lifetime Settings")]
-    public float lifeTime = 10f; // Time in seconds before auto-destroy
+    public float lifeTime = 10f;
     public float spawnTime;
 
     [Header("Linear Movement")]
@@ -50,14 +50,13 @@ public class EnemyMovement : MonoBehaviour
     public float minX = -4f;
     public float maxX = 4f;
 
-    [Header("Thief Movement")]
-    public float thiefSpeed = 7f;
+    [Header("Thief Settings")]
+    public float thiefSpeed = 3f;
     public float thiefTrackStrength = 1f;
     private bool hasStolen = false;
     private Transform thiefTarget;
-
-
-
+    public bool escapeMode = false;
+    private float escapeHorizontalDir = 0f;
     private Rigidbody2D rb;
     private float nextPlayerSearchTime;
 
@@ -65,23 +64,19 @@ public class EnemyMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        // Randomized pattern setup
         linearHorizontalSpeed = UnityEngine.Random.Range(-horizontalSpeedRange, horizontalSpeedRange);
         waveOffset = UnityEngine.Random.Range(0f, 2f * Mathf.PI);
 
         spawnTime = Time.time;
 
-        // Auto-destroy after set lifetime
         Destroy(gameObject, lifeTime);
     }
 
     void FixedUpdate()
     {
-        // Find player if needed
         if (player == null && Time.time >= nextPlayerSearchTime)
         {
             FindPlayer();
-            Debug.Log("Player shreching");
         }
 
         Vector2 velocity = Vector2.zero;
@@ -116,113 +111,166 @@ public class EnemyMovement : MonoBehaviour
                 break;
 
             case MovementType.Thief:
-                // HandleThief(ref velocity);
+                HandleThief(ref velocity);
                 break;
         }
 
         rb.velocity = velocity;
     }
 
-     private void HandleBasicShooter(ref Vector2 velocity, float elapsed) 
-     {
-        // start exit 3 seconds before the enemy is destroyed 
-        if (lifeTime - elapsed <= 3f && !exiting) 
+    // BASIC SHOOTER LOGIC
+    private void HandleBasicShooter(ref Vector2 velocity, float elapsed)
+    {
+        if (lifeTime - elapsed <= 3f && !exiting)
         {
             exiting = true;
             movingDown = false;
             horizontalDir = transform.position.x < 0 ? 1 : -1;
         }
 
-        // move left to right to off screen
-        if (exiting) 
+        if (exiting)
         {
             velocity = new Vector2(horizontalDir * exitSpeed, verticalSpeed);
             return;
         }
 
-        // move down until it reach pos Y
-        if (movingDown) 
+        if (movingDown)
         {
             velocity = new Vector2(0, -verticalSpeed);
-            if (transform.position.y <= stopY) 
+            if (transform.position.y <= stopY)
             {
                 movingDown = false;
                 nextShootTime = Time.time + shootInterval;
-                
             }
             return;
         }
-        // Patrol left and right 
 
         velocity = new Vector2(horizontalDir * patrolSpeed, 0f);
-
-        // Revers direction when reach the edge of the screen
 
         if (transform.position.x >= maxX)
         {
             horizontalDir = -1;
         }
-        else if(transform.position.x <= minX)
+        else if (transform.position.x <= minX)
         {
             horizontalDir = 1;
         }
-        
-        // shooting behavior
 
-        if (Time.time >= nextShootTime) 
+        if (Time.time >= nextShootTime)
         {
             Shoot();
             nextShootTime = Time.time + shootInterval;
         }
-     
-     }
-    private void Shoot() 
+    }
+
+    private void Shoot()
     {
         if (projectilePrefab == null) return;
-        {
-            Vector3 spawnPos = shootPoint != null ? shootPoint.position : transform.position;
-            Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
-        }
+
+        Vector3 spawnPos = shootPoint != null ? shootPoint.position : transform.position;
+        Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
     }
-    private void Handlethief(ref Vector2 velocity) 
+
+    // THIEF LOGIC
+    private void HandleThief(ref Vector2 velocity)
     {
-        // its following the player 
+        // Phase 0: EscapeMode
+        if (escapeMode) 
+        {
+            velocity = new Vector2(escapeHorizontalDir, verticalSpeed);
+            return;
+        }
+        // Phase 1: Follow Player
         if (!hasStolen)
         {
             if (thiefTarget == null)
             {
-                GameObject p = GameObject.FindGameObjectWithTag(playerTag);
+                GameObject p = GameObject.FindGameObjectWithTag("Player");
                 if (p != null) thiefTarget = p.transform;
             }
         }
-        else 
+        else
         {
-            // when it touchs the player it looks for a box
-            if (thiefTarget == null) 
+            // Phase 2: Find closest Box
+            if (thiefTarget == null)
             {
                 GameObject[] boxes = GameObject.FindGameObjectsWithTag("Box");
-                if (boxes.Length > 0) 
+                if (boxes.Length > 0)
                 {
-                     // thiefTarget = GetClosestObject(boxes).transform;
+                    thiefTarget = GetClosestObject(boxes).transform;
                 }
-            }     
+            }
+        }
+
+        if (thiefTarget == null)
+        {
+            velocity = Vector2.zero;
+            return;
+        }
+
+        Vector2 dir = (thiefTarget.position - transform.position);
+
+        // Normal full 2D movement toward target
+        velocity = dir.normalized * thiefSpeed;
+    }
+
+    private GameObject GetClosestObject(GameObject[] list)
+    {
+        GameObject closest = null;
+        float minDist = Mathf.Infinity;
+        Vector3 pos = transform.position;
+
+        foreach (GameObject go in list)
+        {
+            float dist = (go.transform.position - pos).sqrMagnitude;
+            if (dist < minDist)
+            {
+                minDist = dist;
+                closest = go;
+            }
+        }
+
+        return closest;
+    }
+
+    // COLLISION HANDLING
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (movementType != MovementType.Thief)
+            return;
+
+        if (!hasStolen && collision.CompareTag("Player"))
+        {
+            hasStolen = true;
+            thiefTarget = null; // force finding a box next frame
+        }
+        // AFTER STEALING IT CHASES THE BOX
+        if (hasStolen && !escapeMode && collision.CompareTag("Box")) 
+        {
+            Destroy(collision.gameObject);
+
+            enemyController ec = GetComponent<enemyController>();
+            if (ec != null) ec.boxPick = true;
+
+            escapeMode = true;
+
+            escapeHorizontalDir = Random.Range(-4f, 4f);
+
+            thiefTarget = null;
         }
     }
 
-    // private GameObject GetClosestObject(GameObject[] list)
-   
+    // PLAYER SEARCH
     private void FindPlayer()
     {
         GameObject found = GameObject.FindGameObjectWithTag(playerTag);
         if (found != null)
         {
             player = found.transform;
-            Debug.Log("Player found");
         }
         else
         {
             nextPlayerSearchTime = Time.time + 2f;
-            Debug.Log("Player not found and shreching again");
         }
     }
 }

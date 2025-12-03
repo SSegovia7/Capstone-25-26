@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class enemyController : MonoBehaviour
 {
-    public float speed = 2f;
     public int health = 3;
+    public float speed = 2f;
     public float powerUpAmountDamage = 2f;
     public float powerUpAmountKill = 5f;
     public bool powerUpIncrase = false;
+    public bool boxPick = false;
+
     private Rigidbody2D rb2d;
+    public GameObject boxPrefab;
+
+
     void Start()
     {
         rb2d = this.gameObject.GetComponent<Rigidbody2D>();
@@ -35,6 +40,11 @@ public class enemyController : MonoBehaviour
     private void Death()
     {
         PowerUpSystem.Instance.AddChargeKill(powerUpAmountKill);
+        // if the thief stole a box he drops a new box when killed
+        if (boxPick && boxPrefab != null) 
+        {
+            Instantiate(boxPrefab, transform.position, Quaternion.identity);
+        }
         Destroy(this.gameObject);
     }
 }
