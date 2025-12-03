@@ -930,101 +930,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1131014526}
     m_Modifications:
-    - target: {fileID: 971879201827160833, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 56b1b007ff94664488e4c69bc9d3ab15, type: 3}
-    - target: {fileID: 971879201827160833, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_Color.a
-      value: 0.7882353
-      objectReference: {fileID: 0}
-    - target: {fileID: 1286379818531966786, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 56b1b007ff94664488e4c69bc9d3ab15, type: 3}
-    - target: {fileID: 1286379818531966786, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_Color.a
-      value: 0.7882353
-      objectReference: {fileID: 0}
-    - target: {fileID: 1506375466469364604, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1506375466469364604, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 1860391792708578325, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 56b1b007ff94664488e4c69bc9d3ab15, type: 3}
-    - target: {fileID: 1860391792708578325, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_Color.a
-      value: 0.7882353
-      objectReference: {fileID: 0}
-    - target: {fileID: 3360236806339899453, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 3360236806339899453, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077537281816181013, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077537281816181013, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077537281816181013, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219606134170968396, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219606134170968396, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219606134170968396, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6542282014311994439, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6542282014311994439, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6542282014311994439, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6542282014311994439, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 6542282014311994439, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.03
-      objectReference: {fileID: 0}
     - target: {fileID: 7882883980980379068, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
       propertyPath: m_Name
       value: P2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8524615250127020282, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 56b1b007ff94664488e4c69bc9d3ab15, type: 3}
-    - target: {fileID: 8524615250127020282, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_Color.a
-      value: 0.7882353
       objectReference: {fileID: 0}
     - target: {fileID: 8536900193970141377, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1065,26 +973,6 @@ PrefabInstance:
     - target: {fileID: 8536900193970141377, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8894548182699413966, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8894548182699413966, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8894548182699413966, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8903865242476161063, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 8903865242476161063, guid: c8b9a3b9d40050745b9bb19ae3d405b9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.1900003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1878,11 +1766,11 @@ MonoBehaviour:
   - {fileID: 124760992}
   - {fileID: 744752761}
   scrollSpeeds:
-  - 2
-  - 1
-  - 1.2
-  - 1.4
   - 1.6
+  - 0.5
+  - 1
+  - 1.5
+  - 2
   loopHeights:
   - 10.8
   - 10.8
