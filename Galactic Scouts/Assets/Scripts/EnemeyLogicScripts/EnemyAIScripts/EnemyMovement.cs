@@ -132,7 +132,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (exiting)
         {
-            velocity = new Vector2(horizontalDir * exitSpeed, verticalSpeed);
+            velocity = new Vector2(horizontalDir * exitSpeed, -verticalSpeed);
             return;
         }
 

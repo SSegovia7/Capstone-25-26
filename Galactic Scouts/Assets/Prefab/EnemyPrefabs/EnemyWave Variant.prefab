@@ -96,9 +96,23 @@ MonoBehaviour:
   movementType: 1
   verticalSpeed: 2
   lifeTime: 10
+  spawnTime: 0
   horizontalSpeedRange: 1
   waveAmplitude: 5
   waveFrequency: 2
   playerTag: Player
   trackStrength: 0.5
   maxHorizontalSpeed: 2
+  stopY: 2
+  patrolSpeed: 3
+  shootInterval: 1.5
+  projectilePrefab: {fileID: 0}
+  shootPoint: {fileID: 0}
+  exitSpeed: 4
+  nextShootTime: 0
+  minX: -4
+  maxX: 4
+  thiefSpeed: 3
+  thiefTrackStrength: 1
+  boxPickDelay: 0.5
+  escapeMode: 0
