@@ -4244,7 +4244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - waveName: Wave 1 (Three Shooters)
+  - waveName: Not Functional For Some Reason
     enemy:
     - enemyType:
         prefab: {fileID: 0}
@@ -4255,25 +4255,113 @@ MonoBehaviour:
       minY: 0
       maxY: 0
     spawnInterval: 0
-    delayBeforeNextWave: 5
-  - waveName: Wave 2 (Shooters and Linears
+    delayBeforeNextWave: 0.1
+  - waveName: Wave 1
+    enemy:
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 1
+      amount: 3
+      minX: -8
+      maxX: 8
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.3
+    delayBeforeNextWave: 3
+  - waveName: Wave 2, Shooters again and Linear intro
     enemy:
     - enemyType:
         prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
         spawnRadius: 0
-      amount: 3
+      amount: 5
       minX: -8
       maxX: 8
-      minY: 8
-      maxY: 8
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.3
+    delayBeforeNextWave: 1
+  - waveName: Wave 2.5 Linears appear
+    enemy:
     - enemyType:
         prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
         spawnRadius: 0
       amount: 3
       minX: -8
       maxX: 8
-      minY: 8
-      maxY: 8
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.3
+    delayBeforeNextWave: 3
+  - waveName: Wave 3 MORE SHOOTERS
+    enemy:
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 0
+      amount: 2
+      minX: -8
+      maxX: 8
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+        spawnRadius: 0
+      amount: 2
+      minX: -8
+      maxX: 8
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.3
+    delayBeforeNextWave: 1
+  - waveName: Wave 3.5 Linear Barrage
+    enemy:
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 5
+      minX: -8
+      maxX: 8
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.3
+    delayBeforeNextWave: 0.5
+  - waveName: One lone Wave Enemy
+    enemy:
+    - enemyType:
+        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -8
+      maxX: 8
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.3
+    delayBeforeNextWave: 2
+  - waveName: Wave 4, Wave Enemy full intro
+    enemy:
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 5
+      minX: -8
+      maxX: 8
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 0
+      amount: 3
+      minX: -8
+      maxX: 8
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
+        spawnRadius: 0
+      amount: 3
+      minX: -8
+      maxX: 8
+      minY: 6
+      maxY: 6
     spawnInterval: 0.3
     delayBeforeNextWave: 3
   spawnPoints: []

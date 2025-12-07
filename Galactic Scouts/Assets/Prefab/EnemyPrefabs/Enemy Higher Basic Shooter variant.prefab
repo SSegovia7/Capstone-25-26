@@ -144,7 +144,7 @@ MonoBehaviour:
   maxHorizontalSpeed: 2
   stopY: 3
   patrolSpeed: 3
-  shootInterval: 1.5
+  shootInterval: 1
   projectilePrefab: {fileID: 3599316917741742968, guid: 64efbf0ba89f6344f9d52610105c6527, type: 3}
   shootPoint: {fileID: 2855367508931874792}
   exitSpeed: 4
