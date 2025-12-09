@@ -47,6 +47,14 @@ PrefabInstance:
       propertyPath: health
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2594026991558480750, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
+      propertyPath: powerUpIncrase
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594026991558480750, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
+      propertyPath: powerUpAmountKill
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4752641187074859197, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 2.5

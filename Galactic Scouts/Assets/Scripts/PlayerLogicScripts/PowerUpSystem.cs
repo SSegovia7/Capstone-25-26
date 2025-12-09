@@ -48,7 +48,8 @@ public class PowerUpSystem : MonoBehaviour
         if (powerSlider.value >= maxCharge)
         {
             powerSlider.value = 0f;
-            ActivateRandomPowerUp();
+            //ActivateRandomPowerUp();
+            _shipController.SpawnPowerUpPickUp();
         }
     }
     public void AddChargeDamage(float amount)
@@ -60,10 +61,11 @@ public class PowerUpSystem : MonoBehaviour
         if (powerSlider.value >= maxCharge)
         {
             powerSlider.value = 0f;
-            ActivateRandomPowerUp();
+            //ActivateRandomPowerUp();
+            _shipController.SpawnPowerUpPickUp();
         }
     }
-    private void ActivateRandomPowerUp()
+    public void ActivateRandomPowerUp()
     {
         int random = Random.Range(0, 3);
 

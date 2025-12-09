@@ -9,9 +9,10 @@ public class shipController : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _box;
+    [SerializeField] private GameObject _powerUpPickUp;
     [SerializeField] private float launchForce;
     [SerializeField] private float _invincibleTimerInSeconds;
-    public enum ShootingMode 
+    public enum ShootingMode
     {
         Single,
         Triple
@@ -63,7 +64,7 @@ public class shipController : MonoBehaviour
     {
         transform.position = position;
     }
-    
+
     public void Shoot()
     {
         if (!inDialogue)
@@ -74,10 +75,10 @@ public class shipController : MonoBehaviour
 
             _FIRECOOLDOWN = FiringCooldown;
             //Instantiate(_bullet, new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z), Quaternion.identity);
-           
+
             Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z);
 
-            switch (curentShootingMode) 
+            switch (curentShootingMode)
             {
                 case ShootingMode.Single:
                     ShootSingle(spawnPos);
@@ -90,14 +91,14 @@ public class shipController : MonoBehaviour
                 default:
                     ShootSingle(spawnPos);
                     break;
-            }                      
+            }
         }
     }
     private void ShootSingle(Vector3 spawnPos)
     {
         Instantiate(_bullet, spawnPos, Quaternion.identity);
     }
-    private void ShootTriple(Vector3 spawnPos) 
+    private void ShootTriple(Vector3 spawnPos)
     {
         // Angles for triple shot
         float[] angles = { -15f, 0f, 15f };
@@ -112,7 +113,7 @@ public class shipController : MonoBehaviour
     {
         if (col.gameObject.tag == "EnemyBullet" || col.gameObject.tag == "Enemy")
         {
-            if(_isInvincible || inDialogue) return;
+            if (_isInvincible || inDialogue) return;
 
             TookDamage?.Invoke(3);
             if (col.CompareTag("Enemy"))
@@ -120,16 +121,16 @@ public class shipController : MonoBehaviour
                 col.gameObject.GetComponent<enemyController>().EnemyTakeDamage(1);
             }
             StartCoroutine(InvincibiltyFrames());
-            
-            
-            for(int i=0; i<3; i++)
+
+
+            for (int i = 0; i < 3; i++)
             {
                 var cookieBox = Instantiate(_box, transform.position, Quaternion.identity);
                 int sign = -1;
                 if (Random.Range(-1, 1) >= 0) { sign = 1; }
                 cookieBox.GetComponent<Rigidbody2D>().AddForce(new Vector3(Random.Range(25, 40) * sign, launchForce, 0) * BoxForce, ForceMode2D.Force);
             }
-            
+
             /*cookieBox = Instantiate(_box, transform.position, Quaternion.identity);
             sign = -1;
             if (Random.Range(-1, 1) >= 0) { sign = 1; }
@@ -148,6 +149,18 @@ public class shipController : MonoBehaviour
         }
     }
 
+    public void SpawnPowerUpPickUp() 
+    {
+        if (_powerUpPickUp == null) 
+        {
+            Debug.LogWarning("No PowerUp asssigned to ship controler");
+            return;
+        }
+
+        Instantiate(_powerUpPickUp, transform.position, Quaternion.identity);
+    }
+
+    
     private IEnumerator InvincibiltyFrames()
     {
         _isInvincible = true;

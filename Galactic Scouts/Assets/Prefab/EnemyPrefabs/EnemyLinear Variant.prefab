@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyLinear Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2594026991558480750, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
+      propertyPath: powerUpIncrase
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594026991558480750, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
+      propertyPath: powerUpAmountKill
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7394288707818613897, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
       propertyPath: movementType
       value: 0
@@ -96,9 +104,23 @@ MonoBehaviour:
   movementType: 0
   verticalSpeed: 2
   lifeTime: 10
+  spawnTime: 0
   horizontalSpeedRange: 1
   waveAmplitude: 1
   waveFrequency: 2
   playerTag: Player
   trackStrength: 0.5
   maxHorizontalSpeed: 2
+  stopY: 2
+  patrolSpeed: 3
+  shootInterval: 1.5
+  projectilePrefab: {fileID: 0}
+  shootPoint: {fileID: 0}
+  exitSpeed: 4
+  nextShootTime: 0
+  minX: -4
+  maxX: 4
+  thiefSpeed: 3
+  thiefTrackStrength: 1
+  boxPickDelay: 0.5
+  escapeMode: 0

@@ -4011,18 +4011,6 @@ MonoBehaviour:
       maxY: 6
     spawnInterval: 0.3
     delayBeforeNextWave: 0.5
-  - waveName: One lone Wave Enemy
-    enemy:
-    - enemyType:
-        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
-        spawnRadius: 0
-      amount: 1
-      minX: -8
-      maxX: 8
-      minY: 6
-      maxY: 6
-    spawnInterval: 0.3
-    delayBeforeNextWave: 2
   - waveName: Wave 4, Wave Enemy full intro
     enemy:
     - enemyType:
@@ -4051,6 +4039,18 @@ MonoBehaviour:
       maxY: 6
     spawnInterval: 0.3
     delayBeforeNextWave: 3
+  - waveName: One lone Wave Enemy
+    enemy:
+    - enemyType:
+        prefab: {fileID: 2031524483612525576, guid: 9604483919025794fbf9e72ffaa6b2ec, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -8
+      maxX: 8
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.3
+    delayBeforeNextWave: 2
   spawnPoints: []
   wavePanel: {fileID: 1892827837}
   waveText: {fileID: 671078686}
@@ -4594,6 +4594,7 @@ MonoBehaviour:
   _animator: {fileID: 2058818554}
   _bullet: {fileID: 8350749309788353661, guid: fa1a39aca888a744c96b3c427708a36e, type: 3}
   _box: {fileID: 4405899410762375154, guid: 5966086cc4854bc4da2631f8a03802d0, type: 3}
+  _powerUpPickUp: {fileID: 2031524483612525576, guid: 9604483919025794fbf9e72ffaa6b2ec, type: 3}
   launchForce: 120
   _invincibleTimerInSeconds: 0.8
   curentShootingMode: 0

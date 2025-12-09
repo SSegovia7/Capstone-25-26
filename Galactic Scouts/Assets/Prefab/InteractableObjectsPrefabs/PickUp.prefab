@@ -191,6 +191,10 @@ MonoBehaviour:
   nextShootTime: 0
   minX: -4
   maxX: 4
+  thiefSpeed: 3
+  thiefTrackStrength: 1
+  boxPickDelay: 0.5
+  escapeMode: 0
 --- !u!114 &7963246064214054861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,4 +207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a8744c8396f88d4d8260d6615c79a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeAmount: 100
+  pickUpDelay: 1
+  launchForce: 7
+  horizontalRangeMin: 25
+  horizontalRangeMax: 40
+  impulseMultiplier: 5
