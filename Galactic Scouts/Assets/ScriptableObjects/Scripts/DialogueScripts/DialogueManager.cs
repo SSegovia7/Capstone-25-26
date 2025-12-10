@@ -24,7 +24,7 @@ public class DialogueManager : MonoBehaviour
     private int currentDialogueStep = 0;
 
     private float typingSpeed = 0.05f;
-    private float timeAfterTextCompletes = 5f;
+    [SerializeField] private float timeAfterTextCompletes = 5f;
 
     public gameManager gameManager;
     private void Start()

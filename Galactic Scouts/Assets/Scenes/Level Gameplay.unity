@@ -1209,6 +1209,7 @@ MonoBehaviour:
   currentDialogueData:
   - {fileID: 11400000, guid: 144cf9eda711ba949bf8c884b823ba9f, type: 2}
   - {fileID: 11400000, guid: cd8deb53f7f52c04bab29e4baff3c719, type: 2}
+  timeAfterTextCompletes: 2
   gameManager: {fileID: 902476460}
 --- !u!4 &502900730
 Transform:
@@ -3224,7 +3225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1627047178
 Transform:
   m_ObjectHideFlags: 0
@@ -3634,7 +3635,7 @@ MonoBehaviour:
       minY: 0
       maxY: 0
     spawnInterval: 0
-    delayBeforeNextWave: 0.1
+    delayBeforeNextWave: 4.5
   - waveName: Wave 1
     enemy:
     - enemyType:
