@@ -9,10 +9,11 @@ public class PickUpTrigger : MonoBehaviour
     [SerializeField] private float impulseMultiplier = 5f;
     private bool canBePicked = false;
 
-    private void Start()
+    private void Awake()
     {
         ApplyImpulse();
         StartCoroutine(EnablePickupAfterDelay());
+        Debug.Log("Awake running on pickup: " + gameObject.name);
     }
 
     private void ApplyImpulse() 
@@ -23,6 +24,7 @@ public class PickUpTrigger : MonoBehaviour
 
         Vector3 force = new Vector3(Random.Range(horizontalRangeMin, horizontalRangeMax) * sign, launchForce, 0) * impulseMultiplier;
         rb.AddForce(force, ForceMode2D.Force);
+        Debug.Log("Applied force: " + force);
     }
     private System.Collections.IEnumerator EnablePickupAfterDelay() 
     {
