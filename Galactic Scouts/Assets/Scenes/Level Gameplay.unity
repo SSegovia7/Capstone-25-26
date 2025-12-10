@@ -1171,7 +1171,7 @@ MonoBehaviour:
   _gameManager: {fileID: 902476460}
   _shipController: {fileID: 2058818552}
   speedIncreaseAmount: 1.5
-  fireRateMultiplier: 0.7
+  fireRateMultiplier: 1
   powerUpDuration: 10
 --- !u!1 &502900728
 GameObject:
@@ -3835,7 +3835,7 @@ MonoBehaviour:
       minY: 6
       maxY: 6
     spawnInterval: 0.3
-    delayBeforeNextWave: 7
+    delayBeforeNextWave: 12
   spawnPoints: []
   wavePanel: {fileID: 1892827837}
   waveText: {fileID: 671078686}
@@ -4909,9 +4909,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3508375892618456394, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2f1d5b19acdead443bac61a5ed556d82, type: 3}
+    - target: {fileID: 3508375892618456394, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3562763299883809130, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
       propertyPath: m_Name
       value: DialogueCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5890704341916606569, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5890704341916606569, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6270191614839151020, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6270191614839151020, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6270191614839151020, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7910187390827770774, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
       propertyPath: m_Pivot.x
