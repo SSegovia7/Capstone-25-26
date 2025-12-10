@@ -1245,6 +1245,7 @@ MonoBehaviour:
   powerSlider: {fileID: 2008090420}
   maxCharge: 100
   enemyKillCharge: 10
+  enemyDamageCharge: 2
   pickUpFullCharge: 100
   _gameManager: {fileID: 902476460}
   _shipController: {fileID: 2058818552}
@@ -3724,7 +3725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627047177}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3733,7 +3734,7 @@ Transform:
   - {fileID: 662097094}
   - {fileID: 1810511715}
   - {fileID: 74429055}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2013310447}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1633626819
 GameObject:
@@ -4330,8 +4331,8 @@ MonoBehaviour:
         prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
         spawnRadius: 0
       amount: 1
-      minX: -8
-      maxX: 8
+      minX: -5
+      maxX: 5
       minY: 6
       maxY: 6
     spawnInterval: 0.3
@@ -4358,12 +4359,104 @@ MonoBehaviour:
         prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
         spawnRadius: 0
       amount: 3
+      minX: -5
+      maxX: 5
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.3
+    delayBeforeNextWave: 5
+  - waveName: Wave 5, Tracking enemy introduced
+    enemy:
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 0
+      amount: 2
+      minX: -8
+      maxX: 8
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 5987195949268411551, guid: 105bb04340613ef44a1f6b2f0f4f0ec4, type: 3}
+        spawnRadius: 0
+      amount: 2
+      minX: -8
+      maxX: 8
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+        spawnRadius: 0
+      amount: 1
       minX: -8
       maxX: 8
       minY: 6
       maxY: 6
     spawnInterval: 0.3
-    delayBeforeNextWave: 3
+    delayBeforeNextWave: 7
+  - waveName: Ending part 1
+    enemy:
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 8
+      minX: -8
+      maxX: 8
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 0
+      amount: 5
+      minX: -7
+      maxX: 7
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 5987195949268411551, guid: 105bb04340613ef44a1f6b2f0f4f0ec4, type: 3}
+        spawnRadius: 0
+      amount: 3
+      minX: -6
+      maxX: 6
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 0
+      amount: 3
+      minX: -8
+      maxX: 8
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 6
+      maxX: 6
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -6
+      maxX: -6
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.3
+    delayBeforeNextWave: 5
+  - waveName: Ending Part 2
+    enemy:
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+        spawnRadius: 0
+      amount: 5
+      minX: -8
+      maxX: 8
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.3
+    delayBeforeNextWave: 7
   spawnPoints: []
   wavePanel: {fileID: 1892827837}
   waveText: {fileID: 671078686}
@@ -4564,6 +4657,7 @@ Transform:
   m_Children:
   - {fileID: 1947551627}
   - {fileID: 492298325}
+  - {fileID: 1627047178}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2017969604
@@ -4907,6 +5001,7 @@ MonoBehaviour:
   _animator: {fileID: 2058818554}
   _bullet: {fileID: 8350749309788353661, guid: fa1a39aca888a744c96b3c427708a36e, type: 3}
   _box: {fileID: 4405899410762375154, guid: 5966086cc4854bc4da2631f8a03802d0, type: 3}
+  _powerUpPickUp: {fileID: 0}
   launchForce: 70
   _invincibleTimerInSeconds: 0.8
   curentShootingMode: 0
@@ -5594,7 +5689,6 @@ SceneRoots:
   - {fileID: 176446889}
   - {fileID: 2017969607}
   - {fileID: 2013310447}
-  - {fileID: 1627047178}
   - {fileID: 944144258}
   - {fileID: 2038136036}
   - {fileID: 240876249}
