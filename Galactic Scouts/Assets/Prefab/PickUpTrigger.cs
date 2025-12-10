@@ -22,6 +22,7 @@ public class PickUpTrigger : MonoBehaviour
         int sign = Random.Range(0, 2) == 0 ? -1 : 1;
 
         Vector3 force = new Vector3(Random.Range(horizontalRangeMin, horizontalRangeMax) * sign, launchForce, 0) * impulseMultiplier;
+        rb.AddForce(force, ForceMode2D.Force);
     }
     private System.Collections.IEnumerator EnablePickupAfterDelay() 
     {

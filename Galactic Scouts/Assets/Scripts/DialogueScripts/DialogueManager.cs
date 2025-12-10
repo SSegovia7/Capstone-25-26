@@ -36,10 +36,13 @@ public class DialogueManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (currentDialogueData == null || currentDialogueData.Length == 0)
+            return;
+
         //Advances dialogue automatically if there is dialogue data to run
-        if (currentDialogueData[0] != null && advanceCurrentDialogue)
+        if (advanceCurrentDialogue)
         {
-            if (currentDialogueStep + 1 <= currentDialogueData.Length)
+            if (currentDialogueStep < currentDialogueData.Length)
             {
                 UpdateDialogue(currentDialogueData[currentDialogueStep]);
             }
