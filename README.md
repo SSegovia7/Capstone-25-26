@@ -16,8 +16,13 @@
 - Tab - Pause
 
 ## Known Major Bugs
-- Shooting enemies don't work correctly
-- Boxes can't be collected if the player continues to touch it as it launches
+- Fix pausing issue when resetting the scene
+- Fix issue where player can't collect box if the constantly touch it as soon as it spawns
+- triple shot - bullets do 1/3rd damage
+- powerup stacking issue
+- you can juggle hp, have 2-3 boxes come out when hit
+- controls change?????(z,x,c for inputs)
+- Changing "enemy kill charge" in powerup system seems to not work
 
 ## Big Questions for the game
 - How would playtesting be different if the person has played our game before?
