@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbf324f3dd1ccfd49bd7e32aabad7849, type: 3}
-  m_Name: Dialogue Test
+  m_Name: DialogueTest3 2
   m_EditorClassIdentifier: 
-  dialogue: Scout reporting for duty!
+  dialogue: Sick! Do we get to use our weapons?
   speakerPortrait: {fileID: 21300000, guid: 43ae533d67a1fc44697a64c3fa3bda5b, type: 3}
-  speakerName: Lyona
+  speakerName: Commander

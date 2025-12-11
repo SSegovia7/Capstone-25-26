@@ -1210,9 +1210,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 144cf9eda711ba949bf8c884b823ba9f, type: 2}
   - {fileID: 11400000, guid: cd8deb53f7f52c04bab29e4baff3c719, type: 2}
   - {fileID: 11400000, guid: c883dbad1c87eff4f8743ab60724df08, type: 2}
-  - {fileID: 11400000, guid: cd8deb53f7f52c04bab29e4baff3c719, type: 2}
-  - {fileID: 11400000, guid: cd8deb53f7f52c04bab29e4baff3c719, type: 2}
-  - {fileID: 11400000, guid: cd8deb53f7f52c04bab29e4baff3c719, type: 2}
+  - {fileID: 11400000, guid: 0fc245e9af13e47498cf9c376ce88cf2, type: 2}
+  - {fileID: 11400000, guid: b8c5225fef1b1cf418022746ce263eeb, type: 2}
+  - {fileID: 11400000, guid: 2c16512c258d32b448e30ab2b7c768e0, type: 2}
+  - {fileID: 11400000, guid: c7e7a78c46c1dac48beffaf01050bc59, type: 2}
+  - {fileID: 11400000, guid: e45c79e1da21565429200aafa5b3277f, type: 2}
+  typingSpeed: 0.02
   timeAfterTextCompletes: 2
   gameManager: {fileID: 902476460}
 --- !u!4 &502900730
@@ -3639,7 +3642,7 @@ MonoBehaviour:
       minY: 0
       maxY: 0
     spawnInterval: 0
-    delayBeforeNextWave: 8.5
+    delayBeforeNextWave: 16.5
   - waveName: Wave 1
     enemy:
     - enemyType:

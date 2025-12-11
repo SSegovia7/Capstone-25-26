@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbf324f3dd1ccfd49bd7e32aabad7849, type: 3}
-  m_Name: Dialogue Test
+  m_Name: DialogueTest6 1
   m_EditorClassIdentifier: 
-  dialogue: Scout reporting for duty!
-  speakerPortrait: {fileID: 21300000, guid: 43ae533d67a1fc44697a64c3fa3bda5b, type: 3}
-  speakerName: Lyona
+  dialogue: 'Wait, we must still be careful!   '
+  speakerPortrait: {fileID: 21300000, guid: 2f1d5b19acdead443bac61a5ed556d82, type: 3}
+  speakerName: Commander

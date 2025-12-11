@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf324f3dd1ccfd49bd7e32aabad7849, type: 3}
   m_Name: DialogueTest2
   m_EditorClassIdentifier: 
-  dialogue: test 2
+  dialogue: Scout reporting for duty ma'am!
   speakerPortrait: {fileID: 21300000, guid: 2f1d5b19acdead443bac61a5ed556d82, type: 3}
   speakerName: Remi
