@@ -3642,7 +3642,7 @@ MonoBehaviour:
       minY: 0
       maxY: 0
     spawnInterval: 0
-    delayBeforeNextWave: 16.5
+    delayBeforeNextWave: 20.5
   - waveName: Wave 1
     enemy:
     - enemyType:
