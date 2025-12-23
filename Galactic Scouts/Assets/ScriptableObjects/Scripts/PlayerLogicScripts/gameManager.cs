@@ -34,6 +34,7 @@ public class gameManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1.0f;
         _SHIP.TookDamage += PlayerTakeDamage;
         _SHIP.GainHP += PlayerHealHealth;
         _HUD.UpdateHealthDisplay(playerHealth);
