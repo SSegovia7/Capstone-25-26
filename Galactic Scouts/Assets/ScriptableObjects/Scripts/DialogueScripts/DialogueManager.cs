@@ -13,6 +13,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject characterPortrait;
     [SerializeField] private GameObject characterName;
 
+    [SerializeField] private enemySpawnSystem enemySpawner;
+
     //Components needed on objects
     private TextMeshProUGUI dialogueBoxText;
     private TextMeshProUGUI characterNameText;
@@ -53,6 +55,7 @@ public class DialogueManager : MonoBehaviour
                 currentDialogueData = null;
                 dialogueCanvas.SetActive(false);
                 gameManager.EndDialogue();
+                if (enemySpawner != null) { StartEnemySpawner(); }
             }
         }
     }
@@ -79,5 +82,9 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(timeAfterTextCompletes);
         currentDialogueStep += 1;
         advanceCurrentDialogue = true;
+    }
+    public void StartEnemySpawner() 
+    {
+        enemySpawner.enabled = true;
     }
 }
