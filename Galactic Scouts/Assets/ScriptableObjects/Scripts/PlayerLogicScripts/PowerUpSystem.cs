@@ -84,9 +84,19 @@ public class PowerUpSystem : MonoBehaviour
                 break;
         }
     }
+    private void ResetAllPowerUps()
+    {// resets ship speed
+        _gameManager.speed = _gameManager.defaultSpeed;
+     // resets firerate
+        _shipController.FiringCooldown = _shipController.defaultFiringCooldown;
+     // resets shooting mode
+        var ship = FindObjectOfType<shipController>();
+        ship.curentShootingMode = shipController.ShootingMode.Single;
+    }
 
     private void StartSpeedPowerUp()
     {
+        ResetAllPowerUps();
         if (_gameManager == null) return;
 
         // Stop previous power-up if active
@@ -114,6 +124,7 @@ public class PowerUpSystem : MonoBehaviour
 
     private void StartFireRatePowerUp()
     {
+        ResetAllPowerUps();
         if (_shipController == null) return;
 
         if (activeRoutine != null) StopCoroutine(activeRoutine);
@@ -139,6 +150,7 @@ public class PowerUpSystem : MonoBehaviour
 
     private void StartTripleShotPowerUp()
     {
+        ResetAllPowerUps();
         if (_shipController == null) return;
 
         if (activeRoutine != null) StopCoroutine(activeRoutine);
