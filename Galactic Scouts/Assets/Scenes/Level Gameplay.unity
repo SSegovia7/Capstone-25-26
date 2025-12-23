@@ -4699,9 +4699,10 @@ MonoBehaviour:
   _sprite: {fileID: 2058818549}
   _animator: {fileID: 2058818554}
   _bullet: {fileID: 8350749309788353661, guid: fa1a39aca888a744c96b3c427708a36e, type: 3}
+  _bulletTripleShot: {fileID: 4185631397374697641, guid: 95a2157bd271be442a2553d1a0d3176c, type: 3}
   _box: {fileID: 4405899410762375154, guid: 5966086cc4854bc4da2631f8a03802d0, type: 3}
   _powerUpPickUp: {fileID: 6359834535234600035, guid: bcab652727bfe7b4ab3d035feed139cb, type: 3}
-  launchForce: 120
+  launchForce: 140
   _invincibleTimerInSeconds: 0.8
   curentShootingMode: 0
   defaultFiringCooldown: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
     public float speed = 5f;
+    public float bulletDamage = 1f;
     private Rigidbody2D _rb;
     // Start is called before the first frame update
     /*void Update()
@@ -28,7 +29,7 @@ public class bullet : MonoBehaviour
         }
         if (col.gameObject.tag == "Enemy")
         {
-            col.gameObject.GetComponent<enemyController>().EnemyTakeDamage(1);
+            col.gameObject.GetComponent<enemyController>().EnemyTakeDamage(bulletDamage);
             Destroy(this.gameObject);
         }
     }

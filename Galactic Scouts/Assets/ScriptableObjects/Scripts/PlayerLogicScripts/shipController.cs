@@ -8,6 +8,7 @@ public class shipController : MonoBehaviour
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _bullet;
+    [SerializeField] private GameObject _bulletTripleShot;
     [SerializeField] private GameObject _box;
     [SerializeField] private GameObject _powerUpPickUp;
     [SerializeField] private float launchForce;
@@ -106,7 +107,7 @@ public class shipController : MonoBehaviour
         foreach (float angle in angles)
         {
             Quaternion rot = Quaternion.Euler(0f, 0f, angle);
-            Instantiate(_bullet, spawnPos, rot);
+            Instantiate(_bulletTripleShot, spawnPos, rot);
         }
     }
     void OnTriggerEnter2D(Collider2D col)

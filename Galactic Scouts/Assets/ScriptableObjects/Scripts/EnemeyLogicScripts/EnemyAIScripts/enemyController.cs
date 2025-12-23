@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class enemyController : MonoBehaviour
 {
-    public int health = 3;
+    public float health = 3f;
     public float speed = 2f;
     public float powerUpAmountDamage = 2f;
     public float powerUpAmountKill = 5f;
@@ -26,7 +26,7 @@ public class enemyController : MonoBehaviour
     {
         transform.position = new Vector3(transform.position.x, transform.position.y - (1 * speed * Time.deltaTime), transform.position.z);
     }
-    public void EnemyTakeDamage(int damage)
+    public void EnemyTakeDamage(float damage)
     {
         health -= damage;
         if (powerUpIncrase)
