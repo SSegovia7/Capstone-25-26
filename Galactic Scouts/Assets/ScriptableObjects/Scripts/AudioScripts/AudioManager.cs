@@ -7,6 +7,13 @@ using UnityEditor;
 
 public static class AudioManager
 {
+    private static AudioMixerGroup _musicMixer;
+    private static AudioMixerGroup _soundFxMixer;
+    public static void Initialize(AudioMixer mixer)
+    {
+        _musicMixer = mixer.FindMatchingGroups("Music")[0];
+        _soundFxMixer = mixer.FindMatchingGroups("SoundFX")[0];
+    }
     public enum ThemeTrack
     {
         StageOne
@@ -28,6 +35,10 @@ public static class AudioManager
     {
         AudioClip intro = GetTrackAudioClip(track, MusicTrackStage.beginning);
         AudioClip main = GetTrackAudioClip(track, MusicTrackStage.main);
+        
+        //this is added audiomixer attempted
+        audioSource.outputAudioMixerGroup = _musicMixer;
+        audioSource.loop = false;
 
         audioSource.clip = intro;
         audioSource.Play();
@@ -41,11 +52,25 @@ public static class AudioManager
 
     public static void PlaySound(Sound sound, float timeUntilDestroy = 3.0f)
     {
-        float volume;
+        /*float volume;
         AudioClip audioClip = GetSoundAudioClip(sound, out volume);
 
         GameObject soundGO = new GameObject("Sound");
         AudioSource audioSource = soundGO.AddComponent<AudioSource>();
+        audioSource.volume = volume;
+        audioSource.PlayOneShot(audioClip);
+
+        UnityEngine.Object.Destroy(soundGO, timeUntilDestroy);*/
+
+        float volume;
+        AudioClip audioClip = GetSoundAudioClip(sound, out volume);
+       
+        if (audioClip == null) return;
+
+        GameObject soundGO = new GameObject("Sound");
+        AudioSource audioSource = soundGO.AddComponent<AudioSource>();
+
+        audioSource.outputAudioMixerGroup = _soundFxMixer;
         audioSource.volume = volume;
         audioSource.PlayOneShot(audioClip);
 
