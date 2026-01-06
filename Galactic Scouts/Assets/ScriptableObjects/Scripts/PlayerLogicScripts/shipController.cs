@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class shipController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rb2d;
@@ -31,9 +31,11 @@ public class shipController : MonoBehaviour
     [SerializeField] public float FiringCooldown;
 
     public bool inDialogue = false;
+    private CinemachineImpulseSource impulseSource;
     private void Start()
     {
         defaultFiringCooldown = FiringCooldown;
+        impulseSource = GetComponent<CinemachineImpulseSource>(); 
     }
     // void Update()
     // {
@@ -120,9 +122,10 @@ public class shipController : MonoBehaviour
             if (col.CompareTag("Enemy"))
             {
                 col.gameObject.GetComponent<enemyController>().EnemyTakeDamage(1);
+
             }
             StartCoroutine(InvincibiltyFrames());
-
+            
 
             for (int i = 0; i < 3; i++)
             {
