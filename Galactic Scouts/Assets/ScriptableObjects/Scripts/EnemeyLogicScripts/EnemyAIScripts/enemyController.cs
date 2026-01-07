@@ -49,4 +49,8 @@ public class enemyController : MonoBehaviour
         }
         Destroy(this.gameObject);
     }
+    public void SetHealth(float newHealth) 
+    {
+        health = newHealth;
+    }
 }

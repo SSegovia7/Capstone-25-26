@@ -13,6 +13,10 @@ PrefabInstance:
       value: Enemy Thief Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2594026991558480750, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
+      propertyPath: health
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594026991558480750, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
       propertyPath: boxPrefab
       value: 
       objectReference: {fileID: 4405899410762375154, guid: 5966086cc4854bc4da2631f8a03802d0, type: 3}

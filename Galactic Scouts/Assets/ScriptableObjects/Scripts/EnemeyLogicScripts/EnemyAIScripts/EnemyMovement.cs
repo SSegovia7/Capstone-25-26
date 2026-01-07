@@ -61,6 +61,7 @@ public class EnemyMovement : MonoBehaviour
     private float escapeHorizontalDir = 0f;
     private Rigidbody2D rb;
     private float nextPlayerSearchTime;
+    public float thiefHealthAfterSteal = 3f;
 
     void Start()
     {
@@ -248,6 +249,12 @@ public class EnemyMovement : MonoBehaviour
             
             //start cooldown before the box is stolen
             boxPickUpTimer = Time.time + boxPickDelay;
+            //Aply theif's Health Change
+            enemyController ec = GetComponent<enemyController>();
+            if (ec != null) 
+            {
+                ec.SetHealth(thiefHealthAfterSteal);
+            }
             return;
         }
         // AFTER STEALING IT CHASES THE BOX

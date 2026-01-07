@@ -2194,7 +2194,7 @@ Transform:
   m_GameObject: {fileID: 944144256}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4027,7 +4027,7 @@ MonoBehaviour:
   - waveName: Wave 1
     enemy:
     - enemyType:
-        prefab: {fileID: 5115373783273469147, guid: efbfc304b8e7cdd479953452360c4a52, type: 3}
+        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
         spawnRadius: 1
       amount: 1
       minX: -8
@@ -4035,7 +4035,7 @@ MonoBehaviour:
       minY: 6
       maxY: 6
     spawnInterval: 0.3
-    delayBeforeNextWave: 30
+    delayBeforeNextWave: 3
   - waveName: Wave 2, Shooters again and Linear intro
     enemy:
     - enemyType:
@@ -5616,6 +5616,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cf1242bcb7a76646b7a3745e2abbaab, type: 3}
+--- !u!1001 &2593132241138845156
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1658855158695548507, guid: bdb88526d7d763a4d896193a449468a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658855158695548507, guid: bdb88526d7d763a4d896193a449468a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658855158695548507, guid: bdb88526d7d763a4d896193a449468a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658855158695548507, guid: bdb88526d7d763a4d896193a449468a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658855158695548507, guid: bdb88526d7d763a4d896193a449468a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658855158695548507, guid: bdb88526d7d763a4d896193a449468a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658855158695548507, guid: bdb88526d7d763a4d896193a449468a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658855158695548507, guid: bdb88526d7d763a4d896193a449468a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658855158695548507, guid: bdb88526d7d763a4d896193a449468a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658855158695548507, guid: bdb88526d7d763a4d896193a449468a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645386793389596981, guid: bdb88526d7d763a4d896193a449468a9, type: 3}
+      propertyPath: m_Name
+      value: PS Planets
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bdb88526d7d763a4d896193a449468a9, type: 3}
 --- !u!1001 &3297811226514528325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6361,3 +6418,4 @@ SceneRoots:
   - {fileID: 2049552037}
   - {fileID: 8338452227534351327}
   - {fileID: 1172578131}
+  - {fileID: 2593132241138845156}
