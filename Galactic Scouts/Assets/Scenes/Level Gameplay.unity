@@ -1795,6 +1795,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 824907637}
+  - component: {fileID: 824907638}
   m_Layer: 0
   m_Name: CameraShakeManager
   m_TagString: Untagged
@@ -1817,6 +1818,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2013310447}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &824907638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824907636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df85878b8f30f784e88a97d22ccd942d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalShakeForce: 1
 --- !u!1 &902476457
 GameObject:
   m_ObjectHideFlags: 0
@@ -4013,15 +4027,15 @@ MonoBehaviour:
   - waveName: Wave 1
     enemy:
     - enemyType:
-        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        prefab: {fileID: 5115373783273469147, guid: efbfc304b8e7cdd479953452360c4a52, type: 3}
         spawnRadius: 1
-      amount: 3
+      amount: 1
       minX: -8
       maxX: 8
       minY: 6
       maxY: 6
     spawnInterval: 0.3
-    delayBeforeNextWave: 1
+    delayBeforeNextWave: 30
   - waveName: Wave 2, Shooters again and Linear intro
     enemy:
     - enemyType:

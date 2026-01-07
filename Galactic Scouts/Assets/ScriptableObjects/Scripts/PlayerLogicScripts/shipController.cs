@@ -168,7 +168,7 @@ public class shipController : MonoBehaviour
     private IEnumerator InvincibiltyFrames()
     {
         _isInvincible = true;
-
+        CameraShakeManager.instance.CameraShake(impulseSource);
         Color spriteColor = _sprite.color;
         spriteColor.a = 0.3f; //Changes Transparency values
         _sprite.color = spriteColor;

@@ -120,7 +120,7 @@ MonoBehaviour:
   nextShootTime: 0
   minX: -4
   maxX: 4
-  thiefSpeed: 5
+  thiefSpeed: 7
   thiefTrackStrength: 1
   boxPickDelay: 0.5
   escapeMode: 0
