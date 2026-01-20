@@ -70,6 +70,12 @@ public class gameManager : MonoBehaviour
     }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Debug.Log("PowerUpInputPressed");
+            PowerUpSystem.Instance.ActivateStoredPowerUp();
+        }
+
         if (Input.GetKeyDown(KeyCode.L))
         {
             SetupDialogue(testData);

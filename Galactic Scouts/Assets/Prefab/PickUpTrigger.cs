@@ -43,7 +43,7 @@ public class PickUpTrigger : MonoBehaviour
 
             if (PowerUpSystem.Instance != null)
             {
-                PowerUpSystem.Instance.ActivateRandomPowerUp();
+                PowerUpSystem.Instance.AddChargeKill(100f);
             }
 
             // Destroy the pickup object

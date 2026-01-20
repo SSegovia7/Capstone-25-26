@@ -2,17 +2,29 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum PowerUpType
+{
+    None,
+    TripleShot,
+    Speed,
+    FireRate
+}
+
 public class PowerUpSystem : MonoBehaviour
 {
     public static PowerUpSystem Instance;
 
-    [Header("UI Conection")]
+    [Header("UI Charge")]
     [SerializeField] private Slider powerSlider;
     [SerializeField] private float maxCharge = 100f;
-
     [SerializeField] private float enemyKillCharge = 10f;
     [SerializeField] private float enemyDamageCharge = 2f;
     [SerializeField] private float pickUpFullCharge = 100f;
+
+    [Header("Inventory System")]
+    [SerializeField] private GameObject tripleShotIcon;
+    [SerializeField] private GameObject speedIcon;
+    [SerializeField] private GameObject fireRateIcon;
 
     [Header("References")]
     public gameManager _gameManager;
@@ -23,37 +35,35 @@ public class PowerUpSystem : MonoBehaviour
     [SerializeField] private float fireRateMultiplier = 0.7f;
     [SerializeField] private float powerUpDuration = 10f;
 
-    // Internal state for restoring values
-    private float originalSpeed;
-    private float originalFireRate;
+    private PowerUpType storedPowerUp = PowerUpType.None;
     private Coroutine activeRoutine;
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+            Instance = this;
     }
 
     private void Start()
     {
         if (powerSlider != null)
             powerSlider.maxValue = maxCharge;
+
+        UpdateInventoryUI();
     }
 
     public void AddChargeKill(float amount)
     {
-        if (powerSlider == null) return;
-
-        powerSlider.value += amount;
-
-        if (powerSlider.value >= maxCharge)
-        {
-            powerSlider.value = 0f;
-            //ActivateRandomPowerUp();
-            _shipController.SpawnPowerUpPickUp();
-        }
+        AddCharge(amount);
     }
+
     public void AddChargeDamage(float amount)
     {
+        AddCharge(amount);
+    }
+
+    private void AddCharge(float amount)
+    {
         if (powerSlider == null) return;
 
         powerSlider.value += amount;
@@ -61,126 +71,94 @@ public class PowerUpSystem : MonoBehaviour
         if (powerSlider.value >= maxCharge)
         {
             powerSlider.value = 0f;
-            //ActivateRandomPowerUp();
-            _shipController.SpawnPowerUpPickUp();
+            StoreRandomPowerUp();
         }
     }
-    public void ActivateRandomPowerUp()
+
+    private void StoreRandomPowerUp()
     {
         int random = Random.Range(0, 3);
+        storedPowerUp = (PowerUpType)(random + 1); // skip None
+        UpdateInventoryUI();
 
-        switch (random)
+        Debug.Log("Stored PowerUp: " + storedPowerUp);
+    }
+
+    public void ActivateStoredPowerUp()
+    {
+        if (storedPowerUp == PowerUpType.None) return;
+
+        ResetAllPowerUps();
+
+        switch (storedPowerUp)
         {
-            case 0:
+            case PowerUpType.TripleShot:
                 StartTripleShotPowerUp();
                 break;
 
-            case 1:
+            case PowerUpType.Speed:
                 StartSpeedPowerUp();
                 break;
 
-            case 2:
+            case PowerUpType.FireRate:
                 StartFireRatePowerUp();
                 break;
         }
+
+        storedPowerUp = PowerUpType.None;
+        UpdateInventoryUI();
     }
+
+    private void UpdateInventoryUI()
+    {
+        tripleShotIcon.SetActive(storedPowerUp == PowerUpType.TripleShot);
+        speedIcon.SetActive(storedPowerUp == PowerUpType.Speed);
+        fireRateIcon.SetActive(storedPowerUp == PowerUpType.FireRate);
+    }
+
     private void ResetAllPowerUps()
-    {// resets ship speed
+    {
+        if (activeRoutine != null)
+            StopCoroutine(activeRoutine);
+
         _gameManager.speed = _gameManager.defaultSpeed;
-     // resets firerate
         _shipController.FiringCooldown = _shipController.defaultFiringCooldown;
-     // resets shooting mode
-        var ship = FindObjectOfType<shipController>();
-        ship.curentShootingMode = shipController.ShootingMode.Single;
+        _shipController.curentShootingMode = shipController.ShootingMode.Single;
     }
 
     private void StartSpeedPowerUp()
     {
-        ResetAllPowerUps();
-        if (_gameManager == null) return;
-
-        // Stop previous power-up if active
-        if (activeRoutine != null) StopCoroutine(activeRoutine);
-
-        // Save original value
-        originalSpeed = _gameManager.defaultSpeed;
-
-        // Apply boost
         _gameManager.speed *= speedIncreaseAmount;
-
-        Debug.Log("Power up activated: speed increase");
-
-        // Start timed effect
         activeRoutine = StartCoroutine(ResetSpeedAfterTime());
     }
 
     private IEnumerator ResetSpeedAfterTime()
     {
         yield return new WaitForSeconds(powerUpDuration);
-
         _gameManager.speed = _gameManager.defaultSpeed;
-        Debug.Log("Power up expired: speed restored");
     }
 
     private void StartFireRatePowerUp()
     {
-        ResetAllPowerUps();
-        if (_shipController == null) return;
-
-        if (activeRoutine != null) StopCoroutine(activeRoutine);
-
-        // Save original cooldown
-        originalFireRate = _shipController.defaultFiringCooldown;
-
-        // Apply boost (multiplying by <1 makes cooldown shorter)
         _shipController.FiringCooldown *= fireRateMultiplier;
-
-        Debug.Log("Power up activated: fire rate increase");
-
         activeRoutine = StartCoroutine(ResetFireRateAfterTime());
     }
 
     private IEnumerator ResetFireRateAfterTime()
     {
         yield return new WaitForSeconds(powerUpDuration);
-
         _shipController.FiringCooldown = _shipController.defaultFiringCooldown;
-        Debug.Log("Power up expired: fire rate restored");
     }
 
     private void StartTripleShotPowerUp()
     {
-        ResetAllPowerUps();
-        if (_shipController == null) return;
-
-        if (activeRoutine != null) StopCoroutine(activeRoutine);
-
-        var ship = FindObjectOfType<shipController>();
-
-        ship.curentShootingMode = shipController.ShootingMode.Triple;
-
-        Debug.Log("Power up activated: TripleShot");
-
+        _shipController.curentShootingMode = shipController.ShootingMode.Triple;
         activeRoutine = StartCoroutine(ResetTripleShotAfterTime());
     }
 
     private IEnumerator ResetTripleShotAfterTime()
     {
         yield return new WaitForSeconds(powerUpDuration);
-
-        var ship = FindObjectOfType<shipController>();
-
-        ship.curentShootingMode = shipController.ShootingMode.Single;
-
-        Debug.Log("Power up expired: Single restored");
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("PowerUp"))
-        {
-            AddChargeKill(pickUpFullCharge);
-            // Pickup is destroyed by its own script now
-        }
+        _shipController.curentShootingMode = shipController.ShootingMode.Single;
     }
 }
