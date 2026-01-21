@@ -3550,15 +3550,15 @@ MonoBehaviour:
   - waveName: Wave 1
     enemy:
     - enemyType:
-        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+        prefab: {fileID: 4355338129741178407, guid: 9c063d73ac83d86469bbe0ef0c84d716, type: 3}
         spawnRadius: 1
       amount: 1
       minX: -8
       maxX: 8
-      minY: 6
-      maxY: 6
+      minY: 4
+      maxY: 4
     spawnInterval: 0.3
-    delayBeforeNextWave: 3
+    delayBeforeNextWave: 999999
   - waveName: Wave 2, Shooters again and Linear intro
     enemy:
     - enemyType:

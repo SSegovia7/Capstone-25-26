@@ -10,7 +10,8 @@ public class EnemyMovement : MonoBehaviour
         Wave,
         TrackPlayer,
         BasicShooter,
-        Thief
+        Thief,
+        Boss1
     }
 
     [Header("General Settings")]
@@ -63,6 +64,24 @@ public class EnemyMovement : MonoBehaviour
     private float nextPlayerSearchTime;
     public float thiefHealthAfterSteal = 3f;
 
+    private enum BossState 
+    {
+        RapidShooter,
+        TrackThenCharge,
+        WaveMove,
+        Returning
+    }
+
+    [Header("Boss1 Settings")]
+    public float bossStateDuration = 4f;
+    public float bossRapidShootInterval = 0.3f;
+    public float bossTrackDuration = 2f;
+    public float bossChargeSpeed = 10f;
+    public float bossReturnSpeed = 4f;
+
+    private BossState bossState;
+    private float bossStateTimer;
+    private float originalY;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -71,6 +90,7 @@ public class EnemyMovement : MonoBehaviour
         waveOffset = UnityEngine.Random.Range(0f, 2f * Mathf.PI);
 
         spawnTime = Time.time;
+        originalY = transform.position.y;
 
         Destroy(gameObject, lifeTime);
     }
@@ -115,6 +135,10 @@ public class EnemyMovement : MonoBehaviour
 
             case MovementType.Thief:
                 HandleThief(ref velocity);
+                break;
+            
+            case MovementType.Boss1:
+                HandleBoss1(ref velocity);
                 break;
         }
 
@@ -164,6 +188,78 @@ public class EnemyMovement : MonoBehaviour
             Shoot();
             nextShootTime = Time.time + shootInterval;
         }
+    }
+
+    private void HandleBoss1(ref Vector2 velocity) 
+    {
+        bossStateTimer -= Time.fixedDeltaTime;
+        switch (bossState)
+        {
+            case BossState.RapidShooter:
+                HandleBossRapidShooter(ref velocity);
+                break;
+
+            case BossState.TrackThenCharge:
+                HandleBossTrackCharge(ref velocity);
+                break;
+
+            case BossState.WaveMove:
+                velocity = new Vector2(
+                    Mathf.Sin(Time.time * waveFrequency) * waveAmplitude,
+                    -verticalSpeed);
+                break;
+
+            case BossState.Returning:
+                float yDiff = originalY - transform.position.y;
+                velocity = new Vector2(0, Mathf.Sign(yDiff) * bossReturnSpeed);
+
+                if (Mathf.Abs(yDiff) < 0.1f)
+                {
+                    SetNextBossState();
+                }
+                
+            return;
+
+        }
+        if (bossStateTimer <= 0 && bossState != BossState.Returning) 
+        {
+            bossState = BossState.Returning;
+        }
+    }
+    private void HandleBossRapidShooter(ref Vector2 velocity)
+    {
+        velocity = Vector2.zero;
+
+        if (Time.time >= nextShootTime)
+        {
+            Shoot();
+            nextShootTime = Time.time + bossRapidShootInterval;
+        }
+    }
+    private void HandleBossTrackCharge(ref Vector2 velocity)
+    {
+        if (bossStateTimer > bossTrackDuration/2)
+        {
+            if (player != null)
+            {
+                float dx = Mathf.Clamp(
+                    (player.position.x - transform.position.x) * trackStrength,
+                    -maxHorizontalSpeed,
+                    maxHorizontalSpeed);
+
+                velocity = new Vector2(dx, 0);
+            }
+        }
+        else
+        {
+            velocity = Vector2.down * bossChargeSpeed;
+        }
+    }
+    private void SetNextBossState()
+    {
+        bossState = (BossState)Random.Range(0, 3);
+        bossStateTimer = bossStateDuration;
+        nextShootTime = Time.time;
     }
 
     private void Shoot()

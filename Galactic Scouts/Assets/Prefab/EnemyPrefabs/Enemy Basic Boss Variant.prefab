@@ -13,8 +13,48 @@ PrefabInstance:
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 151898422473188137, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+      propertyPath: movementType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 151898422473188137, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
       propertyPath: shootInterval
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 151898422473188137, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+      propertyPath: trackStrength
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 151898422473188137, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+      propertyPath: waveAmplitude
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 151898422473188137, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+      propertyPath: waveFrequency
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 151898422473188137, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+      propertyPath: bossChargeSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 151898422473188137, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+      propertyPath: bossReturnSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 151898422473188137, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+      propertyPath: bossStateDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 151898422473188137, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+      propertyPath: bossTrackDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 151898422473188137, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+      propertyPath: maxHorizontalSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 151898422473188137, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+      propertyPath: bossRapidShootInterval
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 839522983913626891, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
       propertyPath: m_Color.b
