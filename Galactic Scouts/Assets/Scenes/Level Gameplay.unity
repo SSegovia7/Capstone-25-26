@@ -1277,7 +1277,7 @@ MonoBehaviour:
   _gameManager: {fileID: 902476460}
   _shipController: {fileID: 2058818552}
   speedIncreaseAmount: 1.5
-  fireRateMultiplier: 1
+  fireRateMultiplier: 0.5
   powerUpDuration: 10
 --- !u!1 &502900728
 GameObject:
@@ -3547,18 +3547,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - waveName: Wave 1
-    enemy:
-    - enemyType:
-        prefab: {fileID: 4355338129741178407, guid: 9c063d73ac83d86469bbe0ef0c84d716, type: 3}
-        spawnRadius: 1
-      amount: 1
-      minX: -8
-      maxX: 8
-      minY: 4
-      maxY: 4
-    spawnInterval: 0.3
-    delayBeforeNextWave: 999999
   - waveName: Wave 2, Shooters again and Linear intro
     enemy:
     - enemyType:
@@ -3583,6 +3571,18 @@ MonoBehaviour:
       maxY: 6
     spawnInterval: 0.3
     delayBeforeNextWave: 3
+  - waveName: Theif Test
+    enemy:
+    - enemyType:
+        prefab: {fileID: 5115373783273469147, guid: efbfc304b8e7cdd479953452360c4a52, type: 3}
+        spawnRadius: 1
+      amount: 3
+      minX: -8
+      maxX: 8
+      minY: 4
+      maxY: 4
+    spawnInterval: 0.8
+    delayBeforeNextWave: 999999
   - waveName: Wave 3 MORE SHOOTERS
     enemy:
     - enemyType:
@@ -3747,6 +3747,18 @@ MonoBehaviour:
       maxY: 6
     spawnInterval: 0.3
     delayBeforeNextWave: 12
+  - waveName: BOSS TEST
+    enemy:
+    - enemyType:
+        prefab: {fileID: 4355338129741178407, guid: 9c063d73ac83d86469bbe0ef0c84d716, type: 3}
+        spawnRadius: 1
+      amount: 1
+      minX: -8
+      maxX: 8
+      minY: 4
+      maxY: 4
+    spawnInterval: 0.3
+    delayBeforeNextWave: 999999
   spawnPoints: []
   wavePanel: {fileID: 1892827837}
   waveText: {fileID: 671078686}
