@@ -18,11 +18,11 @@ public class uiHandler : MonoBehaviour
     {
         if (hp < 10)
         {
-            _HEALTHDISPLAY.text = "Health: 0" + hp;
+            _HEALTHDISPLAY.text =  hp.ToString();
         }
         else
         {
-            _HEALTHDISPLAY.text = "Health: " + hp;
+            _HEALTHDISPLAY.text = hp.ToString();
         }
         
     }
