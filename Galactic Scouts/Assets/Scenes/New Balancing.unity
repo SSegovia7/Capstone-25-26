@@ -3773,8 +3773,36 @@ MonoBehaviour:
       maxX: 0
       minY: 6
       maxY: 6
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 5
+      maxX: 5
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -5
+      maxX: -5
+      minY: 6
+      maxY: 6
     spawnInterval: 0.4
-    delayBeforeNextWave: 1
+    delayBeforeNextWave: 0.5
+  - waveName: Shooters to support wave
+    enemy:
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 0
+      maxX: 0
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.4
+    delayBeforeNextWave: 0.5
   spawnPoints: []
   wavePanel: {fileID: 1892827837}
   waveText: {fileID: 671078686}
