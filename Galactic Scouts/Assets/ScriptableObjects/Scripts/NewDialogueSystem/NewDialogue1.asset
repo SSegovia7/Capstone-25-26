@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b6cead9ac0bcce48a84d460349cb114, type: 3}
+  m_Name: NewDialogue1
+  m_EditorClassIdentifier: 
+  lines:
+  - characterName: Ryan
+    tx: 'Hello '
+    spr: {fileID: 21300000, guid: 96a662a8dd241f848a806700cec91d68, type: 3}
+    action: 0
+  - characterName: Jose
+    tx: Hi Ryan
+    spr: {fileID: 21300000, guid: 43ae533d67a1fc44697a64c3fa3bda5b, type: 3}
+    action: 0

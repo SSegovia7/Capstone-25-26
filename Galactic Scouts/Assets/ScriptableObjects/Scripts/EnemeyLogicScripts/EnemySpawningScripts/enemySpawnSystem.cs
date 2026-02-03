@@ -11,6 +11,8 @@ public class enemySpawnSystem : MonoBehaviour
         public List<EnemySpawnData> enemy = new List<EnemySpawnData>();
         public float spawnInterval = 0.5f;
         public float delayBeforeNextWave = 5f;
+        public bool useDialogue;
+        public DataD dialogue;
     }
     
     [System.Serializable]
@@ -33,6 +35,8 @@ public class enemySpawnSystem : MonoBehaviour
 
     [Header("Waves Configuration")]
     public List<Wave> waves = new List<Wave>();
+    public DialogueSystem manager;
+    
 
     [Header("Spawn Points")]
     public Transform[] spawnPoints;
@@ -59,17 +63,25 @@ public class enemySpawnSystem : MonoBehaviour
         {
             Wave wave = waves[currentWaveIndex];
 
-            if (wavePanel != null && waveText != null)
+            if (wave.useDialogue) manager.InitializeDialogue(wave.dialogue);
+
+
+            if (!manager.isDialogueActive) 
             {
-                wavePanel.SetActive(true);
-                waveText.text = $"{wave.waveName} ({currentWaveIndex + 1}/{waves.Count})";
-                yield return new WaitForSeconds(2f);
-                wavePanel.SetActive(false);
+                if (wavePanel != null && waveText != null)
+                {
+                    wavePanel.SetActive(true);
+                    waveText.text = $"{wave.waveName} ({currentWaveIndex + 1}/{waves.Count})";
+                    yield return new WaitForSeconds(2f);
+                    wavePanel.SetActive(false);
+                }
+
+                yield return StartCoroutine(SpawnWave(wave));
+
+                yield return new WaitForSeconds(wave.delayBeforeNextWave);
             }
 
-            yield return StartCoroutine(SpawnWave(wave));
-
-            yield return new WaitForSeconds(wave.delayBeforeNextWave);
+            
         }
 
         Debug.Log("All waves completed.");

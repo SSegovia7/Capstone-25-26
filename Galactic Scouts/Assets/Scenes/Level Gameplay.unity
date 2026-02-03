@@ -1295,7 +1295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &502900729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1322,6 +1322,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2c16512c258d32b448e30ab2b7c768e0, type: 2}
   - {fileID: 11400000, guid: c7e7a78c46c1dac48beffaf01050bc59, type: 2}
   - {fileID: 11400000, guid: e45c79e1da21565429200aafa5b3277f, type: 2}
+  advanceCurrentDialogue: 1
+  currentDialogueStep: 0
   typingSpeed: 0.02
   timeAfterTextCompletes: 2
   gameManager: {fileID: 902476460}
@@ -2172,11 +2174,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1869773291627386292, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
   m_PrefabInstance: {fileID: 375067115657881022}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1057363251 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3508375892618456394, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
+  m_PrefabInstance: {fileID: 375067115657881022}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057363249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1097109137 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 555585673370050265, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
   m_PrefabInstance: {fileID: 375067115657881022}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1097109139 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3673358754607709797, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
+  m_PrefabInstance: {fileID: 375067115657881022}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097109137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1120811317
 GameObject:
   m_ObjectHideFlags: 0
@@ -3108,6 +3132,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1488816803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5535222634432464626, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
+  m_PrefabInstance: {fileID: 375067115657881022}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1489103705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1489103707}
+  - component: {fileID: 1489103706}
+  m_Layer: 0
+  m_Name: NewDialogueSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1489103706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489103705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d845eee191a8cd49bb2ed9744e9fe2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 0}
+  dialoguePanel: {fileID: 1488816803}
+  dialogueDemo: {fileID: 11400000, guid: 126329a150f688547aef3d2a56fe3d4b, type: 2}
+  txName: {fileID: 1654710453}
+  txDialogue: {fileID: 1097109139}
+  imageCharacter: {fileID: 1057363251}
+  isDialogueActive: 0
+  spawn: {fileID: 0}
+--- !u!4 &1489103707
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489103705}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 762.84735, y: 770.9602, z: -0.17882384}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1518393397 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3562763299883809130, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
@@ -3350,6 +3431,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7942133358036149761, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
   m_PrefabInstance: {fileID: 375067115657881022}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1654710453 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2121608010564701914, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
+  m_PrefabInstance: {fileID: 375067115657881022}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654710452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1714592989 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3654872055111420128, guid: d0d4635eb75beca40b766e9ee2577589, type: 3}
@@ -3622,18 +3714,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - waveName: BOSS TEST
-    enemy:
-    - enemyType:
-        prefab: {fileID: 4355338129741178407, guid: 9c063d73ac83d86469bbe0ef0c84d716, type: 3}
-        spawnRadius: 1
-      amount: 1
-      minX: -8
-      maxX: 8
-      minY: 4
-      maxY: 4
-    spawnInterval: 0.3
-    delayBeforeNextWave: 999999
   - waveName: Wave 2, Shooters again and Linear intro
     enemy:
     - enemyType:
@@ -3646,6 +3726,8 @@ MonoBehaviour:
       maxY: 6
     spawnInterval: 0.3
     delayBeforeNextWave: 1
+    useDialogue: 1
+    dialogue: {fileID: 11400000, guid: 126329a150f688547aef3d2a56fe3d4b, type: 2}
   - waveName: Wave 2.5 Linears appear
     enemy:
     - enemyType:
@@ -3658,6 +3740,8 @@ MonoBehaviour:
       maxY: 6
     spawnInterval: 0.3
     delayBeforeNextWave: 3
+    useDialogue: 0
+    dialogue: {fileID: 0}
   - waveName: Theif Test
     enemy:
     - enemyType:
@@ -3670,6 +3754,8 @@ MonoBehaviour:
       maxY: 4
     spawnInterval: 0.8
     delayBeforeNextWave: 1
+    useDialogue: 0
+    dialogue: {fileID: 0}
   - waveName: Wave 3 MORE SHOOTERS
     enemy:
     - enemyType:
@@ -3690,6 +3776,8 @@ MonoBehaviour:
       maxY: 6
     spawnInterval: 0.3
     delayBeforeNextWave: 1
+    useDialogue: 0
+    dialogue: {fileID: 0}
   - waveName: Wave 3.5 Linear Barrage
     enemy:
     - enemyType:
@@ -3702,6 +3790,8 @@ MonoBehaviour:
       maxY: 6
     spawnInterval: 0.3
     delayBeforeNextWave: 0.5
+    useDialogue: 0
+    dialogue: {fileID: 0}
   - waveName: One lone Wave Enemy
     enemy:
     - enemyType:
@@ -3714,6 +3804,8 @@ MonoBehaviour:
       maxY: 6
     spawnInterval: 0.3
     delayBeforeNextWave: 2
+    useDialogue: 0
+    dialogue: {fileID: 0}
   - waveName: Wave 4, Wave Enemy full intro
     enemy:
     - enemyType:
@@ -3742,6 +3834,8 @@ MonoBehaviour:
       maxY: 6
     spawnInterval: 0.3
     delayBeforeNextWave: 5
+    useDialogue: 0
+    dialogue: {fileID: 0}
   - waveName: Wave 5, Tracking enemy introduced
     enemy:
     - enemyType:
@@ -3770,6 +3864,8 @@ MonoBehaviour:
       maxY: 6
     spawnInterval: 0.3
     delayBeforeNextWave: 7
+    useDialogue: 0
+    dialogue: {fileID: 0}
   - waveName: Ending part 1
     enemy:
     - enemyType:
@@ -3822,6 +3918,8 @@ MonoBehaviour:
       maxY: 6
     spawnInterval: 0.3
     delayBeforeNextWave: 5
+    useDialogue: 0
+    dialogue: {fileID: 0}
   - waveName: Ending Part 2
     enemy:
     - enemyType:
@@ -3834,6 +3932,23 @@ MonoBehaviour:
       maxY: 6
     spawnInterval: 0.3
     delayBeforeNextWave: 12
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: BOSS TEST
+    enemy:
+    - enemyType:
+        prefab: {fileID: 4355338129741178407, guid: 9c063d73ac83d86469bbe0ef0c84d716, type: 3}
+        spawnRadius: 1
+      amount: 1
+      minX: -8
+      maxX: 8
+      minY: 4
+      maxY: 4
+    spawnInterval: 0.3
+    delayBeforeNextWave: 999999
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  manager: {fileID: 0}
   spawnPoints: []
   wavePanel: {fileID: 1892827837}
   waveText: {fileID: 671078686}
@@ -5827,6 +5942,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 176446889}
     m_Modifications:
+    - target: {fileID: 2389591400339964421, guid: d44ccf1c329fb4a4b9cd72e7c42e9948, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3163411634650379301, guid: d44ccf1c329fb4a4b9cd72e7c42e9948, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5976,17 +6095,57 @@ PrefabInstance:
       value: Panel Skip Button
       objectReference: {fileID: 0}
     - target: {fileID: 6411129296328163590, guid: fe12f56d5b33f014b9288a0287cf5fd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411129296328163590, guid: fe12f56d5b33f014b9288a0287cf5fd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411129296328163590, guid: fe12f56d5b33f014b9288a0287cf5fd5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1489103706}
+    - target: {fileID: 6411129296328163590, guid: fe12f56d5b33f014b9288a0287cf5fd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 502900729}
     - target: {fileID: 6411129296328163590, guid: fe12f56d5b33f014b9288a0287cf5fd5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1518393397}
+      objectReference: {fileID: 502900729}
     - target: {fileID: 6411129296328163590, guid: fe12f56d5b33f014b9288a0287cf5fd5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 502900729}
+    - target: {fileID: 6411129296328163590, guid: fe12f56d5b33f014b9288a0287cf5fd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSkipDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411129296328163590, guid: fe12f56d5b33f014b9288a0287cf5fd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411129296328163590, guid: fe12f56d5b33f014b9288a0287cf5fd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411129296328163590, guid: fe12f56d5b33f014b9288a0287cf5fd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DialogueSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411129296328163590, guid: fe12f56d5b33f014b9288a0287cf5fd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Behaviour, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411129296328163590, guid: fe12f56d5b33f014b9288a0287cf5fd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UnityEngine.Behaviour, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411129296328163590, guid: fe12f56d5b33f014b9288a0287cf5fd5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7533273348907343182, guid: fe12f56d5b33f014b9288a0287cf5fd5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6217,3 +6376,4 @@ SceneRoots:
   - {fileID: 1172578131}
   - {fileID: 2593132241138845156}
   - {fileID: 2013310447}
+  - {fileID: 1489103707}

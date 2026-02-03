@@ -22,8 +22,8 @@ public class DialogueManager : MonoBehaviour
 
     //Things here have to do with managing the dialogue
     public DialogueData[] currentDialogueData;
-    private bool advanceCurrentDialogue = true;
-    private int currentDialogueStep = 0;
+    public bool advanceCurrentDialogue = true;
+    public int currentDialogueStep = 0;
 
     [SerializeField] private float typingSpeed = 0.05f;
     [SerializeField] private float timeAfterTextCompletes = 5f;
