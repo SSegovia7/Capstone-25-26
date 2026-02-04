@@ -35,7 +35,7 @@ public class enemySpawnSystem : MonoBehaviour
 
     [Header("Waves Configuration")]
     public List<Wave> waves = new List<Wave>();
-    public DialogueSystem manager;
+    public DialogueManager manager;
     
 
     [Header("Spawn Points")]
@@ -63,10 +63,10 @@ public class enemySpawnSystem : MonoBehaviour
         {
             Wave wave = waves[currentWaveIndex];
 
-            if (wave.useDialogue) manager.InitializeDialogue(wave.dialogue);
+            if (wave.useDialogue) manager.ConfigerateDialogue(wave.dialogue);
 
 
-            if (!manager.isDialogueActive) 
+            if (!manager.advanceCurrentDialogue) 
             {
                 if (wavePanel != null && waveText != null)
                 {

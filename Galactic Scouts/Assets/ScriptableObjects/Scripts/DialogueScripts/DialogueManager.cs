@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
     private Image characterPortraitImage;
 
     //Things here have to do with managing the dialogue
-    public DialogueData[] currentDialogueData;
+    public DataD currentDialogueData;
     public bool advanceCurrentDialogue = true;
     public int currentDialogueStep = 0;
 
@@ -38,24 +38,25 @@ public class DialogueManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (currentDialogueData == null || currentDialogueData.Length == 0)
+        if (currentDialogueData == null || currentDialogueData.lines.Length == 0)
             return;
 
         //Advances dialogue automatically if there is dialogue data to run
         if (advanceCurrentDialogue)
         {
-            if (currentDialogueStep < currentDialogueData.Length)
+            if (currentDialogueStep < currentDialogueData.lines.Length)
             {
-                UpdateDialogue(currentDialogueData[currentDialogueStep]);
+                //ShowNextLine();
             }
             else
             {
                 //If at the end of the list, removes data and resets counter
-                currentDialogueStep = 0;
-                currentDialogueData = null;
-                dialogueCanvas.SetActive(false);
-                gameManager.EndDialogue();
-                if (enemySpawner != null) { StartEnemySpawner(); }
+                /* currentDialogueStep = 0;
+                 currentDialogueData = null;
+                 dialogueCanvas.SetActive(false);
+                 gameManager.EndDialogue();
+                 if (enemySpawner != null) { StartEnemySpawner(); } */
+                EndDialogue();
             }
         }
     }
@@ -86,5 +87,39 @@ public class DialogueManager : MonoBehaviour
     public void StartEnemySpawner() 
     {
         enemySpawner.enabled = true;
+    }
+    public void StartDialogue(DataD newDialogue)
+    {
+        advanceCurrentDialogue = true;
+        currentDialogueData = newDialogue;
+        currentDialogueStep = 0;
+        ShowNextLine();
+
+        dialogueCanvas.SetActive(true);
+    }
+    public void ShowNextLine()
+    {
+        if (currentDialogueStep >= currentDialogueData.lines.Length)
+        {
+            EndDialogue();
+            return;
+        }
+
+        characterNameText.text = currentDialogueData.lines[currentDialogueStep].characterName;
+        dialogueBoxText.text = currentDialogueData.lines[currentDialogueStep].tx;
+        characterPortraitImage.sprite = currentDialogueData.lines[currentDialogueStep].spr;
+        currentDialogueStep++;
+    }
+    private void EndDialogue()
+    {
+        dialogueCanvas.SetActive(false);
+        advanceCurrentDialogue = false;
+        currentDialogueData = null;
+    }
+
+    public void ConfigerateDialogue(DataD d) 
+    {
+       
+        StartDialogue(d);
     }
 }

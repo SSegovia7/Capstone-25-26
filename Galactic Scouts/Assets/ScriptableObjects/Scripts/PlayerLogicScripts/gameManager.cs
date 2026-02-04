@@ -30,7 +30,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] private GameObject dialogueManager;
     private DialogueManager dialogueScript;
 
-    public DialogueData[] testData;
+    public DataD testData;
 
     void Start()
     {
@@ -180,7 +180,7 @@ public class gameManager : MonoBehaviour
     }
     //Dialogue can be called by calling the SetUp Dialogue Function, anything needed once dialogue ends can be put in End Dialogue which runs once the last
     //piece of dialogue resolves
-    private void SetupDialogue(DialogueData[] dialogueToRun)
+    private void SetupDialogue(DataD dialogueToRun)
     {
         _SHIP.inDialogue = true;
         dialogueScript.currentDialogueData = dialogueToRun;
