@@ -48,9 +48,9 @@ public class enemySpawnSystem : MonoBehaviour
     private int currentWaveIndex = 0;
 
     // Start is called before the first frame update
-    void Start()
+    public void startWaves() 
     {
-        if (wavePanel != null) 
+        if (wavePanel != null)
         {
             wavePanel.SetActive(false);
         }
@@ -63,30 +63,30 @@ public class enemySpawnSystem : MonoBehaviour
         {
             Wave wave = waves[currentWaveIndex];
 
-            if (wave.useDialogue) manager.ConfigerateDialogue(wave.dialogue);
 
-
-            if (!manager.advanceCurrentDialogue) 
+            if (wave.useDialogue)
             {
-                if (wavePanel != null && waveText != null)
-                {
-                    wavePanel.SetActive(true);
-                    waveText.text = $"{wave.waveName} ({currentWaveIndex + 1}/{waves.Count})";
-                    yield return new WaitForSeconds(2f);
-                    wavePanel.SetActive(false);
-                }
-
-                yield return StartCoroutine(SpawnWave(wave));
-
-                yield return new WaitForSeconds(wave.delayBeforeNextWave);
+                manager.ConfigerateDialogue(wave.dialogue);
+                yield return new WaitUntil(() => !manager.advanceCurrentDialogue);
             }
 
-            
+
+            if (wavePanel != null && waveText != null)
+            {
+                wavePanel.SetActive(true);
+                waveText.text = $"{wave.waveName} ({currentWaveIndex + 1}/{waves.Count})";
+                yield return new WaitForSeconds(2f);
+                wavePanel.SetActive(false);
+            }
+
+            yield return StartCoroutine(SpawnWave(wave));
+
+            yield return new WaitForSeconds(wave.delayBeforeNextWave);
         }
 
         Debug.Log("All waves completed.");
 
-        if (panelYouwin != null) 
+        if (panelYouwin != null)
         {
             panelYouwin.SetActive(true);
         }

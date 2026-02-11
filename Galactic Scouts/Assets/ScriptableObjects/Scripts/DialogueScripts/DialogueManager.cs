@@ -12,7 +12,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private GameObject characterPortrait;
     [SerializeField] private GameObject characterName;
-
+    [SerializeField] private GameObject skipButton;
     [SerializeField] private enemySpawnSystem enemySpawner;
 
     //Components needed on objects
@@ -21,12 +21,14 @@ public class DialogueManager : MonoBehaviour
     private Image characterPortraitImage;
 
     //Things here have to do with managing the dialogue
+    public DataD startDialogue;
     public DataD currentDialogueData;
     public bool advanceCurrentDialogue = true;
     public int currentDialogueStep = 0;
-
+    public enemySpawnSystem enemyspawnsystem;
     [SerializeField] private float typingSpeed = 0.05f;
     [SerializeField] private float timeAfterTextCompletes = 5f;
+    
 
     public gameManager gameManager;
     private void Start()
@@ -35,31 +37,12 @@ public class DialogueManager : MonoBehaviour
         dialogueBoxText = dialogueBox.GetComponent<TextMeshProUGUI>();
         characterNameText = characterName.GetComponent<TextMeshProUGUI>();
         characterPortraitImage = characterPortrait.GetComponent<Image>();
-    }
-    private void FixedUpdate()
-    {
-        if (currentDialogueData == null || currentDialogueData.lines.Length == 0)
-            return;
-
-        //Advances dialogue automatically if there is dialogue data to run
-        if (advanceCurrentDialogue)
+        if (startDialogue != null) 
         {
-            if (currentDialogueStep < currentDialogueData.lines.Length)
-            {
-                //ShowNextLine();
-            }
-            else
-            {
-                //If at the end of the list, removes data and resets counter
-                /* currentDialogueStep = 0;
-                 currentDialogueData = null;
-                 dialogueCanvas.SetActive(false);
-                 gameManager.EndDialogue();
-                 if (enemySpawner != null) { StartEnemySpawner(); } */
-                EndDialogue();
-            }
+            StartDialogue(startDialogue);
         }
     }
+    
     //Updates the name and image then calls Couroutine that updates the text
     public void UpdateDialogue(DialogueData dialogue)
     {
@@ -96,6 +79,8 @@ public class DialogueManager : MonoBehaviour
         ShowNextLine();
 
         dialogueCanvas.SetActive(true);
+        skipButton.SetActive(true);
+        Debug.Log("Starting Conversartion");
     }
     public void ShowNextLine()
     {
@@ -112,9 +97,16 @@ public class DialogueManager : MonoBehaviour
     }
     private void EndDialogue()
     {
+        switch(currentDialogueData.lines[currentDialogueStep - 1].action)
+        {
+            case 1:
+                enemyspawnsystem.startWaves();
+                break;
+        }
         dialogueCanvas.SetActive(false);
         advanceCurrentDialogue = false;
         currentDialogueData = null;
+        skipButton.SetActive(false);
     }
 
     public void ConfigerateDialogue(DataD d) 
