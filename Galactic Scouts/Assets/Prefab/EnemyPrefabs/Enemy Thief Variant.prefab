@@ -13,6 +13,10 @@ PrefabInstance:
       value: Enemy Thief Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2594026991558480750, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594026991558480750, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
       propertyPath: health
       value: 999
       objectReference: {fileID: 0}
@@ -128,3 +132,9 @@ MonoBehaviour:
   thiefTrackStrength: 1
   boxPickDelay: 0.5
   escapeMode: 0
+  thiefHealthAfterSteal: 3
+  bossStateDuration: 4
+  bossRapidShootInterval: 0.3
+  bossTrackDuration: 2
+  bossChargeSpeed: 10
+  bossReturnSpeed: 4
