@@ -45,7 +45,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2594026991558480750, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
       propertyPath: health
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2594026991558480750, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
       propertyPath: powerUpIncrase
@@ -164,7 +164,7 @@ MonoBehaviour:
   maxHorizontalSpeed: 2
   stopY: 1
   patrolSpeed: 3
-  shootInterval: 1.5
+  shootInterval: 2
   projectilePrefab: {fileID: 3599316917741742968, guid: 64efbf0ba89f6344f9d52610105c6527, type: 3}
   shootPoint: {fileID: 2855367508931874792}
   exitSpeed: 4
@@ -175,3 +175,9 @@ MonoBehaviour:
   thiefTrackStrength: 1
   boxPickDelay: 0.5
   escapeMode: 0
+  thiefHealthAfterSteal: 3
+  bossStateDuration: 4
+  bossRapidShootInterval: 0.3
+  bossTrackDuration: 2
+  bossChargeSpeed: 10
+  bossReturnSpeed: 4
