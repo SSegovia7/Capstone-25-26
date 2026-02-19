@@ -3622,194 +3622,130 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - waveName: Wave 2, Shooters again and Linear intro
-    enemy:
-    - enemyType:
-        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
-        spawnRadius: 0
-      amount: 5
-      minX: -8
-      maxX: 8
-      minY: 6
-      maxY: 6
-    spawnInterval: 0.3
-    delayBeforeNextWave: 1
-    useDialogue: 1
-    dialogue: {fileID: 11400000, guid: 126329a150f688547aef3d2a56fe3d4b, type: 2}
-  - waveName: Wave 2.5 Linears appear
+  - waveName: 1 (Linear introduction)
     enemy:
     - enemyType:
         prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
         spawnRadius: 0
-      amount: 3
-      minX: -8
-      maxX: 8
+      amount: 1
+      minX: 0
+      maxX: 0
       minY: 6
       maxY: 6
-    spawnInterval: 0.3
-    delayBeforeNextWave: 3
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 3
+      maxX: 3
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -3
+      maxX: -3
+      minY: 6
+      maxY: 6
+    spawnInterval: 1.5
+    delayBeforeNextWave: 2
     useDialogue: 0
     dialogue: {fileID: 0}
-  - waveName: Theif Test
+  - waveName: 2 (More Linear and shooter intro)
     enemy:
     - enemyType:
-        prefab: {fileID: 5115373783273469147, guid: efbfc304b8e7cdd479953452360c4a52, type: 3}
-        spawnRadius: 1
-      amount: 3
-      minX: -8
-      maxX: 8
-      minY: 4
-      maxY: 4
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 1
+      maxX: 1
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -1
+      maxX: -1
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 0
+      maxX: 0
+      minY: 6
+      maxY: 6
     spawnInterval: 0.8
     delayBeforeNextWave: 1
     useDialogue: 0
     dialogue: {fileID: 0}
-  - waveName: Wave 3 MORE SHOOTERS
-    enemy:
-    - enemyType:
-        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
-        spawnRadius: 0
-      amount: 2
-      minX: -8
-      maxX: 8
-      minY: 6
-      maxY: 6
-    - enemyType:
-        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
-        spawnRadius: 0
-      amount: 2
-      minX: -8
-      maxX: 8
-      minY: 6
-      maxY: 6
-    spawnInterval: 0.3
-    delayBeforeNextWave: 1
-    useDialogue: 0
-    dialogue: {fileID: 0}
-  - waveName: Wave 3.5 Linear Barrage
+  - waveName: 3 More Linears that force the player to move across the screen)
     enemy:
     - enemyType:
         prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
-        spawnRadius: 0
-      amount: 5
-      minX: -8
-      maxX: 8
-      minY: 6
-      maxY: 6
-    spawnInterval: 0.3
-    delayBeforeNextWave: 0.5
-    useDialogue: 0
-    dialogue: {fileID: 0}
-  - waveName: One lone Wave Enemy
-    enemy:
-    - enemyType:
-        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
         spawnRadius: 0
       amount: 1
-      minX: -5
-      maxX: 5
+      minX: -4
+      maxX: -4
       minY: 6
       maxY: 6
-    spawnInterval: 0.3
-    delayBeforeNextWave: 2
-    useDialogue: 0
-    dialogue: {fileID: 0}
-  - waveName: Wave 4, Wave Enemy full intro
-    enemy:
     - enemyType:
         prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
-        spawnRadius: 0
-      amount: 5
-      minX: -8
-      maxX: 8
-      minY: 6
-      maxY: 6
-    - enemyType:
-        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
-        spawnRadius: 0
-      amount: 3
-      minX: -8
-      maxX: 8
-      minY: 6
-      maxY: 6
-    - enemyType:
-        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
-        spawnRadius: 0
-      amount: 3
-      minX: -5
-      maxX: 5
-      minY: 6
-      maxY: 6
-    spawnInterval: 0.3
-    delayBeforeNextWave: 5
-    useDialogue: 0
-    dialogue: {fileID: 0}
-  - waveName: Wave 5, Tracking enemy introduced
-    enemy:
-    - enemyType:
-        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
-        spawnRadius: 0
-      amount: 2
-      minX: -8
-      maxX: 8
-      minY: 6
-      maxY: 6
-    - enemyType:
-        prefab: {fileID: 5987195949268411551, guid: 105bb04340613ef44a1f6b2f0f4f0ec4, type: 3}
-        spawnRadius: 0
-      amount: 2
-      minX: -8
-      maxX: 8
-      minY: 6
-      maxY: 6
-    - enemyType:
-        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
         spawnRadius: 0
       amount: 1
-      minX: -8
-      maxX: 8
-      minY: 6
-      maxY: 6
-    spawnInterval: 0.3
-    delayBeforeNextWave: 7
-    useDialogue: 0
-    dialogue: {fileID: 0}
-  - waveName: Ending part 1
-    enemy:
-    - enemyType:
-        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
-        spawnRadius: 0
-      amount: 8
-      minX: -8
-      maxX: 8
-      minY: 6
-      maxY: 6
-    - enemyType:
-        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
-        spawnRadius: 0
-      amount: 5
-      minX: -7
-      maxX: 7
-      minY: 6
-      maxY: 6
-    - enemyType:
-        prefab: {fileID: 5987195949268411551, guid: 105bb04340613ef44a1f6b2f0f4f0ec4, type: 3}
-        spawnRadius: 0
-      amount: 3
       minX: -6
+      maxX: -6
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 4
+      maxX: 4
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 6
       maxX: 6
       minY: 6
       maxY: 6
+    spawnInterval: 1.5
+    delayBeforeNextWave: 1
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: 2 Shooters
+    enemy:
     - enemyType:
         prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
         spawnRadius: 0
-      amount: 3
-      minX: -8
-      maxX: 8
+      amount: 1
+      minX: -3
+      maxX: -3
       minY: 6
       maxY: 6
     - enemyType:
-        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 3
+      maxX: 3
+      minY: 6
+      maxY: 6
+    spawnInterval: 0
+    delayBeforeNextWave: 0.5
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: 5 Fives Burgers and Fries
+    enemy:
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
         spawnRadius: 0
       amount: 1
       minX: 6
@@ -3817,43 +3753,293 @@ MonoBehaviour:
       minY: 6
       maxY: 6
     - enemyType:
-        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 3
+      maxX: 3
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 0
+      maxX: 0
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -3
+      maxX: -3
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
         spawnRadius: 0
       amount: 1
       minX: -6
       maxX: -6
       minY: 6
       maxY: 6
-    spawnInterval: 0.3
-    delayBeforeNextWave: 5
+    spawnInterval: 1
+    delayBeforeNextWave: 2
     useDialogue: 0
     dialogue: {fileID: 0}
-  - waveName: Ending Part 2
+  - waveName: There is where vertical cleave enemy goes
+    enemy: []
+    spawnInterval: 0
+    delayBeforeNextWave: 0
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: First kinda big wave (Shooters 1)
     enemy:
     - enemyType:
-        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
         spawnRadius: 0
-      amount: 5
-      minX: -8
-      maxX: 8
+      amount: 1
+      minX: 6
+      maxX: 6
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -6
+      maxX: -6
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 0
+      maxX: 0
       minY: 6
       maxY: 6
     spawnInterval: 0.3
-    delayBeforeNextWave: 12
+    delayBeforeNextWave: 1
     useDialogue: 0
     dialogue: {fileID: 0}
-  - waveName: BOSS TEST
+  - waveName: Linear Wave
     enemy:
     - enemyType:
-        prefab: {fileID: 4355338129741178407, guid: 9c063d73ac83d86469bbe0ef0c84d716, type: 3}
-        spawnRadius: 1
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
       amount: 1
-      minX: -8
-      maxX: 8
-      minY: 4
-      maxY: 4
-    spawnInterval: 0.3
-    delayBeforeNextWave: 999999
+      minX: 5
+      maxX: 5
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 1
+      maxX: 1
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -4
+      maxX: -4
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.4
+    delayBeforeNextWave: 1
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: Wave Intro
+    enemy:
+    - enemyType:
+        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 0
+      maxX: 0
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 5
+      maxX: 5
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -5
+      maxX: -5
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.4
+    delayBeforeNextWave: 0.5
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: More Waves
+    enemy:
+    - enemyType:
+        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 0
+      maxX: 0
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -3
+      maxX: -3
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 3
+      maxX: 3
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -2
+      maxX: -2
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 2
+      maxX: 2
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.4
+    delayBeforeNextWave: 2.5
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: Linears before tracking
+    enemy:
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 0
+      maxX: 0
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 4
+      maxX: 4
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 7297052420828000498, guid: e635d250161ba5144b86ddc92e425e59, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -4
+      maxX: -4
+      minY: 6
+      maxY: 6
+    spawnInterval: 0
+    delayBeforeNextWave: 0.4
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: Tracking Intro
+    enemy:
+    - enemyType:
+        prefab: {fileID: 5987195949268411551, guid: 105bb04340613ef44a1f6b2f0f4f0ec4, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 0
+      maxX: 0
+      minY: 6
+      maxY: 6
+    spawnInterval: 0
+    delayBeforeNextWave: 0.8
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: Shooters and trackers
+    enemy:
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 3
+      maxX: 3
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 5987195949268411551, guid: 105bb04340613ef44a1f6b2f0f4f0ec4, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 5
+      maxX: 5
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 2
+      maxX: 2
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 5987195949268411551, guid: 105bb04340613ef44a1f6b2f0f4f0ec4, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 0
+      maxX: 0
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -3
+      maxX: -3
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 5987195949268411551, guid: 105bb04340613ef44a1f6b2f0f4f0ec4, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -5
+      maxX: -5
+      minY: 6
+      maxY: 6
+    spawnInterval: 1
+    delayBeforeNextWave: 0.8
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: Theif intro
+    enemy:
+    - enemyType:
+        prefab: {fileID: 5115373783273469147, guid: efbfc304b8e7cdd479953452360c4a52, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 3
+      maxX: 3
+      minY: 6
+      maxY: 6
+    spawnInterval: 1
+    delayBeforeNextWave: 0.8
     useDialogue: 0
     dialogue: {fileID: 0}
   manager: {fileID: 502900729}
@@ -4686,7 +4872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3562763299883809130, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5535222634432464626, guid: 874eeada1fa64f5429ec4dbcdfd5e1c3, type: 3}
       propertyPath: m_IsActive
