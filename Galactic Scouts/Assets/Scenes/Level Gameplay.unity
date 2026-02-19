@@ -1843,7 +1843,7 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: 26dc2fe4-3a2b-4b82-b289-6bcc4d743dc9
-      m_Path: <Keyboard>/x
+      m_Path: <Keyboard>/z
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -1861,6 +1861,14 @@ MonoBehaviour:
     - m_Name: 
       m_Id: ce1f3a2d-c38d-4281-a817-df6787af703a
       m_Path: <Keyboard>/tab
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: PAUSE
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 9238be12-d1b3-4a4e-aea2-38567a8fcd39
+      m_Path: <Keyboard>/escape
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -3648,8 +3656,8 @@ MonoBehaviour:
       maxX: -3
       minY: 6
       maxY: 6
-    spawnInterval: 1.5
-    delayBeforeNextWave: 1
+    spawnInterval: 0.8
+    delayBeforeNextWave: 0
     useDialogue: 0
     dialogue: {fileID: 0}
   - waveName: 2 (More Linear and shooter intro)
@@ -3678,7 +3686,7 @@ MonoBehaviour:
       maxX: 0
       minY: 6
       maxY: 6
-    spawnInterval: 0.8
+    spawnInterval: 0.5
     delayBeforeNextWave: 0.2
     useDialogue: 0
     dialogue: {fileID: 0}
@@ -3716,8 +3724,8 @@ MonoBehaviour:
       maxX: 6
       minY: 6
       maxY: 6
-    spawnInterval: 1.5
-    delayBeforeNextWave: 1
+    spawnInterval: 1
+    delayBeforeNextWave: 0.5
     useDialogue: 0
     dialogue: {fileID: 0}
   - waveName: 2 Shooters
@@ -3742,7 +3750,7 @@ MonoBehaviour:
     delayBeforeNextWave: 0.5
     useDialogue: 0
     dialogue: {fileID: 0}
-  - waveName: There is where vertical cleave enemy goes
+  - waveName: First Cleave
     enemy:
     - enemyType:
         prefab: {fileID: 338268227222641596, guid: 25ede12fecec9e844be22a290839d470, type: 3}
@@ -3799,7 +3807,21 @@ MonoBehaviour:
       minY: 6
       maxY: 6
     spawnInterval: 1
-    delayBeforeNextWave: 2
+    delayBeforeNextWave: 0.5
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: CLEAVE!
+    enemy:
+    - enemyType:
+        prefab: {fileID: 338268227222641596, guid: 25ede12fecec9e844be22a290839d470, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -25
+      maxX: -25
+      minY: -4
+      maxY: -4
+    spawnInterval: 0
+    delayBeforeNextWave: 0.8
     useDialogue: 0
     dialogue: {fileID: 0}
   - waveName: First kinda big wave (Shooters 1)
@@ -3829,7 +3851,7 @@ MonoBehaviour:
       minY: 6
       maxY: 6
     spawnInterval: 0.3
-    delayBeforeNextWave: 1
+    delayBeforeNextWave: 0
     useDialogue: 0
     dialogue: {fileID: 0}
   - waveName: Linear Wave
@@ -3858,8 +3880,22 @@ MonoBehaviour:
       maxX: -4
       minY: 6
       maxY: 6
-    spawnInterval: 0.4
-    delayBeforeNextWave: 1
+    spawnInterval: 0.3
+    delayBeforeNextWave: 0.3
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: CLEAVE!
+    enemy:
+    - enemyType:
+        prefab: {fileID: 338268227222641596, guid: 25ede12fecec9e844be22a290839d470, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 25
+      maxX: 25
+      minY: 1
+      maxY: 1
+    spawnInterval: 0
+    delayBeforeNextWave: 0.8
     useDialogue: 0
     dialogue: {fileID: 0}
   - waveName: Wave Intro
@@ -3889,7 +3925,7 @@ MonoBehaviour:
       minY: 6
       maxY: 6
     spawnInterval: 0.4
-    delayBeforeNextWave: 0.5
+    delayBeforeNextWave: 0.2
     useDialogue: 0
     dialogue: {fileID: 0}
   - waveName: More Waves
@@ -3935,7 +3971,21 @@ MonoBehaviour:
       minY: 6
       maxY: 6
     spawnInterval: 0.4
-    delayBeforeNextWave: 2.5
+    delayBeforeNextWave: 0.5
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: CLEAVE!
+    enemy:
+    - enemyType:
+        prefab: {fileID: 338268227222641596, guid: 25ede12fecec9e844be22a290839d470, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -25
+      maxX: -25
+      minY: -3
+      maxY: -3
+    spawnInterval: 1
+    delayBeforeNextWave: 0.8
     useDialogue: 0
     dialogue: {fileID: 0}
   - waveName: Linears before tracking
@@ -3965,7 +4015,7 @@ MonoBehaviour:
       minY: 6
       maxY: 6
     spawnInterval: 0
-    delayBeforeNextWave: 0.4
+    delayBeforeNextWave: 0.3
     useDialogue: 0
     dialogue: {fileID: 0}
   - waveName: Tracking Intro
@@ -3979,7 +4029,7 @@ MonoBehaviour:
       minY: 6
       maxY: 6
     spawnInterval: 0
-    delayBeforeNextWave: 0.8
+    delayBeforeNextWave: 0.5
     useDialogue: 0
     dialogue: {fileID: 0}
   - waveName: Shooters and trackers
@@ -4033,7 +4083,7 @@ MonoBehaviour:
       minY: 6
       maxY: 6
     spawnInterval: 1
-    delayBeforeNextWave: 0.8
+    delayBeforeNextWave: 0.5
     useDialogue: 0
     dialogue: {fileID: 0}
   - waveName: Theif intro
@@ -4047,6 +4097,20 @@ MonoBehaviour:
       minY: 6
       maxY: 6
     spawnInterval: 1
+    delayBeforeNextWave: 0.8
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: CLEAVE!
+    enemy:
+    - enemyType:
+        prefab: {fileID: 338268227222641596, guid: 25ede12fecec9e844be22a290839d470, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 25
+      maxX: 25
+      minY: 1
+      maxY: 1
+    spawnInterval: 0
     delayBeforeNextWave: 0.8
     useDialogue: 0
     dialogue: {fileID: 0}

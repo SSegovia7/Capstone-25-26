@@ -70,7 +70,7 @@ public class gameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("PowerUpInputPressed");
             PowerUpSystem.Instance.ActivateStoredPowerUp();
