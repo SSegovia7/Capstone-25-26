@@ -3649,7 +3649,7 @@ MonoBehaviour:
       minY: 6
       maxY: 6
     spawnInterval: 1.5
-    delayBeforeNextWave: 2
+    delayBeforeNextWave: 1
     useDialogue: 0
     dialogue: {fileID: 0}
   - waveName: 2 (More Linear and shooter intro)
@@ -3679,7 +3679,7 @@ MonoBehaviour:
       minY: 6
       maxY: 6
     spawnInterval: 0.8
-    delayBeforeNextWave: 1
+    delayBeforeNextWave: 0.2
     useDialogue: 0
     dialogue: {fileID: 0}
   - waveName: 3 More Linears that force the player to move across the screen)
@@ -3742,6 +3742,20 @@ MonoBehaviour:
     delayBeforeNextWave: 0.5
     useDialogue: 0
     dialogue: {fileID: 0}
+  - waveName: There is where vertical cleave enemy goes
+    enemy:
+    - enemyType:
+        prefab: {fileID: 338268227222641596, guid: 25ede12fecec9e844be22a290839d470, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 25
+      maxX: 25
+      minY: 0
+      maxY: 0
+    spawnInterval: 0
+    delayBeforeNextWave: 0
+    useDialogue: 0
+    dialogue: {fileID: 0}
   - waveName: 5 Fives Burgers and Fries
     enemy:
     - enemyType:
@@ -3786,12 +3800,6 @@ MonoBehaviour:
       maxY: 6
     spawnInterval: 1
     delayBeforeNextWave: 2
-    useDialogue: 0
-    dialogue: {fileID: 0}
-  - waveName: There is where vertical cleave enemy goes
-    enemy: []
-    spawnInterval: 0
-    delayBeforeNextWave: 0
     useDialogue: 0
     dialogue: {fileID: 0}
   - waveName: First kinda big wave (Shooters 1)
