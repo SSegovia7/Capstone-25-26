@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 74306163013786921, guid: fa1a39aca888a744c96b3c427708a36e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ac8e25cc4feb9094da774bd5813ec9b5, type: 2}
+    - target: {fileID: 74306163013786921, guid: fa1a39aca888a744c96b3c427708a36e, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 544498552907469186, guid: fa1a39aca888a744c96b3c427708a36e, type: 3}
       propertyPath: bulletDamage
       value: 0.5
@@ -25,12 +33,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3946960481256048412, guid: fa1a39aca888a744c96b3c427708a36e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1572627595, guid: bf1abea587a54344a969d9cbbda01406, type: 3}
+    - target: {fileID: 3946960481256048412, guid: fa1a39aca888a744c96b3c427708a36e, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3946960481256048412, guid: fa1a39aca888a744c96b3c427708a36e, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3946960481256048412, guid: fa1a39aca888a744c96b3c427708a36e, type: 3}
       propertyPath: m_Color.r
