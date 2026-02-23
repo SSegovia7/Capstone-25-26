@@ -13,13 +13,22 @@ public class enemyController : MonoBehaviour
     public bool powerUpIncrase = false;
     public bool boxPick = false;
 
+    private SpriteRenderer spriteRenderer;
+    public float flashDuration = 0.1f;
+    private Color originalColor;
+
     private Rigidbody2D rb2d;
     public GameObject boxPrefab;
 
 
     void Start()
     {
-        rb2d = this.gameObject.GetComponent<Rigidbody2D>();
+        rb2d = this.gameObject.GetComponent<Rigidbody2D>(); 
+        {
+           
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            originalColor = spriteRenderer.color;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -28,10 +37,13 @@ public class enemyController : MonoBehaviour
     }
     public void EnemyTakeDamage(float damage)
     {
+        StartCoroutine(FlashRed());
         health -= damage;
         if (powerUpIncrase)
+
         {
             PowerUpSystem.Instance.AddChargeDamage(powerUpAmountDamage);
+            
         }
         AudioManager.PlaySound(AudioManager.Sound.Enemy_TakeDamage);
         if (health <= 0)
@@ -52,5 +64,11 @@ public class enemyController : MonoBehaviour
     public void SetHealth(float newHealth) 
     {
         health = newHealth;
+    }
+    private IEnumerator FlashRed()
+    {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(flashDuration);
+        spriteRenderer.color = originalColor;
     }
 }
