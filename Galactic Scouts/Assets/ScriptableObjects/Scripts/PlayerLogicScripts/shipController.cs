@@ -180,4 +180,9 @@ public class shipController : MonoBehaviour
 
         _isInvincible = false;
     }
+    public void StopMovement()
+    {
+        _rb2d.velocity = Vector2.zero;
+        _rb2d.angularVelocity = 0f;
+    }
 }
