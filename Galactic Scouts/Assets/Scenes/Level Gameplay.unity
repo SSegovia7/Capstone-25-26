@@ -4114,6 +4114,108 @@ MonoBehaviour:
     delayBeforeNextWave: 5
     useDialogue: 0
     dialogue: {fileID: 0}
+  - waveName: Shooters And Trackers
+    enemy:
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 2
+      maxX: 2
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 7
+      maxX: 7
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 5987195949268411551, guid: 105bb04340613ef44a1f6b2f0f4f0ec4, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 0
+      maxX: 0
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.2
+    delayBeforeNextWave: 1
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: Thief :3
+    enemy:
+    - enemyType:
+        prefab: {fileID: 5115373783273469147, guid: efbfc304b8e7cdd479953452360c4a52, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 3
+      maxX: 3
+      minY: 6
+      maxY: 6
+    spawnInterval: 0
+    delayBeforeNextWave: 1
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: Waves
+    enemy:
+    - enemyType:
+        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 4
+      maxX: 4
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -4
+      maxX: -4
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 3506873986615540181, guid: 9fd4a152775c15e4daad0d82ef6ac966, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 0
+      maxX: 0
+      minY: 6
+      maxY: 6
+    spawnInterval: 0
+    delayBeforeNextWave: 0.5
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: CLEAVE!
+    enemy:
+    - enemyType:
+        prefab: {fileID: 338268227222641596, guid: 25ede12fecec9e844be22a290839d470, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 25
+      maxX: 25
+      minY: -3
+      maxY: -3
+    spawnInterval: 0
+    delayBeforeNextWave: 3
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: Boss
+    enemy:
+    - enemyType:
+        prefab: {fileID: 4355338129741178407, guid: 9c063d73ac83d86469bbe0ef0c84d716, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 0
+      maxX: 0
+      minY: 4
+      maxY: 4
+    spawnInterval: 0
+    delayBeforeNextWave: 999
+    useDialogue: 0
+    dialogue: {fileID: 0}
   manager: {fileID: 502900729}
   spawnPoints: []
   wavePanel: {fileID: 1892827837}
