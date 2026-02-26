@@ -4111,7 +4111,7 @@ MonoBehaviour:
       minY: 1
       maxY: 1
     spawnInterval: 0
-    delayBeforeNextWave: 0.8
+    delayBeforeNextWave: 5
     useDialogue: 0
     dialogue: {fileID: 0}
   manager: {fileID: 502900729}
