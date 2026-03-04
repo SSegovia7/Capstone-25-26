@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject characterName;
     [SerializeField] private GameObject skipButton;
     [SerializeField] private enemySpawnSystem enemySpawner;
+    [SerializeField] private GameObject tutorialText;
 
     //Components needed on objects
     private TextMeshProUGUI dialogueBoxText;
@@ -84,6 +85,10 @@ public class DialogueManager : MonoBehaviour
     }
     public void ShowNextLine()
     {
+        /*if (currentDialogueStep > 1)
+        {
+            tutorialText.SetActive(false);
+        } */
         if (currentDialogueStep >= currentDialogueData.lines.Length)
         {
             EndDialogue();
