@@ -74,6 +74,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void StartDialogue(DataD newDialogue)
     {
+        gameManager._SHIP.inDialogue = true;
         advanceCurrentDialogue = true;
         currentDialogueData = newDialogue;
         currentDialogueStep = 0;
@@ -112,6 +113,7 @@ public class DialogueManager : MonoBehaviour
         advanceCurrentDialogue = false;
         currentDialogueData = null;
         skipButton.SetActive(false);
+        gameManager._SHIP.inDialogue = false;
     }
 
     public void ConfigerateDialogue(DataD d) 
