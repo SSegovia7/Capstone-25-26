@@ -71,6 +71,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6568768254896158611, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
+      propertyPath: m_GravityScale
+      value: 0.92
+      objectReference: {fileID: 0}
     - target: {fileID: 8345126778148788393, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
       propertyPath: m_Size.x
       value: 2.5
@@ -169,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementType: 3
-  verticalSpeed: 3
+  verticalSpeed: 8
   lifeTime: 15
   spawnTime: 0
   horizontalSpeedRange: 1
@@ -178,12 +182,12 @@ MonoBehaviour:
   playerTag: Player
   trackStrength: 0.5
   maxHorizontalSpeed: 2
-  stopY: 1
+  stopY: -4
   patrolSpeed: 3
   shootInterval: 2
   projectilePrefab: {fileID: 3599316917741742968, guid: accc4aad3fb72374d8bfc095d8809c5e, type: 3}
   shootPoint: {fileID: 2855367508931874792}
-  exitSpeed: 4
+  exitSpeed: 6
   nextShootTime: 0
   minX: -8
   maxX: 8
