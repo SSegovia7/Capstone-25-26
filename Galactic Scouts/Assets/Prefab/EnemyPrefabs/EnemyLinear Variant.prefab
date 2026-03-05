@@ -99,6 +99,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 338268227222641596, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8049055425092088806}
+    - targetCorrespondingSourceObject: {fileID: 338268227222641596, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -562758518271072307}
   m_SourcePrefab: {fileID: 100100000, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
 --- !u!1 &7297052420828000498 stripped
 GameObject:
@@ -146,3 +149,24 @@ MonoBehaviour:
   bossTrackDuration: 2
   bossChargeSpeed: 10
   bossReturnSpeed: 4
+--- !u!95 &-562758518271072307
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7297052420828000498}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 354ad2420ae7b374d8a59e549150dbd4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
