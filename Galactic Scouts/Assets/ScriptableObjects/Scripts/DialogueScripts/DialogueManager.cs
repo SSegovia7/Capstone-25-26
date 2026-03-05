@@ -74,6 +74,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void StartDialogue(DataD newDialogue)
     {
+        gameManager._SHIP.inDialogue = true;
         advanceCurrentDialogue = true;
         currentDialogueData = newDialogue;
         currentDialogueStep = 0;
@@ -96,9 +97,21 @@ public class DialogueManager : MonoBehaviour
         }
 
         characterNameText.text = currentDialogueData.lines[currentDialogueStep].characterName;
-        dialogueBoxText.text = currentDialogueData.lines[currentDialogueStep].tx;
+        //dialogueBoxText.text = currentDialogueData.lines[currentDialogueStep].tx;
         characterPortraitImage.sprite = currentDialogueData.lines[currentDialogueStep].spr;
+        StartCoroutine(TypewriterEffect(currentDialogueData.lines[currentDialogueStep].tx));
         currentDialogueStep++;
+    }
+    public IEnumerator TypewriterEffect(string dialogue)
+    {
+        string savedText = "";
+        for (int i = 0; i < dialogue.Length; i++)
+        {
+            savedText += dialogue[i];
+            dialogueBoxText.text = savedText;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+
     }
     private void EndDialogue()
     {
@@ -112,6 +125,7 @@ public class DialogueManager : MonoBehaviour
         advanceCurrentDialogue = false;
         currentDialogueData = null;
         skipButton.SetActive(false);
+        gameManager._SHIP.inDialogue = false;
     }
 
     public void ConfigerateDialogue(DataD d) 

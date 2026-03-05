@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class gameManager : MonoBehaviour
 {
     [SerializeField] private GameObject _PANELGAMEOVER;
-    [SerializeField] private shipController _SHIP;
+    [SerializeField] public shipController _SHIP;
     [SerializeField] private uiHandler _HUD;
     [SerializeField] private InputAction _MOVE;
     [SerializeField] private InputAction _FIRE;
@@ -63,7 +63,7 @@ public class gameManager : MonoBehaviour
         if (!_PLAYERCONTROLENABLED) { return; }
 
         _SHIP.MoveShip(moveValue * speedMultiplier, speed);
-        if (_FIRING)
+        if (_FIRING && (!_SHIP.inDialogue || !inDialogue))
         {
             _SHIP.Shoot();
         }
@@ -183,12 +183,14 @@ public class gameManager : MonoBehaviour
     private void SetupDialogue(DataD dialogueToRun)
     {
         _SHIP.inDialogue = true;
+        inDialogue = true;
         dialogueScript.currentDialogueData = dialogueToRun;
         _SHIP.SetShipPosition(new Vector3(0, 0, 0));
     }
     public void EndDialogue()
     {
         _SHIP.inDialogue = false;
+        inDialogue = false;
     }
 }
 
