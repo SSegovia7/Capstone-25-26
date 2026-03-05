@@ -6,13 +6,14 @@ public class ProjectileMovement2D : MonoBehaviour
 {
     public enum MovementType
     {
-        Linear,
-        PlayerTracking
-       
+        LinearDown,
+        PlayerTracking,
+        LinearUp
+
 
     }
     [Header("General Settings")]
-    public MovementType movementType = MovementType.Linear;
+    public MovementType movementType = MovementType.LinearDown;
     public float speed = 5f;
     public float lifeTime = 5f;
     public string playerTag = "player";
@@ -33,13 +34,17 @@ public class ProjectileMovement2D : MonoBehaviour
     {
         switch (movementType)
         {
-            case MovementType.Linear:
+            case MovementType.LinearDown:
                 moveDirection = Vector2.down;
                 break;
 
             case MovementType.PlayerTracking:
                 AimAtPlayer();
-                break;    
+                break;
+
+            case MovementType.LinearUp:
+                moveDirection = Vector2.up;
+                break;
         }
         rb.velocity = moveDirection * speed;
         Destroy(gameObject, lifeTime);
