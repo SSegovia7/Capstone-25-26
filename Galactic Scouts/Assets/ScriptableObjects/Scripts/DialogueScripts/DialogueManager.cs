@@ -95,7 +95,7 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
-
+        StopAllCoroutines();
         characterNameText.text = currentDialogueData.lines[currentDialogueStep].characterName;
         //dialogueBoxText.text = currentDialogueData.lines[currentDialogueStep].tx;
         characterPortraitImage.sprite = currentDialogueData.lines[currentDialogueStep].spr;
