@@ -23,7 +23,7 @@ MonoBehaviour:
     action: 0
   - characterName: Commander
     tx: Alright girls, your first cookie delivery will be to the moon Lumian.
-    spr: {fileID: 21300000, guid: 96a662a8dd241f848a806700cec91d68, type: 3}
+    spr: {fileID: 21300000, guid: 820b97bdec05261498e2f35a206477b4, type: 3}
     action: 0
   - characterName: Lyona
     tx: Sick! Do we get to use our weapons?
@@ -32,7 +32,7 @@ MonoBehaviour:
   - characterName: Commander
     tx: Affirmative, and the ship is equipped with top military-grade blasters along
       with boosters for evading
-    spr: {fileID: 21300000, guid: 96a662a8dd241f848a806700cec91d68, type: 3}
+    spr: {fileID: 21300000, guid: 820b97bdec05261498e2f35a206477b4, type: 3}
     action: 0
   - characterName: Lyona
     tx: Yes! I get to blow something up!
@@ -44,5 +44,5 @@ MonoBehaviour:
     action: 0
   - characterName: Commander
     tx: Now get to it!
-    spr: {fileID: 21300000, guid: 96a662a8dd241f848a806700cec91d68, type: 3}
+    spr: {fileID: 21300000, guid: 820b97bdec05261498e2f35a206477b4, type: 3}
     action: 1
