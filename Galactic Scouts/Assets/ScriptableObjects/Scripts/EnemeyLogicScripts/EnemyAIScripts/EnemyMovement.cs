@@ -13,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
         Thief,
         Boss1
     }
+    [SerializeField] private float shootOffset = 0.5f;
 
     [Header("General Settings")]
     public MovementType movementType = MovementType.Linear;
@@ -68,7 +69,7 @@ public class EnemyMovement : MonoBehaviour
     {
         RapidShooter,
         TrackThenCharge,
-        WaveMove,
+        DualShooter,
         Returning
     }
 
@@ -203,11 +204,11 @@ public class EnemyMovement : MonoBehaviour
                 HandleBossTrackCharge(ref velocity);
                 break;
 
-            case BossState.WaveMove:
-                velocity = new Vector2(
-                    Mathf.Sin(Time.time * waveFrequency) * waveAmplitude,
-                    -verticalSpeed);
+            case BossState.DualShooter:
+                HandleBossDualShooter(ref velocity);
                 break;
+
+                
 
             case BossState.Returning:
                 float yDiff = originalY - transform.position.y;
@@ -236,6 +237,18 @@ public class EnemyMovement : MonoBehaviour
             nextShootTime = Time.time + bossRapidShootInterval;
         }
     }
+    private void HandleBossDualShooter(ref Vector2 velocity)
+    {
+        velocity = Vector2.zero;
+
+        if (Time.time >= nextShootTime)
+        {
+            DualShoot();
+            nextShootTime = Time.time + bossRapidShootInterval;
+
+        }
+    }
+
     private void HandleBossTrackCharge(ref Vector2 velocity)
     {
         if (bossStateTimer > bossTrackDuration/2)
@@ -269,6 +282,18 @@ public class EnemyMovement : MonoBehaviour
         Vector3 spawnPos = shootPoint != null ? shootPoint.position : transform.position;
         Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
     }
+
+    private void DualShoot()
+    {
+        if (projectilePrefab == null) return;
+
+        Vector3 left = transform.position + Vector3.left * shootOffset;
+        Vector3 right = transform.position + Vector3.right * shootOffset;
+
+        Instantiate(projectilePrefab, left, Quaternion.identity);
+        Instantiate(projectilePrefab, right, Quaternion.identity);
+    }
+
 
     // THIEF LOGIC
     private void HandleThief(ref Vector2 velocity)
