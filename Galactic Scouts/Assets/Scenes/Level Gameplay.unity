@@ -4091,6 +4091,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
+  - waveName: Boss
+    enemy:
+    - enemyType:
+        prefab: {fileID: 4355338129741178407, guid: 9c063d73ac83d86469bbe0ef0c84d716, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 0
+      maxX: 0
+      minY: 4
+      maxY: 4
+    spawnInterval: 0
+    delayBeforeNextWave: 999
+    useDialogue: 0
+    dialogue: {fileID: 0}
   - waveName: 1 (Linear introduction)
     enemy:
     - enemyType:
@@ -4783,20 +4797,6 @@ MonoBehaviour:
       maxY: 3
     spawnInterval: 0
     delayBeforeNextWave: 5
-    useDialogue: 0
-    dialogue: {fileID: 0}
-  - waveName: Boss
-    enemy:
-    - enemyType:
-        prefab: {fileID: 4355338129741178407, guid: 9c063d73ac83d86469bbe0ef0c84d716, type: 3}
-        spawnRadius: 0
-      amount: 1
-      minX: 0
-      maxX: 0
-      minY: 4
-      maxY: 4
-    spawnInterval: 0
-    delayBeforeNextWave: 999
     useDialogue: 0
     dialogue: {fileID: 0}
   manager: {fileID: 502900729}

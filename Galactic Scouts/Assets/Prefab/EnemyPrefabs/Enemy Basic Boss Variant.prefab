@@ -141,6 +141,14 @@ PrefabInstance:
       value: 0.031612873
       objectReference: {fileID: 0}
     - target: {fileID: 4151624897927767327, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5283578
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151624897927767327, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.4767981
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151624897927767327, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 6.25
       objectReference: {fileID: 0}
@@ -150,7 +158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6599630449986000588, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
       propertyPath: health
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6599630449986000588, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
       propertyPath: powerUpIncrase

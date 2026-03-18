@@ -287,8 +287,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if (projectilePrefab == null) return;
 
-        Vector3 left = transform.position + Vector3.left * shootOffset;
-        Vector3 right = transform.position + Vector3.right * shootOffset;
+        Vector3 left = transform.position + Vector3.left * 1.5f;
+        Vector3 right = transform.position + Vector3.right * 1.5f;
 
         Instantiate(projectilePrefab, left, Quaternion.identity);
         Instantiate(projectilePrefab, right, Quaternion.identity);
