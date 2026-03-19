@@ -193,6 +193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76581c01bee5249488a49bf75af04e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 8
   warning: {fileID: 7013360441454755978, guid: 7e4a0a9a941d1354a9431d6fbc4cabdf, type: 3}
-  warningActiveTime: 3
+  warningActiveTime: 2

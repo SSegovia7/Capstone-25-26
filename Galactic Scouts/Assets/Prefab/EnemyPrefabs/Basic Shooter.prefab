@@ -41,11 +41,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 338268227222641596, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
       propertyPath: m_Name
-      value: Enemy Basic Shooter Variant
+      value: Basic Shooter
       objectReference: {fileID: 0}
     - target: {fileID: 2594026991558480750, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
       propertyPath: health
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2594026991558480750, guid: aa2c4b41d691dfb42ba20d4e91ad1708, type: 3}
       propertyPath: powerUpIncrase
@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de4b0c63d60935448e70320965205ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootOffset: 0.5
   movementType: 3
   verticalSpeed: 3
   lifeTime: 15
