@@ -4865,7 +4865,7 @@ MonoBehaviour:
       maxX: -5
       minY: 6
       maxY: 6
-    spawnInterval: 0.6
+    spawnInterval: 1
     delayBeforeNextWave: 1
     useDialogue: 0
     dialogue: {fileID: 0}
