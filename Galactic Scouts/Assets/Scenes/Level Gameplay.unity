@@ -4222,7 +4222,7 @@ MonoBehaviour:
       minY: 0
       maxY: 0
     spawnInterval: 0
-    delayBeforeNextWave: 0
+    delayBeforeNextWave: 2
     useDialogue: 0
     dialogue: {fileID: 0}
   - waveName: 5 Fives Burgers and Fries
@@ -4479,6 +4479,28 @@ MonoBehaviour:
     delayBeforeNextWave: 0.3
     useDialogue: 0
     dialogue: {fileID: 0}
+  - waveName: Back Shooters Intro
+    enemy:
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 3
+      maxX: 3
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: 7109ebacf577a1f48a46c412bb311c97, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -3
+      maxX: -3
+      minY: 6
+      maxY: 6
+    spawnInterval: 0
+    delayBeforeNextWave: 1
+    useDialogue: 0
+    dialogue: {fileID: 0}
   - waveName: Tracking Intro
     enemy:
     - enemyType:
@@ -4619,6 +4641,36 @@ MonoBehaviour:
     delayBeforeNextWave: 1
     useDialogue: 0
     dialogue: {fileID: 0}
+  - waveName: Back Shooters And Trackers
+    enemy:
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: 7109ebacf577a1f48a46c412bb311c97, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 2
+      maxX: 2
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: 7109ebacf577a1f48a46c412bb311c97, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 7
+      maxX: 7
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 5987195949268411551, guid: 105bb04340613ef44a1f6b2f0f4f0ec4, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 0
+      maxX: 0
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.2
+    delayBeforeNextWave: 1
+    useDialogue: 0
+    dialogue: {fileID: 0}
   - waveName: CLEAVE!
     enemy:
     - enemyType:
@@ -4731,6 +4783,52 @@ MonoBehaviour:
       maxY: 6
     spawnInterval: 0.3
     delayBeforeNextWave: 1
+    useDialogue: 0
+    dialogue: {fileID: 0}
+  - waveName: Back Shooter Array
+    enemy:
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -4
+      maxX: -4
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: 7109ebacf577a1f48a46c412bb311c97, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -4
+      maxX: -4
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: 09aeb7c92bfb40940a83107f47eaf073, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: -4
+      maxX: -4
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: bef98bff37f0ba549a2381423956480a, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 6
+      maxX: 6
+      minY: 6
+      maxY: 6
+    - enemyType:
+        prefab: {fileID: 8996089834480213534, guid: 7109ebacf577a1f48a46c412bb311c97, type: 3}
+        spawnRadius: 0
+      amount: 1
+      minX: 6
+      maxX: 6
+      minY: 6
+      maxY: 6
+    spawnInterval: 0.3
+    delayBeforeNextWave: 2
     useDialogue: 0
     dialogue: {fileID: 0}
   - waveName: Thiefs and waves

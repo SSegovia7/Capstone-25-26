@@ -183,12 +183,12 @@ MonoBehaviour:
   playerTag: Player
   trackStrength: 0.5
   maxHorizontalSpeed: 2
-  stopY: -4
+  stopY: -3.5
   patrolSpeed: 3
   shootInterval: 2
   projectilePrefab: {fileID: 3599316917741742968, guid: accc4aad3fb72374d8bfc095d8809c5e, type: 3}
   shootPoint: {fileID: 2855367508931874792}
-  exitSpeed: 6
+  exitSpeed: 4
   nextShootTime: 0
   minX: -8
   maxX: 8
