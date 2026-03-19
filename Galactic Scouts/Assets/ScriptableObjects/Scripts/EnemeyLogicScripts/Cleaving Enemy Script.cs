@@ -10,11 +10,13 @@ public class CleavingEnemyScript : MonoBehaviour
     [SerializeField] private GameObject warning;
     [SerializeField] private float warningActiveTime;
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
     // Start is called before the first frame update
     //Warning sign spawns before actual enemy
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
         StartCoroutine("WarningSign");
     }
 
@@ -32,6 +34,7 @@ public class CleavingEnemyScript : MonoBehaviour
         {
             warningSpawnPosition = new Vector3(-6f, gameObject.transform.position.y, gameObject.transform.position.z);
             rb.velocity = new Vector3(speed, 0, 0);
+            sr.flipX = true;
         }
         else
         {
