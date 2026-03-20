@@ -5437,7 +5437,7 @@ MonoBehaviour:
   _box: {fileID: 4405899410762375154, guid: 5966086cc4854bc4da2631f8a03802d0, type: 3}
   _powerUpPickUp: {fileID: 6359834535234600035, guid: bcab652727bfe7b4ab3d035feed139cb, type: 3}
   launchForce: 140
-  _invincibleTimerInSeconds: 0.8
+  _invincibleTimerInSeconds: 1
   curentShootingMode: 0
   defaultFiringCooldown: 0
   FiringCooldown: 6
