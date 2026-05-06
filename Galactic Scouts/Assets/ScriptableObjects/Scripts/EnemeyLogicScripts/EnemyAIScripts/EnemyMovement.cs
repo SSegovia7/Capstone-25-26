@@ -70,6 +70,7 @@ public class EnemyMovement : MonoBehaviour
         RapidShooter,
         TrackThenCharge,
         DualShooter,
+        AltFiring,
         Returning
     }
 
@@ -208,7 +209,9 @@ public class EnemyMovement : MonoBehaviour
                 HandleBossDualShooter(ref velocity);
                 break;
 
-                
+            case BossState.AltFiring:
+                HandleBossAltFiring(ref velocity);
+                break;
 
             case BossState.Returning:
                 float yDiff = originalY - transform.position.y;
@@ -249,6 +252,10 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    private void HandleBossAltFiring(ref Vector2 velocity) 
+    {
+
+    }
     private void HandleBossTrackCharge(ref Vector2 velocity)
     {
         if (bossStateTimer > bossTrackDuration/2)
