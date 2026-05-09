@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public float topScreenY = 4f;
+    public float returnWaitTime = 0.5f;
+    private bool waitingAfterReturn = false;
     public enum MovementType
     {
         Linear,
@@ -84,6 +87,10 @@ public class EnemyMovement : MonoBehaviour
     private BossState bossState;
     private float bossStateTimer;
     private float originalY;
+    [Header("Alt Fire Settings")]
+    public Transform leftGun;
+    public Transform rightGun;
+    private bool shootLeft = true;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -214,15 +221,31 @@ public class EnemyMovement : MonoBehaviour
                 break;
 
             case BossState.Returning:
-                float yDiff = originalY - transform.position.y;
+
+                float yDiff = topScreenY - transform.position.y;
+
                 velocity = new Vector2(0, Mathf.Sign(yDiff) * bossReturnSpeed);
 
                 if (Mathf.Abs(yDiff) < 0.1f)
                 {
-                    SetNextBossState();
+                    velocity = Vector2.zero;
+
+                    if (!waitingAfterReturn)
+                    {
+                        waitingAfterReturn = true;
+                        bossStateTimer = returnWaitTime;
+                    }
+
+                    bossStateTimer -= Time.fixedDeltaTime;
+
+                    if (bossStateTimer <= 0)
+                    {
+                        waitingAfterReturn = false;
+                        SetNextBossState();
+                    }
                 }
-                
-            return;
+
+                return;
 
         }
         if (bossStateTimer <= 0 && bossState != BossState.Returning) 
@@ -252,9 +275,22 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void HandleBossAltFiring(ref Vector2 velocity) 
+    private void HandleBossAltFiring(ref Vector2 velocity)
     {
+        velocity = Vector2.zero;
 
+        if (Time.time >= nextShootTime)
+        {
+            Transform firePoint = shootLeft ? leftGun : rightGun;
+
+            Instantiate(projectilePrefab,
+                        firePoint.position,
+                        Quaternion.identity);
+
+            shootLeft = !shootLeft;
+
+            nextShootTime = Time.time + 0.2f;
+        }
     }
     private void HandleBossTrackCharge(ref Vector2 velocity)
     {
@@ -301,7 +337,16 @@ public class EnemyMovement : MonoBehaviour
         Instantiate(projectilePrefab, right, Quaternion.identity);
     }
 
+    private void AltFiring() 
+    {
+        if (projectilePrefab == null) return;
 
+        Vector3 spawnPos = shootPoint != null ? shootPoint.position : transform.position;
+        movingDown = false;
+        nextShootTime = Time.time + shootInterval;
+        horizontalDir = transform.position.x < 0 ? 1 : -1;
+        
+    }
     // THIEF LOGIC
     private void HandleThief(ref Vector2 velocity)
     {
